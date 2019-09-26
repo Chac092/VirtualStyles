@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Armario">
+
+    <Button
+        android:id="@+id/BTNOpion4"
+        android:layout_width="125dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="46dp"
+        android:background="@drawable/zapatos"
+        app:layout_constraintStart_toEndOf="@+id/BTNOpion3"
+        app:layout_constraintTop_toBottomOf="@+id/BTNOpion2" />
+
+    <Button
+        android:id="@+id/BTNOpion2"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/gorra"
+        app:layout_constraintStart_toEndOf="@+id/BTNOpion1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BTNOpion1"
+        android:layout_width="122dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="134dp"
+        android:background="@drawable/camisa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BTNOpion3"
+        android:layout_width="129dp"
+        android:layout_height="122dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="43dp"
+        android:background="@drawable/pantalon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BTNOpion1" />
+
+    <Button
+        android:id="@+id/BTNSubirFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="92dp"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BTNOpion4" />
+
+    <Button
+        android:id="@+id/BTNPendientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="305dp"
+        android:layout_marginTop="195dp"
+        android:text="Q"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BTNOpion4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
