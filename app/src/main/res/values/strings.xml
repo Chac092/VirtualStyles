@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RopaAPP</string>
+    <string name="hintDeLogin">Usuario</string>
+    <string name="loginContraseña">Contraseña</string>
+    <string name="BTNentrarLogin">Entrar</string>
+    <string name="BTNRegistro">Registrate</string>
+    <string name="BTNRegistro">Registrate</string>
+    <string name="BTNPagar">Pagar</string>
+</resources>
