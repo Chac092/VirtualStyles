@@ -9,6 +9,18 @@ public class Conjunto {
     private int prenda3;
     private int prenda4;
 
+    public void Conjunto(){
+
+    }
+
+    public void Conjunto(int idConjunto, int prenda1, int prenda2, int prenda3, int prenda4){
+        this.idConjunto=idConjunto;
+        this.prenda1=prenda1;
+        this.prenda2=prenda2;
+        this.prenda2=prenda3;
+        this.prenda2=prenda4;
+    }
+
     public int idConjunto() {
         return idConjunto;
     }
