@@ -1,5 +1,7 @@
 package com.example.ropaapp;
 
+import java.util.Objects;
+
 public class Conjunto {
     private int idConjunto;
     private int prenda1;
@@ -46,5 +48,32 @@ public class Conjunto {
         this.prenda4 = prenda4;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Conjunto conjunto = (Conjunto) o;
+        return idConjunto == conjunto.idConjunto &&
+                prenda1 == conjunto.prenda1 &&
+                prenda2 == conjunto.prenda2 &&
+                prenda3 == conjunto.prenda3 &&
+                prenda4 == conjunto.prenda4;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idConjunto, prenda1, prenda2, prenda3, prenda4);
+    }
+
+    @Override
+    public String toString() {
+        return "Conjunto{" +
+                "idConjunto=" + idConjunto +
+                ", prenda1=" + prenda1 +
+                ", prenda2=" + prenda2 +
+                ", prenda3=" + prenda3 +
+                ", prenda4=" + prenda4 +
+                '}';
+    }
 }
 
