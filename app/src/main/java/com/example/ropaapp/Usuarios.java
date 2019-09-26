@@ -7,6 +7,17 @@ public class Usuarios {
     private String perfil;
     private String contraseña;
 
+    public void Usuarios(){
+
+    }
+
+    public void Usuarios(String idUsuario, String perfil, String contraseña){
+        this.idUsuario=idUsuario;
+        this.perfil=perfil;
+        this.contraseña=contraseña;
+    }
+
+
     public String getIdUsuario() {
         return idUsuario;
     }

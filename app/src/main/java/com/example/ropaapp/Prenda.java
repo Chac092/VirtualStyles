@@ -10,6 +10,19 @@ public class Prenda {
     private boolean favorito;
     private int idUsuario;
 
+    public void Prenda(){
+
+    }
+
+    public void Prenda(int id, String categoria, String estilo, boolean estado, boolean favorito, int idUsuario){
+        this.id=id;
+        this.categoria=categoria;
+        this.estilo=estilo;
+        this.estado=estado;
+        this.favorito=favorito;
+        this.idUsuario=idUsuario;
+    }
+
     public int id() {
         return id;
     }
