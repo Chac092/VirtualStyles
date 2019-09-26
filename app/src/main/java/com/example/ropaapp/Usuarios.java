@@ -1,69 +1,33 @@
 package com.example.ropaapp;
 
-import java.util.Objects;
-
 public class Usuarios {
     private String idUsuario;
     private String perfil;
     private String contraseña;
 
-    public void Usuarios(){
-
-    }
-
-    public void Usuarios(String idUsuario, String perfil, String contraseña){
-        this.idUsuario=idUsuario;
-        this.perfil=perfil;
-        this.contraseña=contraseña;
-    }
-
-
-    public String getIdUsuario() {
+    public String idUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void idUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public String getPerfil() {
+    public String perfil() {
         return perfil;
     }
 
-    public void setPerfil(String perfil) {
+    public void perfil(String perfil) {
         this.perfil = perfil;
     }
 
-    public String getContraseña() {
+    public String contraseña() {
         return contraseña;
     }
 
-    public void setContraseña(String contraseña) {
+    public void contraseña(String contraseña) {
         this.contraseña = contraseña;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuarios usuarios = (Usuarios) o;
-        return Objects.equals(idUsuario, usuarios.idUsuario) &&
-                Objects.equals(perfil, usuarios.perfil) &&
-                Objects.equals(contraseña, usuarios.contraseña);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idUsuario, perfil, contraseña);
-    }
-
-    @Override
-    public String toString() {
-        return "Usuarios{" +
-                "idUsuario='" + idUsuario + '\'' +
-                ", perfil='" + perfil + '\'' +
-                ", contraseña='" + contraseña + '\'' +
-                '}';
-    }
 }
-
