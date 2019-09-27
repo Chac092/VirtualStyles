@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Armario2 extends AppCompatActivity {
+public class Activity_Armario2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

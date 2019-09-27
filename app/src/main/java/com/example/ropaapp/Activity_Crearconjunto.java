@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Armario extends AppCompatActivity {
+public class Activity_Crearconjunto extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_armario);
+        setContentView(R.layout.activity__crearconjunti);
     }
 }
