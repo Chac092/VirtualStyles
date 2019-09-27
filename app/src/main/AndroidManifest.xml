@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Conjuntos"></activity>
+        <activity android:name=".verArmario"></activity>
+        <activity android:name=".MenuySelecciondeclientes" />
+        <activity android:name=".Conjuntos" />
         <activity android:name=".Armario2" />
         <activity android:name=".Armario" />
         <activity android:name=".Menu" />
