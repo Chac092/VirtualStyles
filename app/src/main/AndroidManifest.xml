@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Pagar"></activity>
+        <activity android:name=".verArmario"></activity>
+        <activity android:name=".MenuySelecciondeclientes" />
+        <activity android:name=".Conjuntos" />
+        <activity android:name=".Armario2" />
+        <activity android:name=".Armario" />
+        <activity android:name=".Menu" />
+        <activity android:name=".Pagar" />
         <activity android:name=".Registro" />
         <activity android:name=".MainActivity">
             <intent-filter>
