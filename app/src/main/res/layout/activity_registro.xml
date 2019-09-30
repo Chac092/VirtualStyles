@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registro">
+    tools:context=".Activity_Registro">
 
     <EditText
         android:id="@+id/ETRegistrousu"
@@ -17,7 +17,7 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        android:autofillHints="" tools:targetApi="o"/>
 
     <EditText
         android:id="@+id/ETRegistroCon"
@@ -30,7 +30,7 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETRegistrousu"
-        android:autofillHints="" />
+        android:autofillHints="" tools:targetApi="o"/>
 
     <Button
         android:id="@+id/BTNregistrate"

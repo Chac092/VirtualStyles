@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pagar">
+    tools:context=".Activity_Pagar">
 
     <EditText
         android:id="@+id/ETNumcuenta"
@@ -12,11 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
         android:layout_marginTop="249dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="@string/NumTarjetaHint"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" tools:targetApi="o"/>
 
     <EditText
         android:id="@+id/ETFechaCad"
@@ -24,11 +25,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
         android:layout_marginTop="48dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="@string/FechaCadHint"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta" tools:targetApi="o"/>
 
     <EditText
         android:id="@+id/ETCodSeguridad"
@@ -36,11 +38,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
         android:layout_marginTop="48dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="@string/CodsegHint"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad" tools:targetApi="o"/>
 
     <Button
         android:id="@+id/BTNPagar"
@@ -58,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="82dp"
         android:layout_marginTop="218dp"
-        android:text="Inserta el numero de cuenta"
+        android:text="@string/NumCuenta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
         android:layout_marginTop="21dp"
-        android:text="Inserta la fecha de caducidad"
+        android:text="@string/FechaCredito"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta" />
 
@@ -78,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
         android:layout_marginTop="17dp"
-        android:text="Inserta el codigo de seguridad"
+        android:text="@string/CodSeguridadtarjeta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETFechaCad" />
 

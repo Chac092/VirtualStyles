@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Conjuntos">
+    tools:context=".Activity_Conjuntos">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -12,6 +12,7 @@
         android:layout_height="170dp"
         android:layout_marginStart="108dp"
         android:layout_marginTop="24dp"
+        android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@android:color/holo_red_light" />
@@ -22,6 +23,7 @@
         android:layout_height="81dp"
         android:layout_marginStart="111dp"
         android:layout_marginTop="56dp"
+        android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:color/holo_green_light" />
@@ -32,6 +34,7 @@
         android:layout_height="210dp"
         android:layout_marginStart="111dp"
         android:layout_marginTop="43dp"
+        android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@android:color/holo_blue_dark" />
@@ -42,6 +45,7 @@
         android:layout_height="58dp"
         android:layout_marginStart="117dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:srcCompat="?attr/colorControlActivated" />
@@ -52,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="172dp"
         android:layout_marginTop="16dp"
-        android:text="Conjunto1"
+        android:text="@string/NombreConjunto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +66,7 @@
         android:layout_height="41dp"
         android:layout_marginTop="341dp"
         android:layout_marginEnd="14dp"
-        android:text=">"
+        android:text="@string/FlechaDerecha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +76,7 @@
         android:layout_height="39dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="355dp"
-        android:text="<"
+        android:text="@string/FlechaIzquierda"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
