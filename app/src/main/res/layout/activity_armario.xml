@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Armario">
+    tools:context=".Activity_Armario">
 
     <Button
         android:id="@+id/BTNOpion4"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
         android:layout_marginTop="92dp"
-        android:text="+"
+        android:text="@string/BTNAñadirfoto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BTNOpion4" />
 
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="305dp"
         android:layout_marginTop="195dp"
-        android:text="Q"
+        android:text="@string/BTNconsutarconjunto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BTNOpion4" />
 

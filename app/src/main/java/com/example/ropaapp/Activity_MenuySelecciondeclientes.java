@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class verArmario extends AppCompatActivity {
+public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ver_armario);
+        setContentView(R.layout.activity_menuy_selecciondeclientes);
     }
 }
