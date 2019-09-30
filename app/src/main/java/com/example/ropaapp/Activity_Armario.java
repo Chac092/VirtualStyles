@@ -30,9 +30,19 @@ public class Activity_Armario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_armario);
         Camisa = findViewById(R.id.BTNOpion1);
+        Camisa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(),Activity_verArmario.class);
+                startActivityForResult(intent, 0);
+            }
+        });
         Gorro = findViewById(R.id.BTNOpion2);
+
         Pantalones = findViewById(R.id.BTNOpion3);
+
         zapatos = findViewById(R.id.BTNOpion4);
+
         subirFoto = findViewById(R.id.BTNSubirFoto);
         consultarFotos = findViewById(R.id.BTNPendientes);
         checkCameraPermission();
