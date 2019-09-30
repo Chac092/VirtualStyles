@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="193dp"
-        android:layout_height="170dp"
+        android:layout_width="201dp"
+        android:layout_height="167dp"
         android:layout_marginStart="104dp"
         android:layout_marginTop="12dp"
         android:contentDescription="@string/Mensajededescripcion"
@@ -19,8 +19,8 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="192dp"
-        android:layout_height="152dp"
+        android:layout_width="195dp"
+        android:layout_height="154dp"
         android:layout_marginStart="108dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/Mensajededescripcion"
