@@ -1,28 +1,13 @@
 package com.example.ropaapp;
 
         import androidx.appcompat.app.AppCompatActivity;
-        import androidx.core.app.ActivityCompat;
-        import androidx.core.content.ContextCompat;
-
         import android.Manifest;
-        import android.app.Activity;
-        import android.content.Intent;
         import android.content.pm.PackageManager;
-        import android.graphics.Bitmap;
-        import android.graphics.BitmapFactory;
-        import android.graphics.drawable.BitmapDrawable;
-        import android.graphics.drawable.Drawable;
         import android.net.Uri;
         import android.os.Build;
         import android.os.Bundle;
-        import android.provider.MediaStore;
-        import android.util.Log;
         import android.widget.ImageView;
         import android.widget.Toast;
-
-        import java.io.File;
-        import java.io.IOException;
-        import java.net.URI;
 
 public class Activity_verArmario extends AppCompatActivity {
     ImageView fotillo;
@@ -41,11 +26,7 @@ public class Activity_verArmario extends AppCompatActivity {
         //fotillo.setImageURI(path);
         checkPermission();
         //ponerFoto();
-
     }
-
-
-
     private void checkPermission() {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
