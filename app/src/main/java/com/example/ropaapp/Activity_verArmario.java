@@ -27,7 +27,6 @@ package com.example.ropaapp;
 
 public class Activity_verArmario extends AppCompatActivity {
     ImageView fotillo;
-    Uri targetUri = Uri.parse("content://com.android.providers.media.documents/document/image%A43");
     private static final int RQS_OPEN_IMAGE = 1;
 
     @Override
@@ -38,14 +37,16 @@ public class Activity_verArmario extends AppCompatActivity {
         checkDocumentPermission();
         checkreadPermission();
         Cojerdato();
-        //path = Uri.parse("content://com.android.providers.media.documents/document/image%A43");
     }
-
+    //Este metodo lo usaremos para cojer las fotos
     public void Cojerdato(){
+        String Nombrefoto;
+        //Con la ruta exacta de la imagen creamos un bitmap que contendra esa foto
         Bitmap imagen = BitmapFactory.decodeFile("/storage/emulated/0/Pictures/1570012838183.jpg");
-        //Drawable imagen = getDrawable("/storage/emulated/0/Pictures/1570012838183.jpg");
+        //ponemos esa foto en el ImagenView fotillo
         fotillo.setImageBitmap(imagen);
     }
+    //Este metodo sirve para dar permisos de manejar documentos en la app
     private void checkDocumentPermission(){
         int permissionCheck = ContextCompat.checkSelfPermission(
                 this, Manifest.permission.MANAGE_DOCUMENTS);
@@ -56,6 +57,7 @@ public class Activity_verArmario extends AppCompatActivity {
             Log.i("Mensaje", "Tienes permiso para usar la camara.");
         }
     }
+    //Aqui pediremos los permisos de lectura
     private void checkreadPermission(){
         int permissionCheck = ContextCompat.checkSelfPermission(
                 this, Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -66,13 +68,7 @@ public class Activity_verArmario extends AppCompatActivity {
             Log.i("Mensaje", "Tienes permiso para usar la camara.");
         }
     }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-            Cojerdato();
-        }
-    }
-    }
+}
 
 
 
