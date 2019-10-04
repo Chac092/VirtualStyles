@@ -11,17 +11,22 @@ package com.example.ropaapp;
         import android.content.pm.PackageManager;
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
+        import android.graphics.Path;
         import android.graphics.drawable.Drawable;
         import android.net.Uri;
         import android.os.Build;
         import android.os.Bundle;
+        import android.os.Environment;
         import android.os.Messenger;
         import android.provider.MediaStore;
         import android.util.Log;
         import android.widget.ImageView;
         import android.widget.Toast;
 
+        import java.io.File;
         import java.io.FileNotFoundException;
+        import java.util.ArrayList;
+        import java.util.List;
 
         import static java.security.AccessController.getContext;
 
@@ -40,11 +45,9 @@ public class Activity_verArmario extends AppCompatActivity {
     }
     //Este metodo lo usaremos para cojer las fotos
     public void Cojerdato(){
-        String Nombrefoto;
-        //Con la ruta exacta de la imagen creamos un bitmap que contendra esa foto
-        Bitmap imagen = BitmapFactory.decodeFile("/storage/emulated/0/Pictures/1570012838183.jpg");
+        Bitmap pepe = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/Shutta_20191004_102344.jpg");
         //ponemos esa foto en el ImagenView fotillo
-        fotillo.setImageBitmap(imagen);
+        fotillo.setImageBitmap(pepe);
     }
     //Este metodo sirve para dar permisos de manejar documentos en la app
     private void checkDocumentPermission(){

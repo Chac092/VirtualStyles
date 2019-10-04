@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -22,9 +23,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Activity_Armario extends AppCompatActivity {
     Button Camisa;
@@ -59,10 +64,12 @@ public class Activity_Armario extends AppCompatActivity {
         consultarFotos = findViewById(R.id.BTNPendientes);
         checkwrittePermission();
         checkCameraPermission();
+        checkreadePermission();
         subirFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sacarfoto();
+               sacarfoto();
+
             }
         });
 
@@ -92,40 +99,36 @@ public class Activity_Armario extends AppCompatActivity {
             Bundle ext = data.getExtras();
             bmp = (Bitmap) ext.get("data");
             System.out.println("exito");
-            guardarFoto();
+            //guardarFoto();
+            saveTempBitmap(bmp);
         }
     }
-    public void guardarFoto(){
-        //Guardaremos la foto con un titulo para mas tarde buscarla
+    public void guardarFoto() {
+        //MediaStore.Images.Media.insertImage(getContentResolver(), bmp, "Foto.jpg","");
+        String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() + "Pictures";
+        File dir = new File(file_path);
 
-        File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/fotosArmario");
         if (!dir.exists()) {
             dir.mkdirs();
-            System.out.println("Creado!");
         }
-        File imagen = new File(dir, "Foto"+contador +".jpg");
+        File file = new File(dir, "JIJIJIJ" + contador + ".jpg");
+        if (!file.exists()) {
+            dir.mkdirs();
+        }
         try {
-            FileOutputStream fout = new FileOutputStream(imagen);
-            bmp.compress(Bitmap.CompressFormat.JPEG, 85, fout);
-            fout.flush();
-            fout.close();
-            if(imagen.exists()){
-                System.out.println("EXISTE!");
-            }else{
-                System.out.println("NO EXISTE!");
-            }
+            FileInputStream finp = new FileInputStream(file);
+            System.out.println("0");
+            FileOutputStream fOut = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
+            fOut.flush();
+            fOut.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        catch(FileNotFoundException e) {
-            System.out.println(e);
-        }
-        catch(IOException e) {
-            System.out.println(e);
-        }
-        //MediaStore.Images.Media.insertImage(getContentResolver(),bmp,"Foto"+contador, "");
-        contador = contador+1;
-
     }
+
     //Aqui comprobaremos si tenemos los permisos de escritura y si no lo tenemos los pediremos
     private void checkwrittePermission(){
         int permissionCheck = ContextCompat.checkSelfPermission(
@@ -136,6 +139,53 @@ public class Activity_Armario extends AppCompatActivity {
         } else {
             Log.i("Mensaje", "Tienes permiso para usar la camara.");
         }
+    }
+    private void checkreadePermission(){
+        int permissionCheck = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            Log.i("Mensaje", "No se tiene permiso para la camara!.");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 225);
+        } else {
+            Log.i("Mensaje", "Tienes permiso para usar la camara.");
+        }
+    }
+    public void saveTempBitmap(Bitmap bitmap) {
+        if (isExternalStorageWritable()) {
+            saveImage(bitmap);
+        }else{
+            //prompt the user or do something
+        }
+    }
+
+    private void saveImage(Bitmap finalBitmap) {
+
+        String root = Environment.getExternalStorageDirectory().toString();
+        File myDir = new File(root + "/saved_images");
+        myDir.mkdirs();
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String fname = "Shutta_"+ timeStamp +".jpg";
+
+        File file = new File(myDir, fname);
+        if (file.exists()) file.delete ();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* Checks if external storage is available for read and write */
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
     }
 
 }
