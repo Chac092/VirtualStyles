@@ -50,7 +50,7 @@ public class Activity_Armario extends AppCompatActivity {
         Camisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(),Activity_verArmario.class);
+                Intent intent = new Intent (v.getContext(),Activity_Armario2.class);
                 startActivityForResult(intent, 0);
             }
         });
@@ -134,7 +134,8 @@ public class Activity_Armario extends AppCompatActivity {
         myDir.mkdirs();
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String fname = "Shutta_"+ timeStamp +".jpg";
+        String fname = "Foto"+ contador +".jpg";
+        contador = contador+1;
 
         File file = new File(myDir, fname);
         if (file.exists()) file.delete ();

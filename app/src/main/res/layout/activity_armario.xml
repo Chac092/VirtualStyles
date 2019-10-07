@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@color/ColordeFondo"
     tools:context=".Activity_Armario">
 
     <Button
@@ -53,7 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
         android:layout_marginTop="92dp"
+        android:background="@color/Color1"
         android:text="@string/BTNAñadirfoto"
+        android:textColor="#F8F8F8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BTNOpion4" />
 
@@ -61,9 +63,11 @@
         android:id="@+id/BTNPendientes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="305dp"
-        android:layout_marginTop="195dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="192dp"
+        android:background="@color/Color1"
         android:text="@string/BTNconsutarconjunto"
+        android:textColor="#E7E3E3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BTNOpion4" />
 
