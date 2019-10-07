@@ -6,7 +6,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/ColordeFondo"
     tools:context=".MainActivity">
 
     <EditText
@@ -24,10 +24,10 @@
         android:scrollbarThumbVertical="@color/Color4"
         android:scrollbarTrackHorizontal="@color/Color4"
         android:scrollbarTrackVertical="@color/Color4"
-        android:textColor="@color/Color4"
-        android:textColorHighlight="@color/Color4"
-        android:textColorHint="@color/Color4"
-        android:textColorLink="@color/Color4"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/white"
         android:textCursorDrawable="@color/Color4"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,10 +47,10 @@
         android:ems="10"
         android:hint="@string/loginContraseña"
         android:inputType="textPassword"
-        android:textColor="@color/Color4"
-        android:textColorHighlight="@color/Color4"
-        android:textColorHint="@color/Color4"
-        android:textColorLink="@color/Color4"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +67,7 @@
         android:layout_marginTop="50dp"
         android:background="@color/Color1"
         android:text="@string/BTNRegistro"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contraseñaLogin" />
 
@@ -78,6 +79,7 @@
         android:layout_marginEnd="96dp"
         android:background="@color/Color1"
         android:text="@string/BTNentrarLogin"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contraseñaLogin"
