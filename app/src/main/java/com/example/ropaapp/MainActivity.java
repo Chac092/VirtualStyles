@@ -13,7 +13,9 @@ public class MainActivity extends AppCompatActivity {
     DBHelper dbHelper;
     SQLiteDatabase db;
 
-    Button Entrar;
+    Button botonEntrar;
+    Button botonRegistro;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Creation of an instance of SQLiteOpenHelper type Class object (DatabaseOpenHelper)
@@ -23,12 +25,21 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        Entrar = findViewById(R.id.botonEntrar);
-        Entrar.setOnClickListener(new View.OnClickListener() {
+
+        botonEntrar = findViewById(R.id.botonEntrar);
+        botonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (v.getContext(), Activity_Menu.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        botonRegistro = findViewById(R.id.botonRegistro);
+        botonRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), Activity_Registro.class);
                 startActivityForResult(intent, 0);
             }
         });
