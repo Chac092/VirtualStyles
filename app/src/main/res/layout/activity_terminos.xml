@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ColordeFondo"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -20,14 +21,20 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorTexto"
+                android:textColorHint="@color/colorTexto"
                 android:text="@string/app_titulo"
+
                 android:textStyle="bold|italic" />
 
             <TextView
                 android:id="@+id/textView2"
+                android:textColor="@color/colorTexto"
+                android:textColorHint="@color/colorTexto"
                 android:layout_width="match_parent"
                 android:layout_height="1912dp"
                 android:text="@string/app_texto"
+
                 android:textStyle="bold|italic" />
             <!-- Estos son los botones de Aceptar y Cancelar los Terminos de Uso-->
             <Button
