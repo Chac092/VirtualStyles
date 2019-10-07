@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4B4949"
     tools:context=".Activity_Armario2">
 
     <ImageView
@@ -45,10 +46,10 @@
         android:layout_height="60dp"
         android:layout_marginStart="46dp"
         android:layout_marginTop="139dp"
+        android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@android:color/holo_blue_bright"
-        android:contentDescription="@string/Mensajededescripcion" />
+        app:srcCompat="@android:color/holo_blue_bright" />
 
     <Button
         android:id="@+id/BTNsiguiente"
