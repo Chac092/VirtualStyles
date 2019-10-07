@@ -8,9 +8,9 @@
 
     <Button
         android:id="@+id/BTNOpion4"
-        android:layout_width="125dp"
-        android:layout_height="113dp"
-        android:layout_marginStart="62dp"
+        android:layout_width="122dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="46dp"
         android:background="@drawable/zapatos"
         app:layout_constraintStart_toEndOf="@+id/BTNOpion3"
@@ -18,10 +18,10 @@
 
     <Button
         android:id="@+id/BTNOpion2"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="122dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="128dp"
         android:background="@drawable/gorra"
         app:layout_constraintStart_toEndOf="@+id/BTNOpion1"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,17 +30,17 @@
         android:id="@+id/BTNOpion1"
         android:layout_width="122dp"
         android:layout_height="128dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="134dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="128dp"
         android:background="@drawable/camisa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/BTNOpion3"
-        android:layout_width="129dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="43dp"
+        android:layout_width="122dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="43dp"
         android:background="@drawable/pantalon"
         app:layout_constraintStart_toStartOf="parent"

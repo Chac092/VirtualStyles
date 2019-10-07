@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="201dp"
-        android:layout_height="167dp"
+        android:layout_width="208dp"
+        android:layout_height="150dp"
         android:layout_marginStart="104dp"
         android:layout_marginTop="12dp"
         android:contentDescription="@string/Mensajededescripcion"
@@ -19,10 +19,10 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="195dp"
-        android:layout_height="154dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="208dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="52dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,8 +30,8 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="199dp"
-        android:layout_height="159dp"
+        android:layout_width="208dp"
+        android:layout_height="150dp"
         android:layout_marginStart="104dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/Mensajededescripcion"
@@ -41,8 +41,8 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="199dp"
-        android:layout_height="152dp"
+        android:layout_width="208dp"
+        android:layout_height="150dp"
         android:layout_marginStart="104dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/Mensajededescripcion"

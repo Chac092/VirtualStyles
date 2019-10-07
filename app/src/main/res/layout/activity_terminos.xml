@@ -26,7 +26,7 @@
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="1924dp"
+                android:layout_height="1912dp"
                 android:text="@string/app_texto"
                 android:textStyle="bold|italic" />
             <!-- Estos son los botones de Aceptar y Cancelar los Terminos de Uso-->

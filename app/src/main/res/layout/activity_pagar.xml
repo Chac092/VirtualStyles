@@ -10,40 +10,43 @@
         android:id="@+id/ETNumcuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="249dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="248dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/NumTarjetaHint"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" tools:targetApi="o"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/ETFechaCad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="48dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/FechaCadHint"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta" tools:targetApi="o"/>
+        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/ETCodSeguridad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="48dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/CodsegHint"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad" tools:targetApi="o"/>
+        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad"
+        tools:targetApi="o" />
 
     <Button
         android:id="@+id/BTNPagar"
@@ -59,8 +62,8 @@
         android:id="@+id/TVnumcuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="218dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="216dp"
         android:text="@string/NumCuenta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -69,8 +72,8 @@
         android:id="@+id/TVFechaCad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
         android:text="@string/FechaCredito"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta" />
@@ -79,8 +82,8 @@
         android:id="@+id/TVCodSeguridad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
         android:text="@string/CodSeguridadtarjeta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETFechaCad" />
