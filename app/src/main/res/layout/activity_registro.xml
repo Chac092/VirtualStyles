@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ColordeFondo"
+    android:background="#4b4949"
     tools:context=".Activity_Registro">
 
     <EditText
@@ -13,12 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginTop="215dp"
+        android:textColor="@color/colorTexto"
+        android:textColorHint="@color/colorTexto"
+        app:backgroundTint="@color/Color1"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hintDeLogin"
         android:inputType="textPersonName"
-        android:textColor="#FAF8F8"
-        android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="o" />
@@ -29,16 +30,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginTop="52dp"
+        android:textColor="@color/colorTexto"
+        android:textColorHint="@color/colorTexto"
+        app:backgroundTint="@color/Color1"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/loginContraseña"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#BFFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registroNombreUsuario"
-        android:autofillHints="" tools:targetApi="o"/>
-
+        tools:targetApi="o" />
 
     <Button
         android:id="@+id/botonRegistrate"
@@ -46,7 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="37dp"
         android:layout_marginEnd="155dp"
-        android:background="@color/Color1"
         android:text="@string/BTNRegistro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registroContrasenya" />
