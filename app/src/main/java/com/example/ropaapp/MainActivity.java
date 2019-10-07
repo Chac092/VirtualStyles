@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
     //variables to manage de database
     DBHelper dbHelper;
     SQLiteDatabase db;
-
     Button botonEntrar;
     Button botonRegistro;
 
