@@ -55,11 +55,8 @@ public class Activity_Armario extends AppCompatActivity {
             }
         });
         Gorro = findViewById(R.id.BTNOpion2);
-
         Pantalones = findViewById(R.id.BTNOpion3);
-
         zapatos = findViewById(R.id.BTNOpion4);
-
         subirFoto = findViewById(R.id.BTNSubirFoto);
         consultarFotos = findViewById(R.id.BTNPendientes);
         checkwrittePermission();
@@ -69,10 +66,8 @@ public class Activity_Armario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                sacarfoto();
-
             }
         });
-
     }
     //Aqui comprobaremos los permisos de la camara y si no los tiene los pediremos
     private void checkCameraPermission(){
@@ -103,33 +98,7 @@ public class Activity_Armario extends AppCompatActivity {
             saveTempBitmap(bmp);
         }
     }
-    public void guardarFoto() {
-        //MediaStore.Images.Media.insertImage(getContentResolver(), bmp, "Foto.jpg","");
-        String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() + "Pictures";
-        File dir = new File(file_path);
-
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-        File file = new File(dir, "JIJIJIJ" + contador + ".jpg");
-        if (!file.exists()) {
-            dir.mkdirs();
-        }
-        try {
-            FileInputStream finp = new FileInputStream(file);
-            System.out.println("0");
-            FileOutputStream fOut = new FileOutputStream(file);
-            bmp.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
-            fOut.flush();
-            fOut.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Aqui comprobaremos si tenemos los permisos de escritura y si no lo tenemos los pediremos
+      //Aqui comprobaremos si tenemos los permisos de escritura y si no lo tenemos los pediremos
     private void checkwrittePermission(){
         int permissionCheck = ContextCompat.checkSelfPermission(
                 this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
