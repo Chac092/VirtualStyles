@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ColordeFondo"
     tools:context=".Activity_Pagar">
 
     <EditText
@@ -16,8 +17,11 @@
         android:ems="10"
         android:hint="@string/NumTarjetaHint"
         android:inputType="textPersonName"
+        android:textColor="#F3F1F1"
+        android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" tools:targetApi="o"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/ETFechaCad"
@@ -29,8 +33,11 @@
         android:ems="10"
         android:hint="@string/FechaCadHint"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta" tools:targetApi="o"/>
+        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta"
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/ETCodSeguridad"
@@ -42,8 +49,11 @@
         android:ems="10"
         android:hint="@string/CodsegHint"
         android:inputType="textPersonName"
+        android:textColor="#FCFCFC"
+        android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad" tools:targetApi="o"/>
+        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad"
+        tools:targetApi="o" />
 
     <Button
         android:id="@+id/BTNPagar"
@@ -62,6 +72,7 @@
         android:layout_marginStart="82dp"
         android:layout_marginTop="218dp"
         android:text="@string/NumCuenta"
+        android:textColor="#E6E6E6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,6 +83,7 @@
         android:layout_marginStart="79dp"
         android:layout_marginTop="21dp"
         android:text="@string/FechaCredito"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta" />
 
@@ -82,6 +94,7 @@
         android:layout_marginStart="79dp"
         android:layout_marginTop="17dp"
         android:text="@string/CodSeguridadtarjeta"
+        android:textColor="#FAFAFA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETFechaCad" />
 
