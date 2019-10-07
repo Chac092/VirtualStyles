@@ -54,8 +54,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadPrenda.COLUMN_NAME_ESTILO + " TEXT," +
                     entidadPrenda.COLUMN_NAME_ESTADO + " INTEGER," +
                     entidadPrenda.COLUMN_NAME_FAVORITO + " INTEGER," +
-                    entidadUsuario._ID + " INTEGER," +
-                    "FOREIGN KEY('" + entidadUsuario._ID + "') REFERENCES '" + entidadUsuario.TABLE_NAME + "'('" + entidadUsuario._ID + "'))";
+                    entidadPrenda.COLUMN_NAME_IDUSUARIO + " INTEGER," +
+                    "FOREIGN KEY('" + entidadPrenda.COLUMN_NAME_IDUSUARIO + "') REFERENCES '" + entidadUsuario.TABLE_NAME + "'('" + entidadUsuario._ID + "'))";
 
 
     private static final String SQL_DELETE_TABLE_PRENDA =
@@ -68,7 +68,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadConjunto.COLUMN_NAME_PRENDA2 + " INTEGER," +
                     entidadConjunto.COLUMN_NAME_PRENDA3 + " INTEGER," +
                     entidadConjunto.COLUMN_NAME_PRENDA4 + " INTEGER," +
-                    entidadUsuario._ID + " INTEGER," +
+                    entidadConjunto.COLUMN_NAME_IDUSUARIO + " INTEGER," +
 
                     "FOREIGN KEY('" + entidadConjunto.COLUMN_NAME_PRENDA1 + "') REFERENCES '" + entidadPrenda.TABLE_NAME + "'('" + entidadPrenda._ID + "')," +
                     "FOREIGN KEY('" + entidadConjunto.COLUMN_NAME_PRENDA2 + "') REFERENCES '" + entidadPrenda.TABLE_NAME + "'('" + entidadPrenda._ID + "')," +
