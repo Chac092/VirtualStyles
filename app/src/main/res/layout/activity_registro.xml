@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4b4949"
     tools:context=".Activity_Registro">
 
     <EditText
@@ -12,12 +13,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginTop="215dp"
+        android:textColor="@color/colorTexto"
+        android:textColorHint="@color/colorTexto"
+        app:backgroundTint="@color/Color1"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hintDeLogin"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" tools:targetApi="o"/>
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/registroContrasenya"
@@ -25,12 +30,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginTop="52dp"
+        android:textColor="@color/colorTexto"
+        android:textColorHint="@color/colorTexto"
+        app:backgroundTint="@color/Color1"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/loginContraseña"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registroNombreUsuario"
-        android:autofillHints="" tools:targetApi="o"/>
+        tools:targetApi="o" />
 
     <Button
         android:id="@+id/botonRegistrate"
