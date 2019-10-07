@@ -6,13 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "XopAppDB.db";
 
 
     public static class entidadUsuario implements BaseColumns {
         public static final String TABLE_NAME = "usuario";
         //public static final String COLUMN_NAME_IDUSUARIO = "idUsuario";
+
         public static final String COLUMN_NAME_PERFIL = "Perfil";
         public static final String COLUMN_NAME_CONTRASENYA = "Contraseña";
     }
@@ -39,7 +40,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_TABLE_USUARIO =
             "CREATE TABLE " + entidadUsuario.TABLE_NAME + " (" +
-                    entidadUsuario._ID + " INTEGER PRIMARY KEY," +
+                    entidadUsuario._ID + " TEXT PRIMARY KEY," +
                     entidadUsuario.COLUMN_NAME_CONTRASENYA + " TEXT," +
                     entidadUsuario.COLUMN_NAME_PERFIL + " TEXT)";
 

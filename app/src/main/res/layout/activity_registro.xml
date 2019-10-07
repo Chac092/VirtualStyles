@@ -7,7 +7,7 @@
     tools:context=".Activity_Registro">
 
     <EditText
-        android:id="@+id/ETRegistrousu"
+        android:id="@+id/registroNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
@@ -20,7 +20,7 @@
         android:autofillHints="" tools:targetApi="o"/>
 
     <EditText
-        android:id="@+id/ETRegistroCon"
+        android:id="@+id/registroContrasenya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
@@ -29,17 +29,17 @@
         android:hint="@string/loginContraseña"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETRegistrousu"
+        app:layout_constraintTop_toBottomOf="@+id/registroNombreUsuario"
         android:autofillHints="" tools:targetApi="o"/>
 
     <Button
-        android:id="@+id/BTNregistrate"
+        android:id="@+id/botonRegistrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="37dp"
         android:layout_marginEnd="155dp"
         android:text="@string/BTNRegistro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETRegistroCon" />
+        app:layout_constraintTop_toBottomOf="@+id/registroContrasenya" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
