@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ColordeFondo"
     tools:context=".Activity_Conjuntos">
 
     <ImageView
@@ -64,8 +65,9 @@
         android:id="@+id/BTNsig"
         android:layout_width="50dp"
         android:layout_height="41dp"
-        android:layout_marginTop="341dp"
-        android:layout_marginEnd="14dp"
+        android:layout_marginTop="352dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/Color1"
         android:text="@string/FlechaDerecha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -76,6 +78,7 @@
         android:layout_height="39dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="355dp"
+        android:background="@color/Color1"
         android:text="@string/FlechaIzquierda"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
