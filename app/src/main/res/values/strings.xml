@@ -18,4 +18,7 @@
     <string name="NumTarjetaHint">4500...</string>
     <string name="FechaCadHint">03/26</string>
     <string name="CodsegHint">586</string>
+    <string name="faltanDatos">Introduzca usuario y contraseña</string>
+    <string name="usuarioExiste">El usuario ya existe</string>
+
 </resources>
