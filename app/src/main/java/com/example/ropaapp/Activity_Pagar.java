@@ -34,16 +34,16 @@ public class Activity_Pagar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             //TODO comprobar valores de la tarjeta
-            String sNumeroTarjeta = ETnumeroTarjeta.getText().toString();
+            int iNumeroTarjeta = Integer.parseInt(ETnumeroTarjeta.getText().toString());
             String sFechaCaducidad = ETfechaCaducidad.getText().toString();
-            String sCodigoSeguridad = ETcodigoSeguridad.getText().toString();
+            int iCodigoSeguridad = Integer.parseInt(ETcodigoSeguridad.getText().toString());
 
             Intent intent = new Intent (v.getContext(), Activity_Terminos.class);
             intent.putExtra("sUsuario", sUsuario);
             intent.putExtra("sContrasenya", sContrasenya);
-            intent.putExtra("sNumeroTarjeta", sNumeroTarjeta);
+            intent.putExtra("iNumeroTarjeta", iNumeroTarjeta);
             intent.putExtra("sFechaCaducidad", sFechaCaducidad);
-            intent.putExtra("sCodigoSeguridad", sCodigoSeguridad);
+            intent.putExtra("iCodigoSeguridad", iCodigoSeguridad);
             startActivity(intent);
             }
         });
