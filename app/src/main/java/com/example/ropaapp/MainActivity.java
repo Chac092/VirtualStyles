@@ -3,6 +3,7 @@ package com.example.ropaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -24,22 +25,24 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        botonRegistro = findViewById(R.id.botonRegistro);
         botonEntrar = findViewById(R.id.botonEntrar);
         botonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), Activity_Menu.class);
-                startActivityForResult(intent, 0);
+                final String MY_PREFS_NAME = "File";
+                SharedPreferences.Editor datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                datos.putString("Id_usu", "Pepe");
+                datos.apply();
+                Intent intent = new Intent(v.getContext(), Activity_Menu.class);
+                startActivity(intent);
             }
         });
-
-        botonRegistro = findViewById(R.id.botonRegistro);
         botonRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (v.getContext(), Activity_Registro.class);
-                startActivityForResult(intent, 0);
+                startActivity(intent);
             }
         });
     }

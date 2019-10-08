@@ -6,9 +6,12 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -32,13 +35,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Activity_Armario extends AppCompatActivity {
+    DBHelper dbHelper;
+    SQLiteDatabase db;
     Button Camisa;
     final static int cons =0;
-    int contador = 0;
     Bitmap bmp;
     Button Pantalones;
     Button Gorro;
-    private Context TheThis;
+    String IDusuario;
     Button zapatos;
     Button subirFoto;
     Button consultarFotos;
@@ -46,6 +50,16 @@ public class Activity_Armario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_armario);
+        //Creation of an instance of SQLiteOpenHelper type Class object (DatabaseOpenHelper)
+        dbHelper = new DBHelper(getBaseContext());
+        //We get a writable database. If not exist, onCreate is called
+        db = dbHelper.getWritableDatabase();
+        //Cojeremos el id del usuario logueado
+        final String MY_PREFS_NAME = "File";
+        SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        IDusuario = datos.getString("Id_usu",null);
+        System.out.println("Nombre = "+ IDusuario);
+        //Uniremos todos los elementos con sus ids
         Camisa = findViewById(R.id.BTNOpion1);
         Camisa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,15 +142,16 @@ public class Activity_Armario extends AppCompatActivity {
     }
 
     private void saveImage(Bitmap finalBitmap) {
-
+        ContentValues values = new ContentValues();
+        values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO, false);
+        values.put(DBHelper.entidadPrenda.COLUMN_NAME_FAVORITO,0);
+        values.put(DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO,IDusuario);
+        long newRowId = db.insert(DBHelper.entidadPrenda.TABLE_NAME, null, values);
+        String IDfoto = String.valueOf(newRowId);
         String root = Environment.getExternalStorageDirectory().toString();
         File myDir = new File(root + "/saved_images");
         myDir.mkdirs();
-
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String fname = "Foto"+ contador +".jpg";
-        contador = contador+1;
-
+        String fname = IDfoto +".jpg";
         File file = new File(myDir, fname);
         if (file.exists()) file.delete ();
         try {
