@@ -13,8 +13,9 @@
     <string name="BTNseleccionar">Seleccionar</string>
     <string name="NombreConjunto">Conjunto1</string>
     <string name="NumCuenta">Inserta el numero de cuenta</string>
-    <string name="FechaCredito">Inserta la fecha de caducidad</string>
-    <string name="CodSeguridadtarjeta">Inserta el codigo de seguridad</string>
+    <string name="NumTarjeta">Numero de tarjeta</string>
+    <string name="FechaCredito">Fecha de caducidad</string>
+    <string name="CodSeguridadtarjeta">Codigo de seguridad</string>
     <string name="NumTarjetaHint">4500...</string>
     <string name="FechaCadHint">03/26</string>
     <string name="CodsegHint">586</string>

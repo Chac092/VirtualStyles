@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ColordeFondo"
-    tools:context=".MainActivity">
+    tools:context=".Activity_Terminos">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <!-- Estos son los textos que son llamados desde la pagna strings.xml con el comando @string/app_name-->
+            <!-- Estos son los textos que son llamados desde la pagina strings.xml con el comando @string/app_name-->
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"

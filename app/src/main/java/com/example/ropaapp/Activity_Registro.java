@@ -51,12 +51,20 @@ public class Activity_Registro extends AppCompatActivity {
                         DBHelper.entidadUsuario._ID + "=?", new String[] {sUsuario});
 
                 if (existentes == 0) {
+                    Intent intent = new Intent (v.getContext(), Activity_Pagar.class);
+                    intent.putExtra("sUsuario", sUsuario );
+                    intent.putExtra("sContrasenya" , sContrasenya );
+                    startActivity(intent);
+
+                    /*
                     ContentValues values = new ContentValues();
                     values.put(DBHelper.entidadUsuario._ID, sUsuario);
                     values.put(DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA, sContrasenya);
                     values.put(DBHelper.entidadUsuario.COLUMN_NAME_PERFIL, "usuario");
                     long newRowId = db.insert(DBHelper.entidadUsuario.TABLE_NAME, null, values);
                     System.out.println(newRowId);
+
+                     */
                 }
                 else {
                     CharSequence text = getString(R.string.usuarioExiste);
