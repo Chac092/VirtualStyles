@@ -45,16 +45,16 @@ public class Activity_Registro extends AppCompatActivity {
 
             //Comprobamos que haya introducido ambos datos
             if (!sUsuario.isEmpty() && !sContrasenya.isEmpty()){
-                //TODO comprobar que el usuario no exista
-                ContentValues values = new ContentValues();
-                values.put(DBHelper.entidadUsuario._ID, sUsuario);
-                values.put(DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA, sContrasenya);
 
                 //Comprobamos si ese usuario existe ya
                 long existentes = DatabaseUtils.queryNumEntries(db, DBHelper.entidadUsuario.TABLE_NAME,
                         DBHelper.entidadUsuario._ID + "=?", new String[] {sUsuario});
 
                 if (existentes == 0) {
+                    ContentValues values = new ContentValues();
+                    values.put(DBHelper.entidadUsuario._ID, sUsuario);
+                    values.put(DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA, sContrasenya);
+                    values.put(DBHelper.entidadUsuario.COLUMN_NAME_PERFIL, "usuario");
                     long newRowId = db.insert(DBHelper.entidadUsuario.TABLE_NAME, null, values);
                     System.out.println(newRowId);
                 }

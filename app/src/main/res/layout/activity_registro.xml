@@ -33,7 +33,6 @@
         android:textColor="@color/colorTexto"
         android:textColorHint="@color/colorTexto"
         app:backgroundTint="@color/Color1"
-        android:autofillHints=""
         android:ems="10"
         android:hint="@string/loginContraseña"
         android:inputType="textPersonName"
