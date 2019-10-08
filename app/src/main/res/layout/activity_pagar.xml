@@ -8,11 +8,11 @@
     tools:context=".Activity_Pagar">
 
     <EditText
-        android:id="@+id/ETNumcuenta"
+        android:id="@+id/ETnumeroTarjeta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="249dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="248dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/NumTarjetaHint"
@@ -24,10 +24,10 @@
         tools:targetApi="o" />
 
     <EditText
-        android:id="@+id/ETFechaCad"
+        android:id="@+id/ETfechaCaducidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="48dp"
         android:autofillHints=""
         android:ems="10"
@@ -36,14 +36,14 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta"
+        app:layout_constraintTop_toBottomOf="@+id/ETnumeroTarjeta"
         tools:targetApi="o" />
 
     <EditText
-        android:id="@+id/ETCodSeguridad"
+        android:id="@+id/ETcodigoSeguridad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="48dp"
         android:autofillHints=""
         android:ems="10"
@@ -52,50 +52,50 @@
         android:textColor="#FCFCFC"
         android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad"
+        app:layout_constraintTop_toBottomOf="@+id/ETfechaCaducidad"
         tools:targetApi="o" />
 
     <Button
-        android:id="@+id/BTNPagar"
+        android:id="@+id/botonPagar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="285dp"
         android:layout_marginTop="172dp"
         android:text="@string/BTNPagar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETCodSeguridad" />
+        app:layout_constraintTop_toBottomOf="@+id/ETcodigoSeguridad" />
 
     <TextView
-        android:id="@+id/TVnumcuenta"
+        android:id="@+id/TVnumeroTarjeta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="82dp"
         android:layout_marginTop="218dp"
-        android:text="@string/NumCuenta"
+        android:text="@string/NumTarjeta"
         android:textColor="#E6E6E6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/TVFechaCad"
+        android:id="@+id/TVfechaCaducidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
         android:text="@string/FechaCredito"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta" />
+        app:layout_constraintTop_toBottomOf="@+id/ETnumeroTarjeta" />
 
     <TextView
-        android:id="@+id/TVCodSeguridad"
+        android:id="@+id/TVcodigoSeguridad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
         android:text="@string/CodSeguridadtarjeta"
         android:textColor="#FAFAFA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad" />
+        app:layout_constraintTop_toBottomOf="@+id/ETfechaCaducidad" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
