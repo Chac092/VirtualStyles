@@ -22,6 +22,7 @@
     <string name="faltanDatos">Introduzca usuario y contraseña</string>
     <string name="usuarioExiste">El usuario ya existe</string>
 
+
     <!--En esta pagina hemos escrito el texto que estara en los TextView  y el de los botones del Linear Layout-->
     <string name="app_titulo">TÉRMINOS Y CONDICIONES DE USO APP</string>
     <string name="app_texto">\n1. Estos Terminos y Condiciones de Uso regulan las reglas a que se sujeta la utilización de la APP ShopApp, que puede descargarse desde el dominio Play Store. La descarga o utilización de la APP atribuye la condición de Usuario a quien lo haga e implica la aceptación de todas las condiciones incluidas en este documento y en la Política de Privacidad y el Aviso Legal de dicha página Web. El Usuario debería leer estas condiciones cada vez que utilice la APP, ya que podrían ser modificadas en lo sucesivo. \n
