@@ -51,7 +51,7 @@ public class Activity_Terminos extends AppCompatActivity {
                 ContentValues valoresUsuario = new ContentValues();
                 valoresUsuario.put(DBHelper.entidadUsuario._ID, sUsuario);
                 valoresUsuario.put(DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA, sContrasenya);
-                valoresUsuario.put(DBHelper.entidadUsuario.COLUMN_NAME_PERFIL, sUsuario);
+                valoresUsuario.put(DBHelper.entidadUsuario.COLUMN_NAME_PERFIL, "usuario");
                 long idUsuario = db.insert(DBHelper.entidadUsuario.TABLE_NAME, null, valoresUsuario);
 
                 ContentValues valoresTarjeta = new ContentValues();
