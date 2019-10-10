@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String MY_PREFS_NAME = "File";
                 SharedPreferences.Editor datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                datos.putString("Id_usu", "Pepe");
+                datos.putString("Id_usu", "Paco");
                 datos.putString("Perfil", "usuario");
                 datos.apply();
                 String Perfil = "Estilista";
-                if (Perfil.equals("Estilista")) {
+                if(Perfil.equals("Estilista")) {
                     Intent intent = new Intent(v.getContext(), Activity_MenuySelecciondeclientes.class);
                     startActivity(intent);
                 }

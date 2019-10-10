@@ -54,7 +54,8 @@ public class Activity_verArmario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_armario);
         Intent intent = getIntent();
-        usuario = intent.getStringExtra("NombreUsuario");
+        usuario = intent.getStringExtra("Id_usu");
+        System.out.println(usuario);
         layout = findViewById(R.id.layout);
         checkDocumentPermission();
         checkreadPermission();
@@ -66,8 +67,8 @@ public class Activity_verArmario extends AppCompatActivity {
     public void recojerFotos(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {DBHelper.entidadPrenda._ID};
-        String selection = DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO+"= ?";
-        String[] selectionArgs = {usuario};
+        String selection = DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO+"= ?"+" AND "+DBHelper.entidadPrenda.COLUMN_NAME_ESTADO+"= ?";
+        String[] selectionArgs = {usuario, String.valueOf(1)};
         String sortOrder = DBHelper.entidadPrenda._ID+" DESC";
         Cursor cursor = db.query(DBHelper.entidadPrenda.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
         while(cursor.moveToNext()){
