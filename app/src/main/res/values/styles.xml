@@ -17,7 +17,5 @@
         <item name="android:textColor">@color/colorTexto</item>
         <item name="android:textStyle">bold|italic</item>
     </style>
-    
-
 
 </resources>
