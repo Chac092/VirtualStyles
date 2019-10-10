@@ -20,5 +20,5 @@
     <string name="CodsegHint">586</string>
     <string name="faltanDatos">Introduzca usuario y contraseña</string>
     <string name="usuarioExiste">El usuario ya existe</string>
-
+    <string name="id">0</string>
 </resources>
