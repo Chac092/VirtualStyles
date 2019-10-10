@@ -13,6 +13,8 @@ public class Activity_Crearconjunto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__crearconjunti);
         Intent intent = getIntent();
+        conjuntoReferencia=intent.getStringExtra("nombrePrenda");
+
 
     }
 }
