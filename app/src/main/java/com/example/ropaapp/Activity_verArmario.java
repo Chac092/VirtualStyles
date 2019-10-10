@@ -9,6 +9,8 @@ package com.example.ropaapp;
         import android.app.Activity;
         import android.content.Intent;
         import android.content.pm.PackageManager;
+        import android.database.Cursor;
+        import android.database.sqlite.SQLiteDatabase;
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
         import android.graphics.Path;
@@ -21,6 +23,7 @@ package com.example.ropaapp;
         import android.provider.MediaStore;
         import android.util.Log;
         import android.widget.ImageView;
+        import android.widget.LinearLayout;
         import android.widget.Toast;
 
         import java.io.File;
@@ -32,22 +35,55 @@ package com.example.ropaapp;
 
 public class Activity_verArmario extends AppCompatActivity {
     ImageView fotillo;
+    DBHelper dbHelper;
+    String usuario;
+    SQLiteDatabase db;
+    LinearLayout layout;
     private static final int RQS_OPEN_IMAGE = 1;
+    ArrayList<String> Fotos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Creation of an instance of SQLiteOpenHelper type Class object (DatabaseOpenHelper)
+        dbHelper = new DBHelper(getBaseContext());
+        //We get a writable database. If not exist, onCreate is called
+        db = dbHelper.getWritableDatabase();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_armario);
+        Intent intent = getIntent();
+        usuario = intent.getStringExtra("NombreUsuario");
         fotillo = findViewById(R.id.Fotoprenda);
+        layout = findViewById(R.id.Lay);
         checkDocumentPermission();
         checkreadPermission();
-        Cojerdato();
+        recojerFotos();
+        ponerLasFotos();
     }
-    //Este metodo lo usaremos para cojer las fotos
-    public void Cojerdato(){
-        Bitmap pepe = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/Shutta_20191004_102344.jpg");
-        //ponemos esa foto en el ImagenView fotillo
-        fotillo.setImageBitmap(pepe);
+
+    public void recojerFotos(){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] projection = {DBHelper.entidadPrenda._ID};
+        String selection = DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO+"= ?";
+        String[] selectionArgs = {usuario};
+        String sortOrder = DBHelper.entidadPrenda._ID+" DESC";
+        Cursor cursor = db.query(DBHelper.entidadPrenda.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
+        while(cursor.moveToNext()){
+            String nombre = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadPrenda._ID));
+            Fotos.add(nombre);
+            System.out.println(nombre);
+        }
+    }
+
+    public void ponerLasFotos(){
+       for(int i=0;i<Fotos.size();i++){
+          Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+i+".jpg");
+          ImageView fotoPoner = new ImageView(this);
+          fotoPoner.setMinimumHeight(300);
+          fotoPoner.setMinimumWidth(300);
+          fotoPoner.setImageBitmap(FTO);
+          layout.addView(fotoPoner);
+          System.out.println("Entro");
+       }
     }
     //Este metodo sirve para dar permisos de manejar documentos en la app
     private void checkDocumentPermission(){
