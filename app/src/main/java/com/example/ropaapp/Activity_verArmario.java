@@ -92,7 +92,7 @@ public class Activity_verArmario extends AppCompatActivity {
               public void onClick(View v) {
                   String idFtot = Integer.toString(v.getId());
                   Intent intent = new Intent(v.getContext(), Activity_Conjuntos.class);
-                  intent.putExtra("nombrePrenda",)
+                  intent.putExtra("nombrePrenda",idFtot);
               }
           });
           a=a+1;
