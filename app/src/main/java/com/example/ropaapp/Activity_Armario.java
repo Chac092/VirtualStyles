@@ -83,7 +83,7 @@ public class Activity_Armario extends AppCompatActivity {
                sacarfoto();
             }
         });
-        if()
+        //if()
     }
     //Aqui comprobaremos los permisos de la camara y si no los tiene los pediremos
     private void checkCameraPermission(){
