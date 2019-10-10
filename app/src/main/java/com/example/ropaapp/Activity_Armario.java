@@ -46,6 +46,7 @@ public class Activity_Armario extends AppCompatActivity {
     Button zapatos;
     Button subirFoto;
     Button consultarFotos;
+    String perfil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +83,7 @@ public class Activity_Armario extends AppCompatActivity {
                sacarfoto();
             }
         });
+        if()
     }
     //Aqui comprobaremos los permisos de la camara y si no los tiene los pediremos
     private void checkCameraPermission(){

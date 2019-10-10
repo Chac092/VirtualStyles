@@ -90,9 +90,14 @@ public class Activity_verArmario extends AppCompatActivity {
           fotoPoner.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                  String idFtot = Integer.toString(v.getId());
+                  int idFtot = v.getId();
+                  idFtot = idFtot-1;
+                  String Id=Fotos.get(idFtot);
+                  System.out.println(idFtot);
+                  System.out.println(Id);
                   Intent intent = new Intent(v.getContext(), Activity_Conjuntos.class);
-                  intent.putExtra("nombrePrenda",idFtot);
+                  intent.putExtra("nombrePrenda",Id);
+                  startActivity(intent);
               }
           });
           a=a+1;
