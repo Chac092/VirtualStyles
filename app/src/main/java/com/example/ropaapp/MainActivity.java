@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(v.getContext(), Activity_MenuySelecciondeclientes.class);
                     startActivity(intent);
                 }
-                if (Perfil.equals("Usuario")) {
+                if (Perfil.equals("usuario")) {
                     Intent intent = new Intent(v.getContext(), Activity_Menu.class);
                     startActivity(intent);
                 }
