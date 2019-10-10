@@ -13,7 +13,7 @@
     </style>
 
     <style name="BotonRosa" parent="TextAppearance.AppCompat">
-        <item name="android:background">@color/Color1</item>
+        <item name="android:background">@color/Color3</item>
         <item name="android:textColor">@color/colorTexto</item>
         <item name="android:textStyle">bold|italic</item>
     </style>
