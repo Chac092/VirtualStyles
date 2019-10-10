@@ -33,17 +33,30 @@ public class MainActivity extends AppCompatActivity {
                 final String MY_PREFS_NAME = "File";
                 SharedPreferences.Editor datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                 datos.putString("Id_usu", "Pepe");
+                datos.putString("Perfil", "usuario");
                 datos.apply();
-                Intent intent = new Intent(v.getContext(), Activity_Menu.class);
+                String Perfil = "Estilista";
+                if (Perfil.equals("Estilista")) {
+                    Intent intent = new Intent(v.getContext(), Activity_MenuySelecciondeclientes.class);
+                    startActivity(intent);
+                }
+                if (Perfil.equals("Usuario")) {
+                    Intent intent = new Intent(v.getContext(), Activity_Menu.class);
+                    startActivity(intent);
+                }
+            }
+            });
+
+        botonRegistro.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick (View v){
+                Intent intent = new Intent(v.getContext(), Activity_Registro.class);
                 startActivity(intent);
             }
-        });
-        botonRegistro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), Activity_Registro.class);
-                startActivity(intent);
-            }
-        });
-    }
+            });
+        }
 }
+
+
+
+

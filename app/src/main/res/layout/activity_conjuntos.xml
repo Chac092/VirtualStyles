@@ -83,4 +83,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/BTNañadirStilo"
+
+        android:layout_width="64dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="19dp"
+        android:text="@string/BTNAñadirfoto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
