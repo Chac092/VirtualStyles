@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "XopAppDB.db";
 
 
@@ -16,6 +16,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
         public static final String COLUMN_NAME_PERFIL = "Perfil";
         public static final String COLUMN_NAME_CONTRASENYA = "Contraseña";
+    }
+
+    public static class entidadTarjeta implements BaseColumns {
+        public static final String TABLE_NAME = "tarjeta";
+        //public static final String COLUMN_NAME_NUMERO_TARJETA = "numeroTarjeta";
+        public static final String COLUMN_NAME_CADUCIDAD = "Caducidad";
+        public static final String COLUMN_NAME_CODIGO_SEGURIDAD = "codigoSeguridad";
+        public static final String COLUMN_NAME_IDUSUARIO = "idUsuario";
     }
 
     public static class entidadPrenda implements BaseColumns {
@@ -47,6 +55,16 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_TABLE_USUARIO =
             "DROP TABLE IF EXISTS " + entidadUsuario.TABLE_NAME;
 
+    private static final String SQL_CREATE_TABLE_TARJETA =
+            "CREATE TABLE " + entidadTarjeta.TABLE_NAME + " (" +
+                    entidadTarjeta._ID + " INTEGER PRIMARY KEY," +
+                    entidadTarjeta.COLUMN_NAME_CADUCIDAD + " TEXT," +
+                    entidadTarjeta.COLUMN_NAME_CODIGO_SEGURIDAD + " TEXT," +
+                    entidadTarjeta.COLUMN_NAME_IDUSUARIO + " INTEGER," +
+                    "FOREIGN KEY('" + entidadTarjeta.COLUMN_NAME_IDUSUARIO + "') REFERENCES '" + entidadUsuario.TABLE_NAME + "'('" + entidadUsuario._ID + "'))";
+
+    private static final String SQL_DELETE_TABLE_TARJETA =
+            "DROP TABLE IF EXISTS " + entidadTarjeta.TABLE_NAME;
 
     private static final String SQL_CREATE_TABLE_PRENDA =
             "CREATE TABLE " + entidadPrenda.TABLE_NAME + " (" +
@@ -90,6 +108,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate (SQLiteDatabase db){
         db.execSQL(SQL_CREATE_TABLE_USUARIO);
+        db.execSQL(SQL_CREATE_TABLE_TARJETA);
         db.execSQL(SQL_CREATE_TABLE_PRENDA);
         db.execSQL(SQL_CREATE_TABLE_CONJUNTO);
     }
@@ -97,6 +116,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){
         db.execSQL(SQL_DELETE_TABLE_CONJUNTO);
         db.execSQL(SQL_DELETE_TABLE_PRENDA);
+        db.execSQL(SQL_DELETE_TABLE_TARJETA);
         db.execSQL(SQL_DELETE_TABLE_USUARIO);
         onCreate(db);
     }
