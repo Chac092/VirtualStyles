@@ -8,7 +8,7 @@
     tools:context=".Activity_Pagar">
 
     <EditText
-        android:id="@+id/ETNumcuenta"
+        android:id="@+id/ETnumeroTarjeta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
@@ -16,7 +16,8 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/NumTarjetaHint"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:maxLength="12"
         android:textColor="#F3F1F1"
         android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,23 +25,24 @@
         tools:targetApi="o" />
 
     <EditText
-        android:id="@+id/ETFechaCad"
+        android:id="@+id/ETfechaCaducidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
         android:layout_marginTop="48dp"
         android:autofillHints=""
         android:ems="10"
+        android:maxLength="5"
         android:hint="@string/FechaCadHint"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta"
+        app:layout_constraintTop_toBottomOf="@+id/ETnumeroTarjeta"
         tools:targetApi="o" />
 
     <EditText
-        android:id="@+id/ETCodSeguridad"
+        android:id="@+id/ETcodigoSeguridad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
@@ -48,22 +50,23 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/CodsegHint"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:maxLength="3"
         android:textColor="#FCFCFC"
         android:textColorHint="#BEFFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad"
+        app:layout_constraintTop_toBottomOf="@+id/ETfechaCaducidad"
         tools:targetApi="o" />
 
     <Button
-        android:id="@+id/BTNPagar"
+        android:id="@+id/botonPagar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="285dp"
         android:layout_marginTop="172dp"
         android:text="@string/BTNPagar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETCodSeguridad" />
+        app:layout_constraintTop_toBottomOf="@+id/ETcodigoSeguridad" />
 
     <TextView
         android:id="@+id/TVnumcuenta"
@@ -85,7 +88,7 @@
         android:text="@string/FechaCredito"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETNumcuenta" />
+        app:layout_constraintTop_toBottomOf="@+id/ETnumeroTarjeta" />
 
     <TextView
         android:id="@+id/TVCodSeguridad"
@@ -96,6 +99,6 @@
         android:text="@string/CodSeguridadtarjeta"
         android:textColor="#FAFAFB"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFechaCad" />
+        app:layout_constraintTop_toBottomOf="@+id/ETfechaCaducidad" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
