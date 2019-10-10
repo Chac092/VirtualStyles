@@ -6,17 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Activity_verArmario">
 
-
-    <LinearLayout
-        android:id="@+id/Lay"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="140dp">
 
-        <ImageView
-            android:id="@+id/Fotoprenda"
+        <LinearLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
-            android:layout_height="317dp"
-            app:srcCompat="?attr/colorAccent" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,7 @@ package com.example.ropaapp;
         import android.os.Messenger;
         import android.provider.MediaStore;
         import android.util.Log;
+        import android.view.View;
         import android.widget.ImageView;
         import android.widget.LinearLayout;
         import android.widget.Toast;
@@ -37,8 +38,10 @@ public class Activity_verArmario extends AppCompatActivity {
     ImageView fotillo;
     DBHelper dbHelper;
     String usuario;
+    ImageView fotoPoner;
     SQLiteDatabase db;
     LinearLayout layout;
+    int a =1;
     private static final int RQS_OPEN_IMAGE = 1;
     ArrayList<String> Fotos = new ArrayList<>();
 
@@ -52,12 +55,12 @@ public class Activity_verArmario extends AppCompatActivity {
         setContentView(R.layout.activity_ver_armario);
         Intent intent = getIntent();
         usuario = intent.getStringExtra("NombreUsuario");
-        fotillo = findViewById(R.id.Fotoprenda);
-        layout = findViewById(R.id.Lay);
+        layout = findViewById(R.id.layout);
         checkDocumentPermission();
         checkreadPermission();
         recojerFotos();
         ponerLasFotos();
+
     }
 
     public void recojerFotos(){
@@ -76,12 +79,23 @@ public class Activity_verArmario extends AppCompatActivity {
 
     public void ponerLasFotos(){
        for(int i=0;i<Fotos.size();i++){
-          Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+i+".jpg");
-          ImageView fotoPoner = new ImageView(this);
-          fotoPoner.setMinimumHeight(300);
-          fotoPoner.setMinimumWidth(300);
+          int e= i+1;
+          Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+e+".jpg");
+          fotoPoner = new ImageView(this);
+          fotoPoner.setId(a);
+          fotoPoner.setMinimumHeight(900);
+          fotoPoner.setMinimumWidth(1200);
           fotoPoner.setImageBitmap(FTO);
           layout.addView(fotoPoner);
+          fotoPoner.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  String idFtot = Integer.toString(v.getId());
+                  Intent intent = new Intent(v.getContext(), Activity_Conjuntos.class);
+                  intent.putExtra("nombrePrenda",idFtot);
+              }
+          });
+          a=a+1;
           System.out.println("Entro");
        }
     }
