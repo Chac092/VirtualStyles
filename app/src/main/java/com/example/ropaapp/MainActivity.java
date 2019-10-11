@@ -72,8 +72,9 @@ public class MainActivity extends AppCompatActivity {
                         //System.out.println(perfil);
                         final String MY_PREFS_NAME = "File";
                         SharedPreferences.Editor datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-                        datos.putString("Id_usu", sUsuario);
-                        datos.putString("Perfil", sPerfil);
+                        datos.putString("sUsuario", sUsuario);
+                        datos.putString("sPerfil", sPerfil);
+
                         datos.apply();
                         if(sPerfil.equals("estilista")) {
                             Intent intent = new Intent(v.getContext(), Activity_MenuySelecciondeclientes.class);
