@@ -56,7 +56,7 @@
         android:layout_width="50dp"
         android:layout_height="48dp"
         android:layout_marginTop="537dp"
-        style="@style/BotonRosa"
+        style="@style/Boton"
         android:text="@string/FlechaDerecha"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
