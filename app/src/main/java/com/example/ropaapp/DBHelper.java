@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 3;
+    public static final int DATABASE_VERSION = 4;
     public static final String DATABASE_NAME = "XopAppDB.db";
 
 
@@ -99,6 +99,14 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_TABLE_CONJUNTO =
             "DROP TABLE IF EXISTS " + entidadConjunto.TABLE_NAME;
 
+    //TODO Chapuza
+    private static final String SQL_INSERT_ESTILISTA =
+            "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
+            entidadUsuario._ID + ", " +
+            entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
+            entidadUsuario.COLUMN_NAME_PERFIL + ") " +
+            "VALUES ('estilista', 'estilista', 'estilista')";
+
 
     //Constructor
     public DBHelper(Context context) {
@@ -111,6 +119,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TABLE_TARJETA);
         db.execSQL(SQL_CREATE_TABLE_PRENDA);
         db.execSQL(SQL_CREATE_TABLE_CONJUNTO);
+        db.execSQL(SQL_INSERT_ESTILISTA); //TODO Chapuza
     }
 
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){

@@ -8,20 +8,10 @@
     android:layout_height="match_parent"
     android:background="@color/ColordeFondo"
     tools:context=".MainActivity">
-    <Button
-        android:id="@+id/botonRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/Color1"
-        android:text="@string/BTNRegistro"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseñaLogin" />
+
 
     <EditText
-        android:id="@+id/Login_Usuario"
+        android:id="@+id/loginNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
@@ -48,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/contraseñaLogin"
+        android:id="@+id/loginContrasenya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
@@ -66,9 +56,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login_Usuario" />
+        app:layout_constraintTop_toBottomOf="@+id/loginNombreUsuario" />
 
-
+    <Button
+        android:id="@+id/botonRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/Color1"
+        android:text="@string/BTNRegistro"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginContrasenya" />
 
     <Button
         android:id="@+id/botonEntrar"
@@ -81,7 +81,7 @@
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseñaLogin"
+        app:layout_constraintTop_toBottomOf="@+id/loginContrasenya"
         app:layout_constraintVertical_bias="0.0" />
 
 
