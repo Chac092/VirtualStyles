@@ -1,11 +1,22 @@
+<?xml version="1.0"?>
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+<style parent="Theme.AppCompat.Light.DarkActionBar" name="AppTheme">
+<item name="colorPrimary">@color/colorPrimary</item>
+<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+<item name="colorAccent">@color/colorAccent</item>
+<item name="android:windowBackground">@color/ColordeFondo</item>
+</style>
+
+<style parent="TextAppearance.AppCompat" name="Text">
+<item name="android:textStyle">bold|italic</item>
+<item name="android:textColor">@android:color/white</item>
+</style>
+
+<style parent="TextAppearance.AppCompat" name="Boton">
+<item name="android:background">@color/Color3</item>
+<item name="android:textColor">@color/colorTexto</item>
+<item name="android:textStyle">bold|italic</item>
+</style>
 
 </resources>

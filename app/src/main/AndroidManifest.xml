@@ -22,10 +22,9 @@
         <activity android:name=".Activity_rellenarPrendas"></activity>
         <activity android:name=".Activity_Terminos" />
         <activity android:name=".Activity_Crearconjunto" />
-        <activity android:name=".Activity_verArmario" />
         <activity android:name=".Activity_MenuySelecciondeclientes" />
         <activity android:name=".Activity_Conjuntos" />
-        <activity android:name=".Activity_Armario2" />
+        <activity android:name=".Activity_Seleccion_Prenda" />
         <activity android:name=".Activity_Armario" />
         <activity android:name=".Activity_Menu" />
         <activity android:name=".Activity_Pagar" />
