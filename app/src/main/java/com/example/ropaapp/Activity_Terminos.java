@@ -62,7 +62,7 @@ public class Activity_Terminos extends AppCompatActivity {
 
 
 
-                Intent intent = new Intent (v.getContext(), Activity_Registro.class);
+                Intent intent = new Intent (v.getContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
