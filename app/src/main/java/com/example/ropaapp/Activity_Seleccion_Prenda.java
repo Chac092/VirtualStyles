@@ -25,7 +25,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Activity_Armario2 extends AppCompatActivity {
+public class Activity_Seleccion_Prenda extends AppCompatActivity {
     DBHelper dbHelper;
     SQLiteDatabase db;
     Button siguiente;
