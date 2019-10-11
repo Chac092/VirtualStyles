@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -23,6 +24,8 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
     SQLiteDatabase db;
     ImageView Fotoprincipal;
     String Seleccion;
+    Button Aceptar;
+    String nombre;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Creation of an instance of SQLiteOpenHelper type Class object (DatabaseOpenHelper)
@@ -31,6 +34,14 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         db = dbHelper.getWritableDatabase();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rellenar_prendas);
+        Aceptar = findViewById(R.id.BTNAceptar);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Upadate();
+                refrescar();
+            }
+        });
         Fotoprincipal = findViewById(R.id.FotoPrinc);
         opciones = findViewById(R.id.listaCat);
         ArrayAdapter adaptador = new ArrayAdapter<String>(this,
@@ -43,14 +54,13 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Seleccion  = opciones.getSelectedItem().toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
          refrescar();
     }
+
     public void refrescar(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {DBHelper.entidadPrenda._ID};
@@ -59,7 +69,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         String sortOrder = DBHelper.entidadPrenda._ID+" DESC";
         Cursor cursor = db.query(DBHelper.entidadPrenda.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
         while(cursor.moveToNext()){
-            String nombre = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadPrenda._ID));
+            nombre = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadPrenda._ID));
             System.out.println(nombre);
             Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+nombre+".jpg");
             System.out.println(FTO);
@@ -67,9 +77,17 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         }
     }
 
-    public void aceptar(){
+    public void Upadate(){
         ContentValues values = new ContentValues();
-        values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO,Seleccion);
-        String selection = DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO + " LIKE ?";
+        values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO,1);
+        values.put(DBHelper.entidadPrenda.COLUMN_NAME_CATEGORIA,Seleccion);
+        String selection = DBHelper.entidadPrenda._ID+ " LIKE ?";
+        String [] selectionArgs = {nombre};
+        int count = db.update(DBHelper.entidadPrenda.TABLE_NAME,values,selection,selectionArgs);
+        System.out.println(count);
     }
+    public void Delete(){
+
+    }
+
 }
