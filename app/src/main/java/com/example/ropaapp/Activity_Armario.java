@@ -46,7 +46,7 @@ public class Activity_Armario extends AppCompatActivity {
     Button zapatos;
     Button subirFoto;
     Button consultarFotos;
-    String perfil;
+    String Perfil = "Estilista";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +65,15 @@ public class Activity_Armario extends AppCompatActivity {
         Camisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(),Activity_Armario2.class);
-                startActivityForResult(intent, 0);
+                if (Perfil.equals("usuario")) {
+                    Intent intent = new Intent(v.getContext(), Activity_Armario2.class);
+                    startActivityForResult(intent, 0);
+                }else if(Perfil.equals("Estilista")){
+                    Intent intent = new Intent(v.getContext(), Activity_verArmario.class);
+                    intent.putExtra("Id_usu", "Paco");
+                    intent.putExtra("Perfil", "usuario");
+                    startActivityForResult(intent, 0);
+                }
             }
         });
         Gorro = findViewById(R.id.BTNOpion2);
@@ -74,6 +81,14 @@ public class Activity_Armario extends AppCompatActivity {
         zapatos = findViewById(R.id.BTNOpion4);
         subirFoto = findViewById(R.id.BTNSubirFoto);
         consultarFotos = findViewById(R.id.BTNPendientes);
+        consultarFotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Activity_rellenarPrendas.class);
+                intent.putExtra("Id_usu", "Paco");
+                startActivityForResult(intent, 0);
+            }
+        });
         checkwrittePermission();
         checkCameraPermission();
         checkreadePermission();
@@ -83,7 +98,9 @@ public class Activity_Armario extends AppCompatActivity {
                sacarfoto();
             }
         });
-        //if()
+        if (Perfil.equals("Estilista")) {
+            subirFoto.setVisibility(View.INVISIBLE);
+        }
     }
     //Aqui comprobaremos los permisos de la camara y si no los tiene los pediremos
     private void checkCameraPermission(){
