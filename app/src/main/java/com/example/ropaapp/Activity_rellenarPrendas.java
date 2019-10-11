@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import java.io.File;
+
 public class Activity_rellenarPrendas extends AppCompatActivity {
     Spinner opciones;
     String [] elecciones={"1","2","3","4"};
@@ -25,6 +27,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
     ImageView Fotoprincipal;
     String Seleccion;
     Button Aceptar;
+    Button Borrar;
     String nombre;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,22 +37,30 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         db = dbHelper.getWritableDatabase();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rellenar_prendas);
-        Aceptar = findViewById(R.id.BTNAceptar);
-        Aceptar.setOnClickListener(new View.OnClickListener() {
+        //Aceptar = findViewById(R.id.BTNAceptar);
+/*        Aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Upadate();
                 refrescar();
             }
+        });*/
+        Borrar = findViewById(R.id.BTNBorrar);
+        Borrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Delete();
+                refrescar();
+            }
         });
         Fotoprincipal = findViewById(R.id.FotoPrinc);
-        opciones = findViewById(R.id.listaCat);
+        //opciones = findViewById(R.id.listaCat);
         ArrayAdapter adaptador = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, elecciones);
-        opciones.setAdapter(adaptador);
+//        opciones.setAdapter(adaptador);
         Intent intent = getIntent();
         usuario = intent.getStringExtra("Id_usu");
-        opciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+/*        opciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Seleccion  = opciones.getSelectedItem().toString();
@@ -57,7 +68,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
-        });
+        });*/
          refrescar();
     }
 
@@ -87,7 +98,19 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         System.out.println(count);
     }
     public void Delete(){
+        String selection = DBHelper.entidadPrenda._ID + " LIKE ?";
+        String [] selectionArgs = {nombre};
+        int deletedRows = db.delete(DBHelper.entidadPrenda.TABLE_NAME,selection,selectionArgs);
 
+
+        File fdelete = new File("/storage/emulated/0/saved_images/"+nombre+".jpg");
+        if (fdelete.exists()) {
+            if (fdelete.delete()) {
+                System.out.println("file Deleted :" + "/storage/emulated/0/saved_images/"+nombre+".jpg");
+            } else {
+                System.out.println("file not Deleted :" + "/storage/emulated/0/saved_images/"+nombre+".jpg");
+            }
+        }
     }
 
 }

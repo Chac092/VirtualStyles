@@ -10,50 +10,59 @@
         android:id="@+id/FotoPrinc"
         android:layout_width="291dp"
         android:layout_height="281dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:color/holo_red_dark" />
 
     <Button
-        android:id="@+id/BTNDenegar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="143dp"
-        android:layout_marginEnd="40dp"
-        android:text="Rechazar"
-        app:layout_constraintEnd_toStartOf="@+id/BTNAceptar"
-        app:layout_constraintTop_toBottomOf="@+id/TVcategoria" />
-
-    <Button
-        android:id="@+id/BTNAceptar"
+        android:id="@+id/BTNBorrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:text="Aceptar"
-        app:layout_constraintBottom_toBottomOf="@+id/BTNDenegar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BTNDenegar" />
+        android:layout_marginBottom="32dp"
+        android:text="Rechazar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/TVcategoria"
-        android:layout_width="81dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="64dp"
-        android:text="Categoria"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FotoPrinc" />
-
-    <Spinner
-        android:id="@+id/listaCat"
-        android:layout_width="158dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="64dp"
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="78dp"
+        android:layout_height="73dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FotoPrinc" />
+        app:srcCompat="@drawable/zapatos" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="78dp"
+        android:layout_height="73dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
+        app:layout_constraintEnd_toStartOf="@+id/imageView18"
+        app:srcCompat="@drawable/camisa" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="78dp"
+        android:layout_height="73dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
+        app:layout_constraintEnd_toStartOf="@+id/imageView19"
+        app:srcCompat="@drawable/pantalon" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="78dp"
+        android:layout_height="73dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
+        app:layout_constraintEnd_toStartOf="@+id/imageView20"
+        app:srcCompat="@drawable/gorra" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
