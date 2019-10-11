@@ -8,27 +8,27 @@
     tools:context=".Activity_Armario">
 
     <Button
-        android:id="@+id/BTNOpion4"
+        android:id="@+id/botonZapatos"
         android:layout_width="125dp"
         android:layout_height="113dp"
         android:layout_marginStart="62dp"
         android:layout_marginTop="46dp"
         android:background="@drawable/zapatos"
-        app:layout_constraintStart_toEndOf="@+id/BTNOpion3"
-        app:layout_constraintTop_toBottomOf="@+id/BTNOpion2" />
+        app:layout_constraintStart_toEndOf="@+id/botonPantalones"
+        app:layout_constraintTop_toBottomOf="@+id/botonGorro" />
 
     <Button
-        android:id="@+id/BTNOpion2"
+        android:id="@+id/botonGorro"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="140dp"
         android:background="@drawable/gorra"
-        app:layout_constraintStart_toEndOf="@+id/BTNOpion1"
+        app:layout_constraintStart_toEndOf="@+id/botonCamisa"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/BTNOpion1"
+        android:id="@+id/botonCamisa"
         android:layout_width="122dp"
         android:layout_height="128dp"
         android:layout_marginStart="43dp"
@@ -38,14 +38,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/BTNOpion3"
+        android:id="@+id/botonPantalones"
         android:layout_width="129dp"
         android:layout_height="122dp"
         android:layout_marginStart="43dp"
         android:layout_marginTop="43dp"
         android:background="@drawable/pantalon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BTNOpion1" />
+        app:layout_constraintTop_toBottomOf="@+id/botonCamisa" />
 
     <Button
         android:id="@+id/BTNSubirFoto"
@@ -57,7 +57,7 @@
         android:text="@string/BTNAñadirfoto"
         android:textColor="#F8F8F8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BTNOpion4" />
+        app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
 
     <Button
         android:id="@+id/BTNPendientes"
@@ -69,6 +69,6 @@
         android:text="@string/BTNconsutarconjunto"
         android:textColor="#E7E3E3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BTNOpion4" />
+        app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
