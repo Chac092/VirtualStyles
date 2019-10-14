@@ -60,6 +60,8 @@ public class Activity_Terminos extends AppCompatActivity {
                 valoresTarjeta.put(DBHelper.entidadTarjeta.COLUMN_NAME_CODIGO_SEGURIDAD, iCodigoSeguridad);
                 valoresTarjeta.put(DBHelper.entidadTarjeta.COLUMN_NAME_IDUSUARIO, idUsuario);
 
+
+
                 Intent intent = new Intent (v.getContext(), MainActivity.class);
                 startActivity(intent);
             }

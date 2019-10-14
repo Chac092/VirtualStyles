@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -94,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             });
-
         botonRegistro.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick (View v){
