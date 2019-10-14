@@ -8,44 +8,44 @@
     tools:context=".Activity_Registro">
 
     <EditText
-        android:id="@+id/registroNombreUsuario"
+        android:id="@+id/registroContrasenya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="215dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="@string/loginContraseña"
+        android:inputType="textPassword"
         android:textColor="@color/colorTexto"
         android:textColorHint="@color/colorTexto"
         app:backgroundTint="@color/Color1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registroNombreUsuario"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/registroNombreUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="200dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hintDeLogin"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="o" />
-
-    <EditText
-        android:id="@+id/registroContrasenya"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="52dp"
         android:textColor="@color/colorTexto"
         android:textColorHint="@color/colorTexto"
         app:backgroundTint="@color/Color1"
-        android:ems="10"
-        android:hint="@string/loginContraseña"
-        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registroNombreUsuario"
+        app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="o" />
 
     <Button
         android:id="@+id/botonRegistrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="155dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="124dp"
         android:text="@string/BTNRegistro"
         style="@style/Boton"
         app:layout_constraintEnd_toEndOf="parent"

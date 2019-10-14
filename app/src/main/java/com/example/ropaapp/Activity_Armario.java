@@ -7,81 +7,84 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.StrictMode;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Activity_Armario extends AppCompatActivity {
     DBHelper dbHelper;
     SQLiteDatabase db;
-    Button Camisa;
+
+    String sUsuario;
+    String sPerfil;
+    
     final static int cons =0;
     Bitmap bmp;
-    Button Pantalones;
-    Button Gorro;
-    String IDusuario;
-    Button zapatos;
+    Button botonGorro;
+    Button botonCamisa;
+    Button botonPantalones;
+    Button botonZapatos;
+    
     Button subirFoto;
     Button consultarFotos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_armario);
-        //Creation of an instance of SQLiteOpenHelper type Class object (DatabaseOpenHelper)
         dbHelper = new DBHelper(getBaseContext());
-        //We get a writable database. If not exist, onCreate is called
+
         db = dbHelper.getWritableDatabase();
         //Cojeremos el id del usuario logueado
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        IDusuario = datos.getString("Id_usu",null);
-        System.out.println("Nombre = "+ IDusuario);
+        sUsuario = datos.getString("sUsuario",null);
+        sPerfil = datos.getString("sPerfil",null);
+        //System.out.println("Nombre = "+ sUsuario);
+        
         //Uniremos todos los elementos con sus ids
-        Camisa = findViewById(R.id.BTNOpion1);
-        Camisa.setOnClickListener(new View.OnClickListener() {
+        botonCamisa = findViewById(R.id.botonCamisa);
+        botonCamisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(),Activity_Armario2.class);
+            Intent intent = new Intent(v.getContext(), Activity_Seleccion_Prenda.class);
+            startActivityForResult(intent, 0);
+
+            }
+        });
+        botonGorro = findViewById(R.id.botonGorro);
+        botonPantalones = findViewById(R.id.botonPantalones);
+        botonZapatos = findViewById(R.id.botonZapatos);
+        subirFoto = findViewById(R.id.BTNSubirFoto);
+        consultarFotos = findViewById(R.id.BTNPendientes);
+        consultarFotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Activity_rellenarPrendas.class);
+                intent.putExtra("Id_usu", "Paco");
                 startActivityForResult(intent, 0);
             }
         });
-        Gorro = findViewById(R.id.BTNOpion2);
-        Pantalones = findViewById(R.id.BTNOpion3);
-        zapatos = findViewById(R.id.BTNOpion4);
-        subirFoto = findViewById(R.id.BTNSubirFoto);
-        consultarFotos = findViewById(R.id.BTNPendientes);
-        checkwrittePermission();
-        checkCameraPermission();
-        checkreadePermission();
+
         subirFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                sacarfoto();
             }
         });
+        if (sPerfil.equals("estilista")) {
+            subirFoto.setVisibility(View.INVISIBLE);
+        }
     }
     //Aqui comprobaremos los permisos de la camara y si no los tiene los pediremos
     private void checkCameraPermission(){
@@ -96,6 +99,9 @@ public class Activity_Armario extends AppCompatActivity {
     }
     //Este metodo lo usaremos para sacar la foto
     public void sacarfoto(){
+        checkwrittePermission();
+        checkCameraPermission();
+        checkreadePermission();
         //Mediante un intente llamaremos a la camara para sacar una foto
         Intent i = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(i,cons);
@@ -145,7 +151,7 @@ public class Activity_Armario extends AppCompatActivity {
         ContentValues values = new ContentValues();
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO, false);
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_FAVORITO,0);
-        values.put(DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO,IDusuario);
+        values.put(DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO,sUsuario);
         long newRowId = db.insert(DBHelper.entidadPrenda.TABLE_NAME, null, values);
         String IDfoto = String.valueOf(newRowId);
         String root = Environment.getExternalStorageDirectory().toString();

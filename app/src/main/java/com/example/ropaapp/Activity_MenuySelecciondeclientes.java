@@ -47,7 +47,7 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
         Armario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),Activity_verArmario.class);
+                Intent intent = new Intent(v.getContext(),Activity_Armario.class);
                 intent.putExtra("NombreUsuario",seleccionado);
                 startActivity(intent);
             }

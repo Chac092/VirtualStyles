@@ -11,8 +11,8 @@
         android:id="@+id/imageView5"
         android:layout_width="193dp"
         android:layout_height="170dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
@@ -22,7 +22,7 @@
         android:id="@+id/imageView6"
         android:layout_width="192dp"
         android:layout_height="81dp"
-        android:layout_marginStart="111dp"
+        android:layout_marginStart="104dp"
         android:layout_marginTop="56dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,24 +31,24 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="194dp"
-        android:layout_height="213dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="189dp"
+        android:layout_height="210dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="56dp"
         android:contentDescription="@string/Mensajededescripcion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:color/holo_blue_dark" />
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="201dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="183dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="68dp"
         android:contentDescription="@string/Mensajededescripcion"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:srcCompat="?attr/colorControlActivated" />
 
     <TextView
@@ -67,7 +67,7 @@
         android:layout_height="41dp"
         android:layout_marginTop="352dp"
         android:layout_marginEnd="16dp"
-        style="@style/Boton"
+        android:background="@color/Color1"
         android:text="@string/FlechaDerecha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -78,18 +78,18 @@
         android:layout_height="39dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="355dp"
-        style="@style/Boton"
+        android:background="@color/Color1"
         android:text="@string/FlechaIzquierda"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/BTNañadirStilo"
-        style="@style/Boton"
+
         android:layout_width="64dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="19dp"
         android:text="@string/BTNAñadirfoto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

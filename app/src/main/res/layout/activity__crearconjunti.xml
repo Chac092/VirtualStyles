@@ -11,37 +11,37 @@
         android:id="@+id/imageView9"
         android:layout_width="191dp"
         android:layout_height="105dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:src="@android:color/holo_red_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="189dp"
-        android:layout_height="172dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="20dp"
-        android:src="@android:color/holo_purple"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
-
-    <ImageView
         android:id="@+id/imageView11"
         android:layout_width="189dp"
         android:layout_height="196dp"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="20dp"
         android:src="@android:color/holo_blue_bright"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="189dp"
+        android:layout_height="172dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:src="@android:color/holo_purple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <ImageView
         android:id="@+id/imageView12"
         android:layout_width="193dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="72dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="20dp"
         android:src="@android:color/holo_orange_light"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,41 +51,41 @@
         android:id="@+id/imageView13"
         android:layout_width="82dp"
         android:layout_height="76dp"
-        android:layout_marginTop="171dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="20dp"
         android:src="?android:attr/colorButtonNormal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/imageView17"
         android:layout_width="81dp"
         android:layout_height="76dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
         android:src="?android:attr/colorButtonNormal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView16" />
 
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="81dp"
         android:layout_height="76dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
         android:src="?android:attr/colorButtonNormal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 
     <ImageView
-        android:id="@+id/imageView17"
+        android:id="@+id/imageView14"
         android:layout_width="81dp"
         android:layout_height="76dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
         android:src="?android:attr/colorButtonNormal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView16" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
 
     <Button
         android:id="@+id/BTNGuardarconjunto"
