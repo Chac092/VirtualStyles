@@ -121,11 +121,9 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         String[] projection = {entidadPrenda._ID};
         String selection = entidadPrenda.COLUMN_NAME_IDUSUARIO + " = ?";
         String[] selectionArgs = {sUsuario};
-        //System.out.println(sUsuario);
+
         //String sortOrder = entidadPrenda.COLUMN_NAME_IDUSUARIO +" DESC";
-        System.out.println("EXPLOTA?");
         Cursor cursor = db.query(entidadPrenda.TABLE_NAME,projection,selection,selectionArgs,null,null,null);
-        System.out.println("NO EXPLOTA");
            while(cursor.moveToNext()){
             IDfoto = cursor.getString(cursor.getColumnIndexOrThrow(entidadPrenda._ID));
             idfotos.add(IDfoto);
