@@ -14,7 +14,7 @@
 </style>
 
 <style parent="TextAppearance.AppCompat" name="Boton">
-<item name="android:background">@color/Color3</item>
+<item name="android:background">@color/Color1</item>
 <item name="android:textColor">@color/colorTexto</item>
 <item name="android:textStyle">bold|italic</item>
 </style>
