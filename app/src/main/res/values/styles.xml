@@ -1,25 +1,22 @@
 <?xml version="1.0"?>
 <resources>
-    <style parent="Theme.AppCompat.Light.DarkActionBar" name="AppTheme">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/ColordeFondo</item>
 
-    </style>
+<style name="AppTheme"  parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:windowBackground">@color/ColordeFondo</item>
+    <item name="android:textColor">@color/colorTexto</item>
+    <item name="android:buttonStyle">@style/ButtonText</item>
+</style>
 
-    <style parent="TextAppearance.AppCompat" name="Text">
-        <item name="android:textStyle">bold|italic</item>
-        <item name="android:textColor">@android:color/white</item>
-    </style>
+<style name="ButtonText" parent="@android:style/Widget.Button">
+    <item name="android:background">@color/colorPrimary</item>
+    <item name="android:textColor">@color/colorTexto</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:padding">5dp</item>
+    <item name="android:textStyle">bold|italic</item>
+</style>
 
-    <style parent="TextAppearance.AppCompat" name="botones">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorTexto</item>
-        <item name="android:background">@color/Color2</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_marginEnd">12dp</item>
-        <item name="android:layout_marginBottom">19dp</item>
-    </style>
 </resources>
