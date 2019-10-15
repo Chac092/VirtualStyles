@@ -43,8 +43,9 @@ public class Activity_Armario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_armario);
         dbHelper = new DBHelper(getBaseContext());
-
         db = dbHelper.getWritableDatabase();
+        Permisos();
+
         //Cojeremos el id del usuario logueado
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
@@ -79,29 +80,16 @@ public class Activity_Armario extends AppCompatActivity {
         subirFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               sacarfoto();
+                sacarfoto();
             }
         });
         if (sPerfil.equals("estilista")) {
             subirFoto.setVisibility(View.INVISIBLE);
         }
     }
-    //Aqui comprobaremos los permisos de la camara y si no los tiene los pediremos
-    private void checkCameraPermission(){
-        int permissionCheck = ContextCompat.checkSelfPermission(
-                this, Manifest.permission.CAMERA);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            Log.i("Mensaje", "No se tiene permiso para la camara!.");
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 225);
-        } else {
-            Log.i("Mensaje", "Tienes permiso para usar la camara.");
-        }
-    }
+
     //Este metodo lo usaremos para sacar la foto
     public void sacarfoto(){
-        checkwrittePermission();
-        checkCameraPermission();
-        checkreadePermission();
         //Mediante un intente llamaremos a la camara para sacar una foto
         Intent i = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(i,cons);
@@ -119,22 +107,14 @@ public class Activity_Armario extends AppCompatActivity {
         }
     }
       //Aqui comprobaremos si tenemos los permisos de escritura y si no lo tenemos los pediremos
-    private void checkwrittePermission(){
+    private void Permisos(){
         int permissionCheck = ContextCompat.checkSelfPermission(
                 this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+        int permisocamara = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.CAMERA);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED || permisocamara != PackageManager.PERMISSION_GRANTED) {
             Log.i("Mensaje", "No se tiene permiso para la camara!.");
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 225);
-        } else {
-            Log.i("Mensaje", "Tienes permiso para usar la camara.");
-        }
-    }
-    private void checkreadePermission(){
-        int permissionCheck = ContextCompat.checkSelfPermission(
-                this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            Log.i("Mensaje", "No se tiene permiso para la camara!.");
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 225);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE}, 225);
         } else {
             Log.i("Mensaje", "Tienes permiso para usar la camara.");
         }

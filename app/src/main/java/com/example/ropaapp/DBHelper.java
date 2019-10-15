@@ -9,11 +9,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 4;
     public static final String DATABASE_NAME = "XopAppDB.db";
 
+    //Aqui crearemos las ordenes para mas adelante crear la tabla Facturas
+    public static class entidadFactura implements BaseColumns{
+        public static final String TABLE_NAME = "Facturas";
+        //public static final String COLUMN_NAME_IDFACTURA = "idFactura";
+        public static final String COLUMN_NAME_IMPORTE = "Dinero" ;
+        public static final String COLUMN_NAME_FECHA="Fecha";
+        public static final String COLUMN_NAME_IDUSUARIO="idUsuario";
+    }
 
     public static class entidadUsuario implements BaseColumns {
         public static final String TABLE_NAME = "usuario";
         //public static final String COLUMN_NAME_IDUSUARIO = "idUsuario";
-
         public static final String COLUMN_NAME_PERFIL = "Perfil";
         public static final String COLUMN_NAME_CONTRASENYA = "Contraseña";
     }
@@ -54,6 +61,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String SQL_DELETE_TABLE_USUARIO =
             "DROP TABLE IF EXISTS " + entidadUsuario.TABLE_NAME;
+
+    private static final String SQL_CREATE_TABLE_FACTURAS =
+            "CREATE TABLE " + entidadFactura.TABLE_NAME + " (" +
+                    entidadFactura._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    entidadFactura.COLUMN_NAME_IMPORTE + " INTEGER," +
+                    entidadFactura.COLUMN_NAME_FECHA + " TEXT," +
+                    entidadFactura.COLUMN_NAME_IDUSUARIO + " INTEGER," +
+                    "FOREIGN KEY('" + entidadFactura.COLUMN_NAME_IDUSUARIO + "') REFERENCES '" + entidadUsuario.TABLE_NAME + "'('" + entidadUsuario._ID + "'))";
+
+    private static final String SQL_DELETE_TABLE_FACTURAS = "DROP TABLE IF EXISTS " +  entidadUsuario.TABLE_NAME;
 
     private static final String SQL_CREATE_TABLE_TARJETA =
             "CREATE TABLE " + entidadTarjeta.TABLE_NAME + " (" +
@@ -100,12 +117,29 @@ public class DBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + entidadConjunto.TABLE_NAME;
 
     //TODO Chapuza
+    //Estilista
     private static final String SQL_INSERT_ESTILISTA =
             "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
             entidadUsuario._ID + ", " +
             entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
             entidadUsuario.COLUMN_NAME_PERFIL + ") " +
             "VALUES ('estilista', 'estilista', 'estilista')";
+    //TODO Usuario : ADAN
+    private static final String SQL_INSERT_ADAN =
+            "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
+                    entidadUsuario._ID + ", " +
+                    entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
+                    entidadUsuario.COLUMN_NAME_PERFIL + ") " +
+                    "VALUES ('adan', 'manzana', 'usuario')";
+    //TODO Usuario : EVA
+    private static final String SQL_INSERT_EVA =
+            "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
+                    entidadUsuario._ID + ", " +
+                    entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
+                    entidadUsuario.COLUMN_NAME_PERFIL + ") " +
+                    "VALUES ('eva', 'manzana', 'usuario')";
+
+
 
 
     //Constructor
@@ -119,6 +153,9 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TABLE_TARJETA);
         db.execSQL(SQL_CREATE_TABLE_PRENDA);
         db.execSQL(SQL_CREATE_TABLE_CONJUNTO);
+        db.execSQL(SQL_CREATE_TABLE_FACTURAS);
+        db.execSQL(SQL_INSERT_ADAN);//TODO Chapuza
+        db.execSQL(SQL_INSERT_EVA);//TODO Chapuza
         db.execSQL(SQL_INSERT_ESTILISTA); //TODO Chapuza
     }
 
@@ -127,6 +164,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_TABLE_PRENDA);
         db.execSQL(SQL_DELETE_TABLE_TARJETA);
         db.execSQL(SQL_DELETE_TABLE_USUARIO);
+        db.execSQL(SQL_DELETE_TABLE_FACTURAS);
         onCreate(db);
     }
 
