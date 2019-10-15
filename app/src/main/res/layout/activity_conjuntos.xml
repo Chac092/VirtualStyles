@@ -63,6 +63,8 @@
 
     <Button
         android:id="@+id/BTNsig"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
         android:layout_marginTop="352dp"
         android:layout_marginEnd="16dp"
         android:background="@color/Color1"
@@ -72,6 +74,8 @@
 
     <Button
         android:id="@+id/button3"
+        android:layout_width="38dp"
+        android:layout_height="41dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="355dp"
         android:background="@color/Color1"

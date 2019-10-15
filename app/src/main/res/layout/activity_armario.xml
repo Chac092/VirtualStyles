@@ -49,6 +49,8 @@
 
     <Button
         android:id="@+id/BTNPendientes"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
         android:layout_marginStart="256dp"
         android:layout_marginTop="156dp"
         android:text="@string/BTNconsutarconjunto"
@@ -58,6 +60,8 @@
 
     <Button
         android:id="@+id/BTNSubirFoto"
+        android:layout_width="82dp"
+        android:layout_height="51dp"
         android:layout_marginStart="136dp"
         android:layout_marginTop="52dp"
         android:text="@string/BTNAñadirfoto"
