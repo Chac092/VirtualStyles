@@ -49,11 +49,9 @@
 
     <Button
         android:id="@+id/BTNPendientes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/botonesalargados"
         android:layout_marginStart="256dp"
         android:layout_marginTop="156dp"
-        android:background="@color/Color1"
         android:text="@string/BTNconsutarconjunto"
         android:textColor="#E7E3E3"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,11 +59,9 @@
 
     <Button
         android:id="@+id/BTNSubirFoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/botonesalargados"
         android:layout_marginStart="136dp"
         android:layout_marginTop="52dp"
-        android:background="@color/Color1"
         android:text="@string/BTNAñadirfoto"
         android:textColor="#F8F8F8"
         app:layout_constraintStart_toStartOf="parent"
