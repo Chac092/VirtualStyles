@@ -26,7 +26,6 @@
 
             <TextView
                 android:id="@+id/tituloTerminos"
-                style="@style/Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_titulo"
@@ -34,14 +33,12 @@
 
             <TextView
                 android:id="@+id/textoTerminos"
-                style="@style/Text"
                 android:layout_width="398dp"
                 android:layout_height="1972dp"
                 android:text="@string/app_texto" />
 
             <Button
                 android:id="@+id/botonRechazarTerminos"
-                style="@style/botonesalargados"
                 android:layout_width="401dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
@@ -53,7 +50,6 @@
 
             <Button
                 android:id="@+id/botonAceptarTerminos"
-                style="@style/botonesalargados"
                 android:layout_width="401dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"

@@ -63,7 +63,6 @@
 
     <Button
         android:id="@+id/BTNsig"
-        style="@style/botones"
         android:layout_marginTop="352dp"
         android:layout_marginEnd="16dp"
         android:background="@color/Color1"
@@ -73,7 +72,6 @@
 
     <Button
         android:id="@+id/button3"
-        style="@style/botones"
         android:layout_marginStart="12dp"
         android:layout_marginTop="355dp"
         android:background="@color/Color1"
@@ -83,7 +81,6 @@
 
     <Button
         android:id="@+id/BTNañadirStilo"
-        style="@style/botones"
         android:text="@string/BTNAñadirfoto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

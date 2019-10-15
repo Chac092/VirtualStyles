@@ -49,7 +49,6 @@
 
     <Button
         android:id="@+id/BTNPendientes"
-        style="@style/botonesalargados"
         android:layout_marginStart="256dp"
         android:layout_marginTop="156dp"
         android:text="@string/BTNconsutarconjunto"
@@ -59,7 +58,6 @@
 
     <Button
         android:id="@+id/BTNSubirFoto"
-        style="@style/botonesalargados"
         android:layout_marginStart="136dp"
         android:layout_marginTop="52dp"
         android:text="@string/BTNAñadirfoto"
