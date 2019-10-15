@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <resources>
-
+<!--En esta pagina pomnemos los colores para la aplicaccion, que al ponerlo en el manifest se pondra en toda la app-->
 <style name="AppTheme"  parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
