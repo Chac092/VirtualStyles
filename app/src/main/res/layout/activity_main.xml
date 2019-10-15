@@ -11,8 +11,7 @@
 
     <Button
         android:id="@+id/botonRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/botonesalargados"
         android:layout_marginStart="76dp"
         android:layout_marginBottom="40dp"
         android:background="@color/Color1"
@@ -23,8 +22,7 @@
 
     <Button
         android:id="@+id/botonEntrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/botonesalargados"
         android:layout_marginEnd="84dp"
         android:layout_marginBottom="40dp"
         android:background="@color/Color1"
