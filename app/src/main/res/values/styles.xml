@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <resources>
-
     <style parent="Theme.AppCompat.Light.DarkActionBar" name="AppTheme">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -26,9 +25,4 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
     </style>
-
-    <style parent="TextAppearance.AppCompat" name="cuadrado" >
-        <item name="android:background">@color/Color4</item>
-    </style>
-
 </resources>
