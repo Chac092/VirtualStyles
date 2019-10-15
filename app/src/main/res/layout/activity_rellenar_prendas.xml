@@ -18,8 +18,7 @@
 
     <Button
         android:id="@+id/BTNBorrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/botonesalargados"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:text="Rechazar"
