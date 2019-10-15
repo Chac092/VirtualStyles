@@ -54,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
                     String[] selectionArgs = {sUsuario, sContrasenya};
 
                     Cursor cursor = db.query(
-                            DBHelper.entidadUsuario.TABLE_NAME,
-                            projection,
-                            selection,
-                            selectionArgs,
-                            null,
-                            null,
-                            null
+                        DBHelper.entidadUsuario.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        null
                     );
 
                     if(cursor != null && cursor.getCount()>0){

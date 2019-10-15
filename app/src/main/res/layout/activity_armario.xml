@@ -8,11 +8,21 @@
     tools:context=".Activity_Armario">
 
     <Button
+        android:id="@+id/botonGorro"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/gorra"
+        app:layout_constraintStart_toEndOf="@+id/botonCamisa"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/botonZapatos"
         android:layout_width="125dp"
         android:layout_height="113dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/zapatos"
         app:layout_constraintStart_toEndOf="@+id/botonPantalones"
         app:layout_constraintTop_toBottomOf="@+id/botonGorro" />
@@ -21,8 +31,8 @@
         android:id="@+id/botonPantalones"
         android:layout_width="129dp"
         android:layout_height="122dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/pantalon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonCamisa" />
@@ -31,43 +41,33 @@
         android:id="@+id/botonCamisa"
         android:layout_width="122dp"
         android:layout_height="128dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/camisa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/botonGorro"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="104dp"
-        android:background="@drawable/gorra"
-        app:layout_constraintStart_toEndOf="@+id/botonCamisa"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/BTNPendientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="156dp"
+        android:background="@color/Color1"
+        android:text="@string/BTNconsutarconjunto"
+        android:textColor="#E7E3E3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
 
     <Button
         android:id="@+id/BTNSubirFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="52dp"
         android:background="@color/Color1"
         android:text="@string/BTNAñadirfoto"
         android:textColor="#F8F8F8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
-
-    <Button
-        android:id="@+id/BTNPendientes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="252dp"
-        android:layout_marginTop="132dp"
-        android:background="@color/Color1"
-        android:text="@string/BTNconsutarconjunto"
-        android:textColor="#E7E3E3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
 

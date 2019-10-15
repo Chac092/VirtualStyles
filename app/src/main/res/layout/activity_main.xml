@@ -9,9 +9,20 @@
     android:background="@color/ColordeFondo"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/loginNombreUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <Button
         android:id="@+id/botonRegistro"
-        style="@style/botonesalargados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginBottom="40dp"
         android:background="@color/Color1"
@@ -22,7 +33,8 @@
 
     <Button
         android:id="@+id/botonEntrar"
-        style="@style/botonesalargados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="84dp"
         android:layout_marginBottom="40dp"
         android:background="@color/Color1"
@@ -79,11 +91,6 @@
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="266dp"
-        android:layout_height="313dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="75dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
