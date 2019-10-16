@@ -77,8 +77,6 @@
     <ProgressBar
         android:id="@+id/barraProgresoResgistro"
 
-        android:progressBackgroundTint="@color/colorAccent"
-
         android:layout_width="match_parent"
         android:layout_height="5dp"
         app:layout_constraintTop_toBottomOf="@+id/botonEntrar"
