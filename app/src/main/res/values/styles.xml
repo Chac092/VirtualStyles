@@ -3,9 +3,9 @@
 <!--En esta pagina pomnemos los colores para la aplicaccion, que al ponerlo en el manifest se pondra
  en toda la app-->
 <style name="AppTheme"  parent="Theme.AppCompat.Light.DarkActionBar">
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorPrimary">@color/Color3</item>
+    <item name="colorPrimaryDark">@color/Color3</item>
+    <item name="colorAccent">@color/Color4</item>
     <item name="android:windowBackground">@color/ColordeFondo</item>
     <item name="android:textColor">@color/colorTexto</item>
     <item name="android:buttonStyle">@style/ButtonText</item>
