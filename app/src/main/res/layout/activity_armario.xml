@@ -15,7 +15,10 @@
         android:layout_marginTop="64dp"
         android:background="@drawable/gorra"
         app:layout_constraintStart_toEndOf="@+id/botonCamisa"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
     <Button
         android:id="@+id/botonZapatos"
@@ -25,7 +28,11 @@
         android:layout_marginTop="36dp"
         android:background="@drawable/zapatos"
         app:layout_constraintStart_toEndOf="@+id/botonPantalones"
-        app:layout_constraintTop_toBottomOf="@+id/botonGorro" />
+        app:layout_constraintTop_toBottomOf="@+id/botonGorro"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        />
 
     <Button
         android:id="@+id/botonPantalones"
@@ -35,7 +42,10 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/pantalon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonCamisa" />
+        app:layout_constraintTop_toBottomOf="@+id/botonCamisa"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
     <Button
         android:id="@+id/botonCamisa"
@@ -45,27 +55,29 @@
         android:layout_marginTop="56dp"
         android:background="@drawable/camisa"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Button
         android:id="@+id/BTNPendientes"
-        android:layout_width="80dp"
-        android:layout_height="48dp"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
         android:layout_marginStart="256dp"
         android:layout_marginTop="156dp"
         android:text="@string/BTNconsutarconjunto"
-        android:textColor="#E7E3E3"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
 
     <Button
         android:id="@+id/BTNSubirFoto"
-        android:layout_width="82dp"
-        android:layout_height="51dp"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
         android:layout_marginStart="136dp"
         android:layout_marginTop="52dp"
         android:text="@string/BTNAñadirfoto"
-        android:textColor="#F8F8F8"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
 
