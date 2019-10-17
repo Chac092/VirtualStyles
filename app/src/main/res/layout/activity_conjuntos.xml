@@ -78,10 +78,10 @@
 
     <Button
         android:id="@+id/BTNsig"
-        android:layout_width="43dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="352dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="336dp"
+        android:layout_marginEnd="4dp"
         android:background="@color/Color1"
         android:text="@string/FlechaDerecha"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,10 +89,10 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="38dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="355dp"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="336dp"
         android:background="@color/Color1"
         android:text="@string/FlechaIzquierda"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,10 +100,10 @@
 
     <Button
         android:id="@+id/BTNañadirStilo"
-        android:layout_width="83dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="212dp"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="224dp"
         android:text="@string/BTNAñadirfoto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
