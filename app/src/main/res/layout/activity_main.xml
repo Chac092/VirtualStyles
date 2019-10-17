@@ -25,7 +25,6 @@
         android:id="@+id/loginNombreUsuario"
         android:hint="@string/hintDeLogin"
         android:inputType="textPersonName"
-
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
