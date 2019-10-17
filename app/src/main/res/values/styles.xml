@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-
     <style name="AppTheme"  parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/Color2</item>
         <item name="colorPrimaryDark">@color/Color2</item>
@@ -28,7 +27,6 @@
     <style name="ProgressBar" parent="android:style/Widget.ProgressBar">
         <item name="android:progressBackgroundTint">@color/colorAccent</item>
     </style>
-
 </resources>
 
 <!-- No se pueden pasar a los estilos layout_width ni layout_height, tienen que estar en cada layout -->
