@@ -20,7 +20,7 @@
         android:id="@+id/imageView6"
         android:layout_width="192dp"
         android:layout_height="81dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="108dp"
         android:layout_marginTop="56dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
@@ -35,7 +35,7 @@
         android:id="@+id/imageView5"
         android:layout_width="193dp"
         android:layout_height="170dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="108dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
@@ -43,8 +43,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@android:color/holo_red_light"
-        app:layout_constraintVertical_chainStyle="spread"/>
+        app:srcCompat="@android:color/holo_red_light" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -58,16 +57,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.38"
-        app:layout_constraintVertical_chainStyle="spread"
         app:srcCompat="@android:color/holo_blue_dark" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="197dp"
         android:layout_height="59dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
