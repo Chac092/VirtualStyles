@@ -35,7 +35,9 @@
                 android:id="@+id/textoTerminos"
                 android:layout_width="398dp"
                 android:layout_height="1982dp"
-                android:text="@string/app_texto" />
+                android:text="@string/app_texto"
+                android:layout_gravity="center_vertical|right"
+                />
 
             <Button
                 android:id="@+id/botonRechazarTerminos"
