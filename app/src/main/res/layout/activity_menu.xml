@@ -8,9 +8,8 @@
 
     <Button
         android:id="@+id/Botonmenu1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:background="@drawable/armario"
         app:layout_constraintBottom_toTopOf="@+id/BotonMenu2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,8 +21,8 @@
 
     <Button
         android:id="@+id/BotonMenu2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/conjunto"
         app:layout_constraintBottom_toTopOf="@+id/BotonMenu3"
@@ -36,8 +35,8 @@
 
     <Button
         android:id="@+id/BotonMenu3"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/fav"
         app:layout_constraintBottom_toBottomOf="parent"
