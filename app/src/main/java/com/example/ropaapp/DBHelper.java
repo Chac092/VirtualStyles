@@ -37,7 +37,6 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String TABLE_NAME = "prenda";
         //public static final String COLUMN_NAME_IDPRENDA = "idPrenda";
         public static final String COLUMN_NAME_CATEGORIA = "Categoria";
-        public static final String COLUMN_NAME_ESTILO = "Estilo";
         public static final String COLUMN_NAME_ESTADO = "Estado";
         public static final String COLUMN_NAME_FAVORITO = "Favorito";
         public static final String COLUMN_NAME_IDUSUARIO = "idUsuario";
@@ -87,7 +86,6 @@ public class DBHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + entidadPrenda.TABLE_NAME + " (" +
                     entidadPrenda._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     entidadPrenda.COLUMN_NAME_CATEGORIA + " INTEGER," +
-                    entidadPrenda.COLUMN_NAME_ESTILO + " TEXT," +
                     entidadPrenda.COLUMN_NAME_ESTADO + " INTEGER," +
                     entidadPrenda.COLUMN_NAME_FAVORITO + " INTEGER," +
                     entidadPrenda.COLUMN_NAME_IDUSUARIO + " INTEGER," +
@@ -139,7 +137,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadUsuario.COLUMN_NAME_PERFIL + ") " +
                     "VALUES ('eva', 'manzana', 'usuario')";
 
-    //Prendas:
+
 
 
 
@@ -161,18 +159,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_INSERT_EVA);//TODO Chapuza
         db.execSQL(SQL_INSERT_ESTILISTA); //TODO Chapuza
 
-        //Insertamos prendas
-        String usuario = "adan";
-        int prenda;
-        int base = 1;
-        for (int i = 1; i <= 40; i++) {
-            if (i > 20){
-                usuario = "eva";
-                base = 2;
-            }
-            prenda = (int)((i/2)/5 + 1);
-            System.out.println(i + " : " + prenda + " : " + usuario);
-        }
+
     }
 
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){
