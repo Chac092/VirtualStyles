@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#f67280</color>
+    <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#f67280</color>
     <color name="colorAccent">#D81B60</color>
     <color name="Color1">#003f5c</color>
@@ -9,5 +9,5 @@
     <color name="Color4">#ff6361</color>
     <color name="ColordeFondo">#BC5090</color>
     <color name="colorTexto">#FFFFFF</color>
-    <color name="colorTextoRosa">#f67280</color>
+
 </resources>
