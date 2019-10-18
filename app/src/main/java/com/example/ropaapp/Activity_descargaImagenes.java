@@ -97,7 +97,7 @@ public class Activity_descargaImagenes extends AppCompatActivity {
             System.out.println("BACKGROUND!!!!!!!!!!!!!!!!");
             Integer i = integers[0];
 
-            String stringurl = "https://github.com/Chac092/VirtualStyles/tree/master/fotosprueba/" + i + ".jpg";
+            String stringurl = "https://github.com/Chac092/VirtualStyles/tree/master/fotosprueba/" + i + ".png";
             //String folderName = "/storage/emulated/0/saved_images/";
             int count;
             try {
@@ -109,7 +109,7 @@ public class Activity_descargaImagenes extends AppCompatActivity {
                 // input stream to read file - with 8k buffer
                 InputStream input = new BufferedInputStream(url.openStream(), 8192);
                 bitmap = BitmapFactory.decodeStream(input);
-                String fileName = i + ".jpg";
+                String fileName = i + ".png";
                 //External directory path to save file
                 String folder = Environment.getExternalStorageDirectory() + File.separator + "saved_images/";
                 //Directory
