@@ -10,9 +10,9 @@
         android:id="@+id/NomConju"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
         android:layout_marginTop="10dp"
         android:text="@string/NombreConjunto"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,10 +20,10 @@
         android:id="@+id/imageView6"
         android:layout_width="192dp"
         android:layout_height="81dp"
-        android:layout_marginStart="108dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +35,10 @@
         android:id="@+id/imageView5"
         android:layout_width="193dp"
         android:layout_height="170dp"
-        android:layout_marginStart="108dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,11 +49,11 @@
         android:id="@+id/imageView7"
         android:layout_width="190dp"
         android:layout_height="201dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="212dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="212dp"
         android:contentDescription="@string/Mensajededescripcion"
         app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,9 +64,9 @@
         android:id="@+id/imageView8"
         android:layout_width="197dp"
         android:layout_height="59dp"
-        android:layout_marginStart="104dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@string/Mensajededescripcion"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,16 +83,20 @@
 
         android:text="@string/FlechaDerecha"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="95dp"
         android:layout_height="55dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginStart="4dp"
 
+        android:layout_marginTop="280dp"
         android:text="@string/FlechaIzquierda"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -105,5 +109,8 @@
         android:text="@string/BTNAñadirfoto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BTNsig" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BTNsig"
+        app:layout_constraintVertical_bias="0.484" />
 </androidx.constraintlayout.widget.ConstraintLayout>
