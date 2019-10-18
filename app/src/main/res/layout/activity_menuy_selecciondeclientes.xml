@@ -8,11 +8,12 @@
 
     <Spinner
         android:id="@+id/SeleccionUsario"
+
+        android:background="@color/Color4"
         android:layout_width="291dp"
         android:layout_height="28dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="44dp"
-        android:textColor="@color/negro"
         app:layout_constraintBottom_toTopOf="@+id/BTNArmaEstilista"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
