@@ -69,7 +69,5 @@ public class Activity_Terminos extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }

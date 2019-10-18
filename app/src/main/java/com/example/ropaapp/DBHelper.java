@@ -86,7 +86,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_TABLE_PRENDA =
             "CREATE TABLE " + entidadPrenda.TABLE_NAME + " (" +
                     entidadPrenda._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    entidadPrenda.COLUMN_NAME_CATEGORIA + " TEXT," +
+                    entidadPrenda.COLUMN_NAME_CATEGORIA + " INTEGER," +
                     entidadPrenda.COLUMN_NAME_ESTILO + " TEXT," +
                     entidadPrenda.COLUMN_NAME_ESTADO + " INTEGER," +
                     entidadPrenda.COLUMN_NAME_FAVORITO + " INTEGER," +
@@ -116,7 +116,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_TABLE_CONJUNTO =
             "DROP TABLE IF EXISTS " + entidadConjunto.TABLE_NAME;
 
-    //TODO Chapuza
+    //TODO Chapuza para crear datos de inicio
     //Estilista
     private static final String SQL_INSERT_ESTILISTA =
             "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
@@ -124,20 +124,23 @@ public class DBHelper extends SQLiteOpenHelper {
             entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
             entidadUsuario.COLUMN_NAME_PERFIL + ") " +
             "VALUES ('estilista', 'estilista', 'estilista')";
-    //TODO Usuario : ADAN
+    //Usuario: ADAN
     private static final String SQL_INSERT_ADAN =
             "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
                     entidadUsuario._ID + ", " +
                     entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
                     entidadUsuario.COLUMN_NAME_PERFIL + ") " +
                     "VALUES ('adan', 'manzana', 'usuario')";
-    //TODO Usuario : EVA
+    //Usuario: EVA
     private static final String SQL_INSERT_EVA =
             "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
                     entidadUsuario._ID + ", " +
                     entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
                     entidadUsuario.COLUMN_NAME_PERFIL + ") " +
                     "VALUES ('eva', 'manzana', 'usuario')";
+
+    //Prendas:
+
 
 
 
@@ -157,6 +160,19 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_INSERT_ADAN);//TODO Chapuza
         db.execSQL(SQL_INSERT_EVA);//TODO Chapuza
         db.execSQL(SQL_INSERT_ESTILISTA); //TODO Chapuza
+
+        //Insertamos prendas
+        String usuario = "adan";
+        int prenda;
+        int base = 1;
+        for (int i = 1; i <= 40; i++) {
+            if (i > 20){
+                usuario = "eva";
+                base = 2;
+            }
+            prenda = (int)((i/2)/5 + 1);
+            System.out.println(i + " : " + prenda + " : " + usuario);
+        }
     }
 
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){

@@ -1,22 +1,32 @@
 <?xml version="1.0"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="AppTheme"  parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/Color2</item>
+        <item name="colorPrimaryDark">@color/Color2</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/Color3</item>
+        <item name="android:textColor">@color/colorTexto</item>
+        <item name="buttonStyle">@style/ButtonStyle</item>
+        <item name="editTextStyle">@style/MyEditTextStyle</item>
+    </style>
 
-<style parent="Theme.AppCompat.Light.DarkActionBar" name="AppTheme">
-<item name="colorPrimary">@color/colorPrimary</item>
-<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-<item name="colorAccent">@color/colorAccent</item>
-<item name="android:windowBackground">@color/ColordeFondo</item>
-</style>
+    <style name="ButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@color/Color1</item>
+        <item name="android:textColor">@color/colorTexto</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+    </style>
 
-<style parent="TextAppearance.AppCompat" name="Text">
-<item name="android:textStyle">bold|italic</item>
-<item name="android:textColor">@android:color/white</item>
-</style>
+    <style name="MyEditTextStyle" parent="android:style/Widget.EditText">
+        <item name="android:textColor">@color/colorTexto</item>
+        <item name="android:textColorHint">@color/colorTexto</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
-<style parent="TextAppearance.AppCompat" name="Boton">
-<item name="android:background">@color/Color3</item>
-<item name="android:textColor">@color/colorTexto</item>
-<item name="android:textStyle">bold|italic</item>
-</style>
-
+    <style name="ProgressBar" parent="android:style/Widget.ProgressBar">
+        <item name="android:progressBackgroundTint">@color/colorAccent</item>
+    </style>
 </resources>
+
+<!-- No se pueden pasar a los estilos layout_width ni layout_height, tienen que estar en cada layout -->
