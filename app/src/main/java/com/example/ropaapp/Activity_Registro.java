@@ -2,7 +2,6 @@ package com.example.ropaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.DatabaseUtils;
@@ -11,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -21,12 +21,15 @@ public class Activity_Registro extends AppCompatActivity {
     EditText registroContrasenya;
     DBHelper dbHelper;
     SQLiteDatabase db;
+    ProgressBar barraProgreso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-
+        barraProgreso = findViewById(R.id.barraProgresoResgistro);
+        barraProgreso.setMax(100);
+        barraProgreso.setProgress(33);
         registroNombreUsuario = findViewById(R.id.registroNombreUsuario);
         registroContrasenya = findViewById(R.id.registroContrasenya);
         botonRegistrate = findViewById(R.id.botonRegistrate);

@@ -20,6 +20,7 @@
     <string name="FechaCadHint">03/26</string>
     <string name="CodsegHint">586</string>
     <string name="faltanDatos">Introduzca usuario y contraseña</string>
+    <string name="datosIncorrectos">Usuario o contraseña Incorrectos</string>
     <string name="usuarioExiste">El usuario ya existe</string>
     <!--En esta pagina hemos escrito el texto que estara en los TextView  y el de los botones del Linear Layout-->
     <string name="app_titulo">TÉRMINOS Y CONDICIONES DE USO APP VIRTUAL STYLE</string>

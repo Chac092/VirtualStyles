@@ -1,6 +1,9 @@
 package com.example.ropaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,112 +15,81 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
+import android.view.Menu;
+import android.view.MenuItem;
 import com.example.ropaapp.DBHelper.entidadPrenda;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Activity_Seleccion_Prenda extends AppCompatActivity {
+    static ArrayList<String> idfotos = new ArrayList<String>();
     DBHelper dbHelper;
     SQLiteDatabase db;
     Button siguiente;
     Button anterior;
-    String rutaConCarpeta= Environment.getExternalStorageDirectory().toString() + "/saved_images";
-    List<String> item = new ArrayList<String>();
+
+    //String rutaConCarpeta= Environment.getExternalStorageDirectory().toString() + "/saved_images";
+    //List<String> item = new ArrayList<String>();
     Bitmap FTO;
     String IDfoto;
-    ArrayList<String> idfotos = new ArrayList<String>();
+    public static ArrayList<String> getIdfotos() {
+        return idfotos;
+    }
     int Origen=0;
     String fotoAcojer1;
     String fotoAcojer2;
     String fotoAcojer3;
-    
     ImageView ImagenPrincipal;
     ImageView Imagen1;
     ImageView Imagen2;
     ImageView Imagen3;
     String sUsuario;
     int pos = 2;
+    Adaptador adap;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccion_prenda);
-
+        recyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         //DB
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
-
         //Shared preferences
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         sUsuario = datos.getString("sUsuario",null);
-
         //Elementos layout
-        anterior = findViewById(R.id.BTNAnterior);
-        anterior.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BTNAtnerior();
-            }
-        });
-        siguiente = findViewById(R.id.BTNsiguiente);
-        siguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BTNsiguiente();
-            }
-        });
-        ImagenPrincipal = findViewById(R.id.imageView);
-        ImagenPrincipal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Seleccion();
-            }
-        });
-
-        Imagen1 = findViewById(R.id.imageView2);
-        Imagen2 = findViewById(R.id.imageView3);
-        Imagen3 = findViewById(R.id.imageView4);
-
-        Imagen1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Origen=1;
-                principalizarImagenes();
-            }
-        });
-        Imagen2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Origen=2;
-                principalizarImagenes();
-            }
-        });
-        Imagen3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Origen = 3;
-                principalizarImagenes();
-            }
-        });
-
+        //anterior = findViewById(R.id.);
+        //siguiente = findViewById(R.id.);
+        //ImagenPrincipal = findViewById(R.id.imageView);
         //Acciones
-
-        CojerImagenes();
-
-        insertarImagenes();
-
+        //CojerImagenes();
+        //insertarImagenes();
+        //pruebas reclicler view
+        adap = new Adaptador (feedData());
+        adap.setOnItemClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println(recyclerView.getChildAdapterPosition(v));
+            }
+        });
+        recyclerView =findViewById(R.id.RecyclerView);
+        recyclerView.setAdapter(adap);
+        layoutManager = new GridLayoutManager(getApplicationContext(),2);
+        recyclerView.setLayoutManager(layoutManager);
     }
-
     public void CojerImagenes(){
        SQLiteDatabase db = dbHelper.getReadableDatabase();
-
         String[] projection = {entidadPrenda._ID};
         String selection = entidadPrenda.COLUMN_NAME_IDUSUARIO + " = ?";
         String[] selectionArgs = {sUsuario};
@@ -129,11 +101,10 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
             idfotos.add(IDfoto);
             //System.out.println(IDfoto);
         }
-
     }
 
     public void insertarImagenes(){
-        //System.out.println("TAMAÑO ARRAY= " +idfotos.size());
+        //System.out.println("TAMAÑO ARRAY= " + idfotos.size());
         if(idfotos.size()>=3){
             fotoAcojer3= idfotos.get(pos);
             FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer3+".jpg");
@@ -234,4 +205,22 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         intent.putExtra("nombreFoto",Foto);
         startActivity(intent);
     }
+
+    public void ReciclarView(){
+        adap = new Adaptador(feedData());
+        recyclerView =(RecyclerView) findViewById(R.id.RecyclerView);
+        recyclerView.setAdapter(adap);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+    }
+
+    public ArrayList<String> feedData(){
+        ArrayList<String> idFotos = new ArrayList<String>();
+        idFotos.add("primero");
+        idFotos.add("segundo");
+        return idfotos;
+
+
+    }
+
 }
