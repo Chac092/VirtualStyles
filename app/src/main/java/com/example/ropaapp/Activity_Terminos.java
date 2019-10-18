@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 public class Activity_Terminos extends AppCompatActivity {
 
@@ -16,13 +17,15 @@ public class Activity_Terminos extends AppCompatActivity {
     Button botonAceptarTerminos;
     DBHelper dbHelper;
     SQLiteDatabase db;
-
+    ProgressBar barraProgresoTerminos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__terminos);
-
+        barraProgresoTerminos = findViewById(R.id.barraProgresoTerminos);
+        barraProgresoTerminos.setMax(100);
+        barraProgresoTerminos.setProgress(100);
         Intent i = getIntent();
         final String sUsuario = i.getStringExtra("sUsuario");
         final String sContrasenya = i.getStringExtra("sContrasenya");
