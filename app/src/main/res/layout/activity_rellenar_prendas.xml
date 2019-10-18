@@ -30,8 +30,8 @@
         android:id="@+id/imageView15"
         android:layout_width="78dp"
         android:layout_height="73dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
         app:layout_constraintEnd_toStartOf="@+id/imageView20"
         app:srcCompat="@drawable/gorra" />
@@ -41,7 +41,7 @@
         android:layout_width="78dp"
         android:layout_height="73dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
         app:srcCompat="@drawable/camisa" />
@@ -51,7 +51,7 @@
         android:layout_width="78dp"
         android:layout_height="73dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
         app:layout_constraintEnd_toStartOf="@+id/imageView19"
         app:srcCompat="@drawable/pantalon" />
@@ -60,8 +60,8 @@
         android:id="@+id/imageView19"
         android:layout_width="78dp"
         android:layout_height="73dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/zapatos" />

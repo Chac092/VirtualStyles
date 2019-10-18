@@ -9,5 +9,6 @@
     <color name="Color4">#ff6361</color>
     <color name="ColordeFondo">#BC5090</color>
     <color name="colorTexto">#FFFFFF</color>
+    <color name="negro">#000000</color>
 
 </resources>
