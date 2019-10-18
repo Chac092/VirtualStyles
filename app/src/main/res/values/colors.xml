@@ -9,4 +9,5 @@
     <color name="Color4">#ff6361</color>
     <color name="ColordeFondo">#BC5090</color>
     <color name="colorTexto">#FFFFFF</color>
+    <color name="colorTextoRosa">#f67280</color>
 </resources>
