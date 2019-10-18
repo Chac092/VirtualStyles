@@ -11,8 +11,8 @@
         android:layout_width="291dp"
         android:layout_height="281dp"
         android:layout_marginTop="56dp"
-        android:layout_marginEnd="60dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:color/holo_red_dark" />
 
@@ -30,40 +30,47 @@
         android:id="@+id/imageView15"
         android:layout_width="78dp"
         android:layout_height="73dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="28dp"
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
-        app:layout_constraintEnd_toStartOf="@+id/imageView20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FotoPrinc"
+        app:layout_constraintVertical_bias="0.473"
         app:srcCompat="@drawable/gorra" />
 
     <ImageView
         android:id="@+id/imageView20"
         android:layout_width="78dp"
         android:layout_height="73dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="96dp"
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
-        app:layout_constraintEnd_toStartOf="@+id/imageView18"
+        app:layout_constraintStart_toStartOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/FotoPrinc"
         app:srcCompat="@drawable/camisa" />
 
     <ImageView
         android:id="@+id/imageView18"
         android:layout_width="78dp"
         android:layout_height="73dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="92dp"
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
-        app:layout_constraintEnd_toStartOf="@+id/imageView19"
+        app:layout_constraintStart_toStartOf="@+id/imageView20"
+        app:layout_constraintTop_toBottomOf="@+id/FotoPrinc"
         app:srcCompat="@drawable/pantalon" />
 
     <ImageView
         android:id="@+id/imageView19"
         android:layout_width="78dp"
         android:layout_height="73dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="98dp"
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNBorrar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView18"
+        app:layout_constraintTop_toBottomOf="@+id/FotoPrinc"
         app:srcCompat="@drawable/zapatos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
