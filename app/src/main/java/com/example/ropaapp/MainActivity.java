@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase db;
     Button botonEntrar;
     Button botonRegistro;
+    Button botonDescarga;
+
     EditText loginNombreUsuario;
     EditText loginContrasenya;
 
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         loginContrasenya = findViewById(R.id.loginContrasenya);
         botonRegistro = findViewById(R.id.botonRegistro);
         botonEntrar = findViewById(R.id.botonEntrar);
+        botonDescarga = findViewById(R.id.botonDescarga);
+
         botonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,6 +113,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             });
+
+
+        botonDescarga.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                Intent intent = new Intent(v.getContext(), Activity_descargaImagenes.class);
+                startActivity(intent);
+            }
+        });
         }
 }
 
