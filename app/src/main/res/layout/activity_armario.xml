@@ -41,11 +41,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/pantalon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonCamisa"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonCamisa" />
 
     <Button
         android:id="@+id/botonCamisa"
@@ -54,10 +52,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/camisa"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/BTNPendientes"
@@ -67,6 +64,8 @@
         android:layout_marginTop="156dp"
         android:text="@string/BTNconsutarconjunto"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
 
@@ -75,9 +74,11 @@
         android:layout_width="95dp"
         android:layout_height="55dp"
         android:layout_marginStart="136dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="56dp"
         android:text="@string/BTNAñadirfoto"
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonZapatos" />
 
