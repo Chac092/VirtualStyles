@@ -40,6 +40,18 @@
         app:layout_constraintBottom_toTopOf="@+id/botonRegistro"/>
 
     <Button
+        android:id="@+id/botonDescarga"
+        android:text="PB"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/botonRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/loginContrasenya"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Button
         android:id="@+id/botonRegistro"
         android:text="@string/BTNRegistro"
         android:layout_width="95dp"

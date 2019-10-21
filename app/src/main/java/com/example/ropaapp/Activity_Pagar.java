@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 public class Activity_Pagar extends AppCompatActivity {
 
@@ -14,12 +15,15 @@ public class Activity_Pagar extends AppCompatActivity {
     EditText ETnumeroTarjeta;
     EditText ETfechaCaducidad;
     EditText ETcodigoSeguridad;
+    ProgressBar barraProgreso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagar);
-
+        barraProgreso = findViewById(R.id.barraProgesoPagar);
+        barraProgreso.setMax(100);
+        barraProgreso.setProgress(66);
         Intent i = getIntent();
         final String sUsuario = i.getStringExtra("sUsuario");
         final String sContrasenya = i.getStringExtra("sContrasenya");

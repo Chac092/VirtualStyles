@@ -20,7 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Activity_rellenarPrendas"></activity>
+        <activity android:name=".Activity_descargaImagenes"></activity>
+        <activity android:name=".Activity_rellenarPrendas" />
         <activity android:name=".Activity_Terminos" />
         <activity android:name=".Activity_Crearconjunto" />
         <activity android:name=".Activity_MenuySelecciondeclientes" />
@@ -30,6 +31,7 @@
         <activity android:name=".Activity_Menu" />
         <activity android:name=".Activity_Pagar" />
         <activity android:name=".Activity_Registro" />
+        <activity android:name=".Activity_Admin"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -26,9 +27,14 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
     SQLiteDatabase db;
     ImageView Fotoprincipal;
     String Seleccion;
-    Button Aceptar;
     Button Borrar;
     String nombre;
+    String sUsuario;
+    ImageView gorro;
+    ImageView camiseta;
+    ImageView pantalon;
+    ImageView zapatillas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Creation of an instance of SQLiteOpenHelper type Class object (DatabaseOpenHelper)
@@ -37,14 +43,42 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         db = dbHelper.getWritableDatabase();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rellenar_prendas);
-        //Aceptar = findViewById(R.id.BTNAceptar);
-/*        Aceptar.setOnClickListener(new View.OnClickListener() {
+        gorro = findViewById(R.id.BTNasignarGorro);
+        gorro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Seleccion = "1";
                 Upadate();
                 refrescar();
             }
-        });*/
+        });
+        camiseta = findViewById(R.id.BTNasignarCamiseta);
+        camiseta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seleccion = "2";
+                Upadate();
+                refrescar();
+            }
+        });
+        pantalon = findViewById(R.id.BTNasignarPantalon);
+        pantalon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seleccion = "3";
+                Upadate();
+                refrescar();
+            }
+        });
+        zapatillas = findViewById(R.id.BTNasignarZapatillas);
+        zapatillas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seleccion = "4";
+                Upadate();
+                refrescar();
+            }
+        });
         Borrar = findViewById(R.id.BTNBorrar);
         Borrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,31 +88,24 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
             }
         });
         Fotoprincipal = findViewById(R.id.FotoPrinc);
-        //opciones = findViewById(R.id.listaCat);
         ArrayAdapter adaptador = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, elecciones);
-//        opciones.setAdapter(adaptador);
+        final String MY_PREFS_NAME = "File";
+        SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         Intent intent = getIntent();
-        usuario = intent.getStringExtra("Id_usu");
-/*        opciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Seleccion  = opciones.getSelectedItem().toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });*/
-         refrescar();
+        sUsuario = intent.getStringExtra("NombreUsuario");
+        System.out.println(sUsuario);
+        refrescar();
     }
 
     public void refrescar(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {DBHelper.entidadPrenda._ID};
         String selection = DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO+"= ?"+" AND "+DBHelper.entidadPrenda.COLUMN_NAME_ESTADO+"= ?";
-        String[] selectionArgs = {usuario, String.valueOf(0)};
+        String[] selectionArgs = {sUsuario, "0"};
         String sortOrder = DBHelper.entidadPrenda._ID+" DESC";
         Cursor cursor = db.query(DBHelper.entidadPrenda.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
+        System.out.println(cursor.getCount());
         while(cursor.moveToNext()){
             nombre = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadPrenda._ID));
             System.out.println(nombre);

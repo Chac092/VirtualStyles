@@ -10,39 +10,38 @@
         android:id="@+id/SeleccionUsario"
         android:layout_width="291dp"
         android:layout_height="28dp"
-        android:background="@color/Color4"
-        android:popupBackground="@color/Color4"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintBottom_toTopOf="@+id/BTNArmaEstilista"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/BTNArmaEstilista"
         android:layout_width="246dp"
         android:layout_height="183dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/armario"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintBottom_toTopOf="@+id/botonEliminarEstilista"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SeleccionUsario"/>
+        app:layout_constraintTop_toBottomOf="@+id/SeleccionUsario" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/botonEliminarEstilista"
         android:layout_width="242dp"
         android:layout_height="198dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="96dp"
         android:background="@drawable/conjunto"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BTNArmaEstilista"/>
+        app:layout_constraintTop_toBottomOf="@+id/BTNArmaEstilista" />
 </androidx.constraintlayout.widget.ConstraintLayout>
