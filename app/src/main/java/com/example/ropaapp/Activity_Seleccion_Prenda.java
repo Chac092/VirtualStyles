@@ -150,14 +150,14 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
             FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer1+".jpg");
             Imagen1.setImageBitmap(FTO);
         }else{
-            Imagen1.setBackgroundColor(getResources().getColor(R.color.ColordeFondo));
+            Imagen1.setBackgroundColor(getResources().getColor(R.color.Color3));
         }
         if(idfotos.size()-1>=pos-1){
             fotoAcojer2= idfotos.get(pos-1);
             FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer2+".jpg");
             Imagen2.setImageBitmap(FTO);
         }else{
-            Imagen2.setBackgroundColor(getResources().getColor(R.color.ColordeFondo));
+            Imagen2.setBackgroundColor(getResources().getColor(R.color.Color3));
             System.out.println("entro");
         }
         if (idfotos.size()-1>=pos-2){

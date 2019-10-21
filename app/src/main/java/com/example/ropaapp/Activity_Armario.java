@@ -49,7 +49,9 @@ public class Activity_Armario extends AppCompatActivity {
         //Cojeremos el id del usuario logueado
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        sUsuario = datos.getString("sUsuario",null);
+        Intent intent = getIntent();
+        sUsuario =datos.getString("sUsuario",null);
+        System.out.println(sUsuario);
         sPerfil = datos.getString("sPerfil",null);
         //System.out.println("Nombre = "+ sUsuario);
         
@@ -71,8 +73,9 @@ public class Activity_Armario extends AppCompatActivity {
         consultarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(v.getContext(), Activity_rellenarPrendas.class);
-                intent.putExtra("Id_usu", "Paco");
+                intent.putExtra("NombreUsuario", sUsuario);
                 startActivityForResult(intent, 0);
             }
         });
@@ -85,7 +88,9 @@ public class Activity_Armario extends AppCompatActivity {
         });
         if (sPerfil.equals("estilista")) {
             subirFoto.setVisibility(View.INVISIBLE);
+            sUsuario = intent.getStringExtra("NombreUsuario");
         }
+
     }
 
     //Este metodo lo usaremos para sacar la foto
@@ -129,8 +134,9 @@ public class Activity_Armario extends AppCompatActivity {
 
     private void saveImage(Bitmap finalBitmap) {
         ContentValues values = new ContentValues();
-        values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO, false);
-        values.put(DBHelper.entidadPrenda.COLUMN_NAME_FAVORITO,0);
+        values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO, "0");
+        values.put(DBHelper.entidadPrenda.COLUMN_NAME_FAVORITO,"0");
+        System.out.println(sUsuario);
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO,sUsuario);
         long newRowId = db.insert(DBHelper.entidadPrenda.TABLE_NAME, null, values);
         String IDfoto = String.valueOf(newRowId);
