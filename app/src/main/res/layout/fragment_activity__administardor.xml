@@ -71,8 +71,8 @@
 
         <EditText
             android:id="@+id/ETnombreEstilista"
-            android:layout_width="145dp"
-            android:layout_height="45dp"
+            android:layout_width="100dp"
+            android:layout_height="47dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="128dp"
             android:ems="10"
@@ -106,8 +106,8 @@
 
         <Button
             android:id="@+id/botonGuardarEstilista"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="92dp"
+            android:layout_height="51dp"
             android:layout_marginStart="55dp"
             android:layout_marginTop="161dp"
             android:text="Guardar"
@@ -116,8 +116,8 @@
 
         <Button
             android:id="@+id/botonEliminarEstilista"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="173dp"
+            android:layout_height="50dp"
             android:layout_marginStart="69dp"
             android:layout_marginTop="152dp"
             android:text="Eliminar Administrador"
