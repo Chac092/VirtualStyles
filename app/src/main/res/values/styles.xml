@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <style name="AppTheme"  parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/Color2</item>
         <item name="colorPrimaryDark">@color/Color2</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -27,6 +28,15 @@
     <style name="ProgressBar" parent="android:style/Widget.ProgressBar">
         <item name="android:progressBackgroundTint">@color/colorAccent</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
 
-<!-- No se pueden pasar a los estilos layout_width ni layout_height, tienen que estar en cada layout -->
+    <!-- No se pueden pasar a los estilos layout_width ni layout_height, tienen que estar en cada layout -->

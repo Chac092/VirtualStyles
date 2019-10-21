@@ -1,13 +1,23 @@
 package com.example.ropaapp;
 
 import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -18,18 +28,19 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     private LayoutInflater inflador; //crea layout a partir de xml
     protected ArrayList<String> lista;//libros a visualizar
     private Context contexto;
-    public int contador=0;
+    public int contador = 0;
 
-    public Adaptador (ArrayList<String> idFotos){
-        this.lista= idFotos;
+    public Adaptador(ArrayList<String> idFotos) {
+        this.lista = idFotos;
         this.contexto = contexto;
     }
+
     //creamos nuestro ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView portada;
 
-        public ViewHolder (View itemView){
-            super (itemView);
+        public ViewHolder(View itemView) {
+            super(itemView);
             portada = itemView.findViewById(R.id.Imagerecicle);
 
         }
@@ -37,7 +48,7 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     //creamos el viewholder con la vista de un elemento sin personalizar
 
     @Override
-    public ViewHolder onCreateViewHolder (@NonNull final ViewGroup parent, final int viewType){
+    public ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         //inflamos vista desde XML
         View v = LayoutInflater.from(parent.getContext()).inflate(layout.elementoselecto, parent, false);
         v.setId(contador);
@@ -95,15 +106,25 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
         fotos.add(drawable.gorra);
         holder.portada.setImageResource(fotos.get(position));
     }
-    @Override public int getItemCount(){
+
+    @Override
+    public int getItemCount() {
         //return Activity_Seleccion_Prenda.getIdfotos().size();
         return 40;
     }
-    public void setOnItemClickListener(View.OnClickListener onClickListener){
+
+    public void setOnItemClickListener(View.OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
     }
-    public void ponerfoto (String foto){
+
+    public void ponerfoto(String foto) {
         ImageView raton;
 
     }
 }
+
+
+
+
+
+

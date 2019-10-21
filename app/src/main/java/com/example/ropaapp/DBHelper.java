@@ -24,6 +24,11 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String COLUMN_NAME_PERFIL = "Perfil";
         public static final String COLUMN_NAME_CONTRASENYA = "Contraseña";
     }
+    public static class entidadPrecio implements BaseColumns {
+        public static final String TABLE_NAME = "precio";
+        public static final String COLUMN_NAME_IDUSUARIO = "idUsuario";
+        public static final String COLUMN_NAME_PRECIO = "precio";
+    }
 
     public static class entidadTarjeta implements BaseColumns {
         public static final String TABLE_NAME = "tarjeta";
@@ -60,6 +65,15 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadUsuario.COLUMN_NAME_PERFIL + " TEXT)";
 
     private static final String SQL_DELETE_TABLE_USUARIO =
+            "DROP TABLE IF EXISTS " + entidadUsuario.TABLE_NAME;
+
+    private static final String SQL_CREATE_TABLE_PRECIO =
+            "CREATE TABLE " + entidadPrecio.TABLE_NAME + " (" +
+                    entidadPrecio._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    entidadPrecio.COLUMN_NAME_IDUSUARIO + " TEXT," +
+                    entidadPrecio.COLUMN_NAME_PRECIO+ " INTEGER)";
+
+    private static final String SQL_DELETE_TABLE_PRECIO =
             "DROP TABLE IF EXISTS " + entidadUsuario.TABLE_NAME;
 
     private static final String SQL_CREATE_TABLE_FACTURAS =
@@ -138,6 +152,25 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
                     entidadUsuario.COLUMN_NAME_PERFIL + ") " +
                     "VALUES ('eva', 'manzana', 'usuario')";
+    //Admin: Admin
+    private static final String SQL_INSERT_ADMIN =
+            "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
+                    entidadUsuario._ID + ", " +
+                    entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
+                    entidadUsuario.COLUMN_NAME_PERFIL + ") " +
+                    "VALUES ('admin', 'admin', 'admin')";
+    //usuario : 5
+    private static final String SQL_INSERT_PRECIOUSU =
+            "INSERT INTO " + entidadPrecio.TABLE_NAME + " (" +
+                    entidadPrecio.COLUMN_NAME_IDUSUARIO + ", " +
+                    entidadPrecio.COLUMN_NAME_PRECIO + ") " +
+                    "VALUES ('usuario', '5')";
+    //estilista: 1
+    private static final String SQL_INSERT_PRECIOESTILISTA =
+            "INSERT INTO " + entidadPrecio.TABLE_NAME + " (" +
+                    entidadPrecio.COLUMN_NAME_IDUSUARIO + ", " +
+                    entidadPrecio.COLUMN_NAME_PRECIO + ") " +
+                    "VALUES ('estilista', '1')";
 
     //Prendas:
 
@@ -157,9 +190,14 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TABLE_PRENDA);
         db.execSQL(SQL_CREATE_TABLE_CONJUNTO);
         db.execSQL(SQL_CREATE_TABLE_FACTURAS);
+        db.execSQL(SQL_CREATE_TABLE_PRECIO);
+        db.execSQL(SQL_INSERT_PRECIOUSU);//TODO Chapuza
+        db.execSQL(SQL_INSERT_PRECIOESTILISTA);//TODO Chapuza
         db.execSQL(SQL_INSERT_ADAN);//TODO Chapuza
         db.execSQL(SQL_INSERT_EVA);//TODO Chapuza
         db.execSQL(SQL_INSERT_ESTILISTA); //TODO Chapuza
+        db.execSQL(SQL_INSERT_ADMIN); //TODO Chapuza
+
 
         //Insertamos prendas
         String usuario = "adan";
@@ -181,6 +219,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_TABLE_TARJETA);
         db.execSQL(SQL_DELETE_TABLE_USUARIO);
         db.execSQL(SQL_DELETE_TABLE_FACTURAS);
+        db.execSQL(SQL_DELETE_TABLE_PRECIO);
         onCreate(db);
     }
 
