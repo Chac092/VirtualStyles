@@ -56,6 +56,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registroContrasenya" />
+        app:layout_constraintTop_toBottomOf="@+id/registroContrasenya"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
