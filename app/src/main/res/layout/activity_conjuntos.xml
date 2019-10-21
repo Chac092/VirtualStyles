@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/imageView6"
@@ -30,8 +30,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NomConju"
-        app:layout_constraintVertical_chainStyle="spread"
-        app:srcCompat="@android:color/holo_green_light" />
+        app:srcCompat="@android:color/holo_green_light"/>
 
     <ImageView
         android:id="@+id/imageView5"
@@ -45,7 +44,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@android:color/holo_red_light" />
+        app:srcCompat="@android:color/holo_red_light"/>
 
     <ImageView
         android:id="@+id/imageView7"
@@ -73,8 +72,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_chainStyle="spread"
-        app:srcCompat="?attr/colorControlActivated" />
+        app:srcCompat="?attr/colorControlActivated"
+        />
 
     <Button
         android:id="@+id/BTNsig"
