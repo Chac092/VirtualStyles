@@ -108,8 +108,8 @@
             android:id="@+id/botonGuardarEstilista"
             android:layout_width="92dp"
             android:layout_height="51dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="161dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="112dp"
             android:text="Guardar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/texto_cobro3" />
@@ -118,8 +118,8 @@
             android:id="@+id/botonEliminarEstilista"
             android:layout_width="173dp"
             android:layout_height="50dp"
-            android:layout_marginStart="69dp"
-            android:layout_marginTop="152dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="104dp"
             android:text="Eliminar estilista"
             app:layout_constraintStart_toEndOf="@+id/botonGuardarEstilista"
             app:layout_constraintTop_toBottomOf="@+id/ETcontraseñaEstilista" />
