@@ -11,19 +11,18 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/texto_cobro3"
+            android:id="@+id/ETsalarioUsusario3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="108dp"
             android:text="Contraseña"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/texto_cobro2" />
+            app:layout_constraintTop_toBottomOf="@+id/ETsalarioUsusario2" />
 
         <EditText
-            android:id="@+id/ETcontraseñaEstilista"
+            android:id="@+id/ETcontraseñaUsuario"
             android:layout_width="207dp"
             android:layout_height="44dp"
             android:layout_marginStart="28dp"
@@ -31,8 +30,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
-            app:layout_constraintStart_toEndOf="@+id/texto_cobro3"
-            app:layout_constraintTop_toBottomOf="@+id/ETnombreEstilista" />
+            app:layout_constraintStart_toEndOf="@+id/ETsalarioUsusario3"
+            app:layout_constraintTop_toBottomOf="@+id/ETnombreUsuario" />
 
         <Spinner
             android:id="@+id/spinner"
@@ -46,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/Texto_cobro"
+            android:id="@+id/ETsalarioUsusario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -58,19 +57,19 @@
             app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
         <TextView
-            android:id="@+id/texto_cobro2"
+            android:id="@+id/ETsalarioUsusario2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="80dp"
             android:text="Nombre del usuario"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Texto_cobro" />
+            app:layout_constraintTop_toBottomOf="@+id/ETsalarioUsusario" />
 
         <EditText
-            android:id="@+id/ETnombreEstilista"
+            android:id="@+id/ETnombreUsuario"
             android:layout_width="145dp"
             android:layout_height="45dp"
             android:layout_marginStart="20dp"
@@ -78,51 +77,51 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
-            app:layout_constraintStart_toEndOf="@+id/texto_cobro2"
-            app:layout_constraintTop_toBottomOf="@+id/ETsalarioEstilista" />
+            app:layout_constraintStart_toEndOf="@+id/ETsalarioUsusario2"
+            app:layout_constraintTop_toBottomOf="@+id/ETsalarioUsusario" />
 
         <EditText
-            android:id="@+id/ETsalarioEstilista"
+            android:id="@+id/ETsalarioUsuario"
             android:layout_width="70dp"
             android:layout_height="43dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="44dp"
             android:ems="10"
             android:inputType="number"
-            app:layout_constraintStart_toEndOf="@+id/Texto_cobro"
+            app:layout_constraintStart_toEndOf="@+id/ETsalarioUsusario"
             app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
         <TextView
-            android:id="@+id/texto_cobro"
+            android:id="@+id/TVeuros"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="53dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="60dp"
             android:text="€"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/ETsalarioEstilista"
+            app:layout_constraintStart_toEndOf="@+id/ETsalarioUsuario"
             app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
         <Button
-            android:id="@+id/botonGuardarEstilista"
-            android:layout_width="92dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="112dp"
-            android:text="Guardar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/texto_cobro3" />
-
-        <Button
-            android:id="@+id/botonEliminarEstilista"
+            android:id="@+id/botonEliminarUsuario"
             android:layout_width="173dp"
             android:layout_height="50dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="104dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="128dp"
             android:text="Eliminar usuario"
-            app:layout_constraintStart_toEndOf="@+id/botonGuardarEstilista"
-            app:layout_constraintTop_toBottomOf="@+id/ETcontraseñaEstilista" />
+            app:layout_constraintStart_toEndOf="@+id/botonGuardarUsuario"
+            app:layout_constraintTop_toBottomOf="@+id/ETcontraseñaUsuario" />
+
+        <Button
+            android:id="@+id/botonGuardarUsuario"
+            android:layout_width="92dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="132dp"
+            android:text="Guardar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ETsalarioUsusario3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
