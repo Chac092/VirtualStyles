@@ -108,7 +108,7 @@ public class Fragment_Estilista extends Fragment {
 
             }
         });
-        aceptar = getView().findViewById(R.id.botonGuardarEstilita);
+        aceptar = getView().findViewById(R.id.botonGuardarEstilista);
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -124,6 +124,7 @@ public class Activity_Armario extends AppCompatActivity {
             Log.i("Mensaje", "Tienes permiso para usar la camara.");
         }
     }
+
     public void saveTempBitmap(Bitmap bitmap) {
         if (isExternalStorageWritable()) {
             saveImage(bitmap);
