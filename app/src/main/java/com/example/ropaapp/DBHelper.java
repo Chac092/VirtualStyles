@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "XopAppDB.db";
+    public static final String DATABASE_NAME = "VirtualStyle.db";
 
     //Aqui crearemos las ordenes para mas adelante crear la tabla Facturas
     public static class entidadFactura implements BaseColumns{
