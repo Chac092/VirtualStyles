@@ -16,11 +16,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name="com.example.ropaapp.GlobalApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".Activity_descargaImagenes"></activity>
         <activity android:name=".Activity_rellenarPrendas" />
         <activity android:name=".Activity_Terminos" />
         <activity android:name=".Activity_Crearconjunto" />

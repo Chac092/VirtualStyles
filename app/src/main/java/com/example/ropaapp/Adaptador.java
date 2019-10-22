@@ -1,27 +1,18 @@
 package com.example.ropaapp;
 
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-import static com.example.ropaapp.R.*;
+import static com.example.ropaapp.R.drawable;
+import static com.example.ropaapp.R.layout;
 
 public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     private View.OnClickListener onClickListener;
@@ -70,19 +61,11 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
         fotos.add(drawable.zapatos);
         fotos.add(drawable.logo);
         fotos.add(drawable.conjunto);
-        fotos.add(drawable.fav1);
-        fotos.add(drawable.camisa1);
         fotos.add(drawable.armario);
-        fotos.add(drawable.pantalon1);
-        fotos.add(drawable.conjunto1);
         fotos.add(drawable.fav);
-        fotos.add(drawable.gorra1);
         fotos.add(drawable.gorra);
         fotos.add(drawable.armario);
-        fotos.add(drawable.pantalon1);
-        fotos.add(drawable.conjunto1);
         fotos.add(drawable.fav);
-        fotos.add(drawable.gorra1);
         fotos.add(drawable.gorra);
         fotos.add(drawable.camisa);
         fotos.add(drawable.armario);
@@ -90,19 +73,11 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
         fotos.add(drawable.zapatos);
         fotos.add(drawable.logo);
         fotos.add(drawable.conjunto);
-        fotos.add(drawable.fav1);
-        fotos.add(drawable.camisa1);
         fotos.add(drawable.armario);
-        fotos.add(drawable.pantalon1);
-        fotos.add(drawable.conjunto1);
         fotos.add(drawable.fav);
-        fotos.add(drawable.gorra1);
         fotos.add(drawable.gorra);
         fotos.add(drawable.armario);
-        fotos.add(drawable.pantalon1);
-        fotos.add(drawable.conjunto1);
         fotos.add(drawable.fav);
-        fotos.add(drawable.gorra1);
         fotos.add(drawable.gorra);
         holder.portada.setImageResource(fotos.get(position));
     }
