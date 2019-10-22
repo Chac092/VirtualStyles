@@ -169,6 +169,13 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadPrecio.COLUMN_NAME_IDUSUARIO + ", " +
                     entidadPrecio.COLUMN_NAME_PRECIO + ") " +
                     "VALUES ('estilista', '1')";
+    //estilista: 1
+    private static final String SQL_INSERT_PRECIOADMIN =
+            "INSERT INTO " + entidadPrecio.TABLE_NAME + " (" +
+                    entidadPrecio.COLUMN_NAME_IDUSUARIO + ", " +
+                    entidadPrecio.COLUMN_NAME_PRECIO + ") " +
+                    "VALUES ('admin', '8')";
+
 
 
 
@@ -193,7 +200,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_INSERT_PRECIOESTILISTA);//TODO Chapuza
         db.execSQL(SQL_INSERT_ADAN);//TODO Chapuza
         db.execSQL(SQL_INSERT_EVA);//TODO Chapuza
-        db.execSQL(SQL_INSERT_ESTILISTA); //TODO Chapuza
+        db.execSQL(SQL_INSERT_ESTILISTA);//TODO Chapuza
+        db.execSQL(SQL_INSERT_PRECIOADMIN);//TODO Chapuza
         db.execSQL(SQL_INSERT_ADMIN); //TODO Chapuza
 
 

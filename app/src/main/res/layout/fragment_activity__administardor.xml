@@ -23,7 +23,7 @@
             app:layout_constraintTop_toBottomOf="@+id/texto_cobro2" />
 
         <EditText
-            android:id="@+id/ETcontraseñaEstilista"
+            android:id="@+id/ETcontraseñaAdmin"
             android:layout_width="207dp"
             android:layout_height="44dp"
             android:layout_marginStart="43dp"
@@ -32,7 +32,7 @@
             android:inputType="textPersonName"
             android:text="Name"
             app:layout_constraintStart_toEndOf="@+id/texto_cobro3"
-            app:layout_constraintTop_toBottomOf="@+id/ETnombreEstilista" />
+            app:layout_constraintTop_toBottomOf="@+id/ETnombreAdmin" />
 
         <Spinner
             android:id="@+id/spinner"
@@ -68,7 +68,7 @@
             app:layout_constraintTop_toBottomOf="@+id/Texto_cobro" />
 
         <EditText
-            android:id="@+id/ETnombreEstilista"
+            android:id="@+id/ETnombreAdmin"
             android:layout_width="145dp"
             android:layout_height="45dp"
             android:layout_marginStart="16dp"
@@ -77,10 +77,10 @@
             android:inputType="textPersonName"
             android:text="Name"
             app:layout_constraintStart_toEndOf="@+id/texto_cobro2"
-            app:layout_constraintTop_toBottomOf="@+id/ETsalarioEstilista" />
+            app:layout_constraintTop_toBottomOf="@+id/ETsalarioAdmin" />
 
         <EditText
-            android:id="@+id/ETsalarioEstilista"
+            android:id="@+id/ETsalarioAdmin"
             android:layout_width="70dp"
             android:layout_height="43dp"
             android:layout_marginStart="10dp"
@@ -99,11 +99,11 @@
             android:text="€"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/ETsalarioEstilista"
+            app:layout_constraintStart_toEndOf="@+id/ETsalarioAdmin"
             app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
         <Button
-            android:id="@+id/botonGuardarEstilista"
+            android:id="@+id/botonGuardarAdmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
@@ -113,14 +113,14 @@
             app:layout_constraintTop_toBottomOf="@+id/texto_cobro3" />
 
         <Button
-            android:id="@+id/botonEliminarEstilista"
+            android:id="@+id/botonEliminaradmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="69dp"
+            android:layout_marginStart="102dp"
             android:layout_marginTop="152dp"
             android:text="Eliminar Administrador"
-            app:layout_constraintStart_toEndOf="@+id/botonGuardarEstilista"
-            app:layout_constraintTop_toBottomOf="@+id/ETcontraseñaEstilista" />
+            app:layout_constraintStart_toEndOf="@+id/botonGuardarAdmin"
+            app:layout_constraintTop_toBottomOf="@+id/ETcontraseñaAdmin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -103,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
         <Button
-            android:id="@+id/botonGuardarEstilista"
+            android:id="@+id/botonGuardarEstilita"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
@@ -113,13 +113,13 @@
             app:layout_constraintTop_toBottomOf="@+id/texto_cobro3" />
 
         <Button
-            android:id="@+id/botonEliminarEstilista"
+            android:id="@+id/botonEliminarestilista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="69dp"
             android:layout_marginTop="152dp"
             android:text="Eliminar estilista"
-            app:layout_constraintStart_toEndOf="@+id/botonGuardarEstilista"
+            app:layout_constraintStart_toEndOf="@+id/botonGuardarEstilita"
             app:layout_constraintTop_toBottomOf="@+id/ETcontraseñaEstilista" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
