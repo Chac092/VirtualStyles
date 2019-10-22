@@ -1,11 +1,10 @@
 package com.example.ropaapp;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
+import android.content.res.Resources;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,14 +16,15 @@ import java.io.OutputStream;
 
 public class prendasEjemplo extends AppCompatActivity {
 
-
     public void copiaImagen(int i) throws IOException {
         String root = Environment.getExternalStorageDirectory().toString();
         File myDir = new File(root + "/saved_images");
         myDir.mkdirs();
         // the file to be moved or copied
         String fileName = "p"+ i;
-        InputStream in = App.context().getResources().openRawResource(getResources().getIdentifier(fileName,"raw", getPackageName()));
+        Context context = GlobalApplication.getAppContext();
+        System.out.println(context);
+        InputStream in = context.getResources().openRawResource(context.getResources().getIdentifier(fileName,"raw", context.getPackageName()));
         File targetLocation = new File(root + "/saved_images/" + i + ".jpg");
         OutputStream out = new FileOutputStream(targetLocation);
         // Copy the bits from instream to outstream
