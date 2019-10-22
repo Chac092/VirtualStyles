@@ -1,13 +1,15 @@
 package com.example.ropaapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import java.io.IOException;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 4;
-    public static final String DATABASE_NAME = "XopAppDB.db";
+    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "VirtualStyle.db";
 
     //Aqui crearemos las ordenes para mas adelante crear la tabla Facturas
     public static class entidadFactura implements BaseColumns{
@@ -170,12 +172,6 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadPrecio.COLUMN_NAME_PRECIO + ") " +
                     "VALUES ('estilista', '1')";
 
-
-
-
-
-
-
     //Constructor
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -195,9 +191,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_INSERT_EVA);//TODO Chapuza
         db.execSQL(SQL_INSERT_ESTILISTA); //TODO Chapuza
         db.execSQL(SQL_INSERT_ADMIN); //TODO Chapuza
-
-
-
+        creaPrendas(db);
     }
 
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){
@@ -213,6 +207,42 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onDowngrade (SQLiteDatabase db,int oldVersion, int newVersion){
         onUpgrade(db, oldVersion, newVersion);
     }
+
+    public void creaPrendas(SQLiteDatabase db) {
+        //System.out.println("VAMOOOOOOOOOOOO");
+        // Tenemos 20 prendas, primero las de adan en orden cabeza, pecho, piernas, pies y luego las de eva en el mismo orden
+        String sUsuario = "adan";
+        int categoria;
+        boolean estado = true;
+        boolean favorito = false;
+        for (int i = 1; i <= 40; i++) {
+            try {
+                prendasEjemplo pe = new prendasEjemplo();
+                pe.copiaImagen(i);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (i > 20){sUsuario = "eva";}
+            //Calculamos la categoria de la prenda (1 cabeza, 2 pecho, 3 piernas, 4 pies)
+            categoria = 1+ ((i-1)/5);
+            if (categoria > 4) {categoria -= 4;}
+            //dejamos una de cada 5 prendas sin clasificar
+            if (i%5 == 0) {estado = false;} else {estado = true;}
+            //System.out.println(i + " : " + categoria + " : " + sUsuario + " : " + estado);
+
+            //Insertar los datos en la BD
+            ContentValues values = new ContentValues();
+            values.put(DBHelper.entidadPrenda._ID, i);
+            values.put(DBHelper.entidadPrenda.COLUMN_NAME_CATEGORIA,categoria);
+            values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO, estado);
+            values.put(DBHelper.entidadPrenda.COLUMN_NAME_FAVORITO, false);
+            values.put(DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO,sUsuario);
+            long newRowId = db.insert(DBHelper.entidadPrenda.TABLE_NAME, null, values);
+        }
+    }
+
+
+
 }
 
 
