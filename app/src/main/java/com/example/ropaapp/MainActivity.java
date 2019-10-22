@@ -92,6 +92,14 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(v.getContext(), Activity_Menu.class);
                             startActivity(intent);
                         }
+                        if (sPerfil.equals("admin")) {
+                            Intent intent = new Intent(v.getContext(), Activity_Admin.class);
+                            startActivity(intent);
+                        }
+                    }else{
+                        CharSequence text = getString(R.string.datosIncorrectos);
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                     cursor.close();
                 }

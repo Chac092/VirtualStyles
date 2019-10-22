@@ -10,7 +10,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -30,6 +30,7 @@
         <activity android:name=".Activity_Menu" />
         <activity android:name=".Activity_Pagar" />
         <activity android:name=".Activity_Registro" />
+        <activity android:name=".Activity_Admin"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

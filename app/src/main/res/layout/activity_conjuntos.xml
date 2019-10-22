@@ -4,94 +4,111 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ColordeFondo"
     tools:context=".Activity_Conjuntos">
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="193dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/Mensajededescripcion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@android:color/holo_red_light" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="192dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="56dp"
-        android:contentDescription="@string/Mensajededescripcion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:color/holo_green_light" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="189dp"
-        android:layout_height="210dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="56dp"
-        android:contentDescription="@string/Mensajededescripcion"
-        app:layout_constraintBottom_toTopOf="@+id/imageView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:color/holo_blue_dark" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="183dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="68dp"
-        android:contentDescription="@string/Mensajededescripcion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="?attr/colorControlActivated" />
 
     <TextView
         android:id="@+id/NomConju"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="72dp"
         android:text="@string/NombreConjunto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="192dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/Mensajededescripcion"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NomConju"
+        app:srcCompat="@android:color/holo_green_light"/>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="193dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/Mensajededescripcion"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:srcCompat="@android:color/holo_red_light"/>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="190dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="212dp"
+        android:contentDescription="@string/Mensajededescripcion"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@android:color/holo_blue_dark"/>
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="197dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/Mensajededescripcion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:srcCompat="?attr/colorControlActivated"/>
 
     <Button
         android:id="@+id/BTNsig"
-        android:layout_width="50dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="352dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/Color1"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="336dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/FlechaDerecha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="46dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="355dp"
-        android:background="@color/Color1"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="336dp"
         android:text="@string/FlechaIzquierda"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/BTNañadirStilo"
-
-        android:layout_width="64dp"
-        android:layout_height="51dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="19dp"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="180dp"
         android:text="@string/BTNAñadirfoto"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BTNsig"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

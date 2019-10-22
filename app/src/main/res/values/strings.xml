@@ -20,6 +20,7 @@
     <string name="FechaCadHint">03/26</string>
     <string name="CodsegHint">586</string>
     <string name="faltanDatos">Introduzca usuario y contraseña</string>
+    <string name="datosIncorrectos">Usuario o contraseña Incorrectos</string>
     <string name="usuarioExiste">El usuario ya existe</string>
     <!--En esta pagina hemos escrito el texto que estara en los TextView  y el de los botones del Linear Layout-->
     <string name="app_titulo">TÉRMINOS Y CONDICIONES DE USO APP VIRTUAL STYLE</string>
@@ -54,6 +55,25 @@ Podemos, en cualquier momento, limitar o interrumpir tu uso a nuestra única dis
 
     <string name="acepto">Acepto</string>
     <string name="cancelo">Cancelar</string>
+    <string name="title_activity__administrador">Activity_Administrador</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="usuario">usuario</string>
+    <string name="estilista">estilista</string>
+    <string name="admin">admin</string>
+    <string name="title_activity__administardor">Activity_Administardor</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 
 </resources>
