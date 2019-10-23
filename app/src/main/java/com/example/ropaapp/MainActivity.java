@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         loginNombreUsuario = findViewById(R.id.loginNombreUsuario);
         loginContrasenya = findViewById(R.id.loginContrasenya);
+        loginNombreUsuario.setText("");
+        loginContrasenya.setText("");
         botonRegistro = findViewById(R.id.botonRegistro);
         botonEntrar = findViewById(R.id.botonEntrar);
 
