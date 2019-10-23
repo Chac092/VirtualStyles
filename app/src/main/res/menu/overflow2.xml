@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <item
         android:id="@+id/menuItemnomina"
-        android:title="Descargar nomina" />
+        android:title="Descargar nomina"
+        android:background="@color/Color2"
+        android:popupBackground="@color/Color2"
+        />
     <item
         android:id="@+id/menuItem2"
-        android:title="Cerrar Sesion" />
+        android:title="Cerrar Sesion"
+        android:background="@color/Color2"
+        android:popupBackground="@color/Color2"/>
 </menu>
