@@ -115,7 +115,7 @@ public class Fragment_Estilista extends Fragment {
                 guardar();
             }
         });
-        borrar = getView().findViewById(R.id.botonEliminarestilista);
+        borrar = getView().findViewById(R.id.botonEliminarEstilista);
         borrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

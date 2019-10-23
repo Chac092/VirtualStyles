@@ -85,7 +85,7 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     @Override
     public int getItemCount() {
         //return Activity_Seleccion_Prenda.getIdfotos().size();
-        return 40;
+        return 20;
     }
 
     public void setOnItemClickListener(View.OnClickListener onClickListener) {

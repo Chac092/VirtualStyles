@@ -15,6 +15,9 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -166,4 +169,24 @@ public class Activity_Armario extends AppCompatActivity {
         return false;
     }
 
+    public boolean onCreateOptionsMenu(Menu menu)  {
+        if (sPerfil.equals("estilista")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflow2, menu);
+        }else if(sPerfil.equals("usuario")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflow, menu);
+        }
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.menuItemnomina){
+
+        }else if (id == R.id.menuItem2){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
