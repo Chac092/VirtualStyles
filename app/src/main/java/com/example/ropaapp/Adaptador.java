@@ -1,6 +1,8 @@
 package com.example.ropaapp;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,41 +53,16 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        //String numprenda = Activity_Seleccion_Prenda.getIdfotos().get(position);
-        //Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+numprenda+".jpg");
+        String numprenda = Activity_Seleccion_Prenda.getIdfotos().get(position);
+        Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+numprenda+".jpg");
         System.out.println("dentro de onbindholder");
-        ArrayList<Integer> fotos = new ArrayList<>();
-        fotos.add(drawable.camisa);
-        fotos.add(drawable.armario);
-        fotos.add(drawable.pantalon);
-        fotos.add(drawable.zapatos);
-        fotos.add(drawable.logo);
-        fotos.add(drawable.conjunto);
-        fotos.add(drawable.armario);
-        fotos.add(drawable.fav);
-        fotos.add(drawable.gorra);
-        fotos.add(drawable.armario);
-        fotos.add(drawable.fav);
-        fotos.add(drawable.gorra);
-        fotos.add(drawable.camisa);
-        fotos.add(drawable.armario);
-        fotos.add(drawable.pantalon);
-        fotos.add(drawable.zapatos);
-        fotos.add(drawable.logo);
-        fotos.add(drawable.conjunto);
-        fotos.add(drawable.armario);
-        fotos.add(drawable.fav);
-        fotos.add(drawable.gorra);
-        fotos.add(drawable.armario);
-        fotos.add(drawable.fav);
-        fotos.add(drawable.gorra);
-        holder.portada.setImageResource(fotos.get(position));
+        holder.portada.setImageBitmap(FTO);
     }
 
     @Override
     public int getItemCount() {
-        //return Activity_Seleccion_Prenda.getIdfotos().size();
-        return 20;
+        return Activity_Seleccion_Prenda.getIdfotos().size();
+
     }
 
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
