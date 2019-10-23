@@ -74,6 +74,7 @@ Podemos, en cualquier momento, limitar o interrumpir tu uso a nuestra única dis
     <string name="title_activity__administardor">Activity_Administardor</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="nomina">Descargar nomina</string>
 
 
 </resources>

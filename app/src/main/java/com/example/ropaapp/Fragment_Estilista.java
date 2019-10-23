@@ -1,6 +1,5 @@
 package com.example.ropaapp;
 
-import android.R.layout;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -101,7 +100,7 @@ public class Fragment_Estilista extends Fragment {
         usuarios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                cargar_estilista();
             }
 
             @Override
@@ -176,8 +175,9 @@ public class Fragment_Estilista extends Fragment {
             nombreusu.add(nombre);
             System.out.println(nombre);
         }
-        ArrayAdapter adaptador = new ArrayAdapter<String>(getContext(), layout.simple_spinner_dropdown_item, nombreusu);
-        usuarios.setAdapter(adaptador);
+        ArrayAdapter dataAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, nombreusu);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        usuarios.setAdapter(dataAdapter);
     }
     public void guardar(){
         String dinero = salario.getText().toString();
@@ -202,10 +202,10 @@ public class Fragment_Estilista extends Fragment {
 
 
             ContentValues valuesfacturas = new ContentValues();
-            valuesfacturas.put(DBHelper.entidadFactura.COLUMN_NAME_IMPORTE,dinero);
+            valuesfacturas.put(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO,dinero);
             String selectionUpdateFactura = DBHelper.entidadFactura.COLUMN_NAME_IDUSUARIO+ " LIKE ?";
             String [] selectionArgsUpdateFactura = {idusuario};
-            int countFacturas = db.update(DBHelper.entidadFactura.TABLE_NAME,valuesfacturas,selectionUpdateFactura,selectionArgsUpdateFactura);
+            int countFacturas = db.update(DBHelper.entidadPrecio.TABLE_NAME,valuesfacturas,selectionUpdateFactura,selectionArgsUpdateFactura);
             System.out.println(countFacturas);
         }else{
              String SQL_INSERT_ESTILISTA =
@@ -215,6 +215,56 @@ public class Fragment_Estilista extends Fragment {
                             DBHelper.entidadUsuario.COLUMN_NAME_PERFIL + ") " +
                             "VALUES ('" + idusuario + "', '" + Contraseña + "', 'estilista')";
              db.execSQL(SQL_INSERT_ESTILISTA);
+            String SQL_INSERT_PRECIO =
+                    "INSERT INTO " + DBHelper.entidadPrecio.TABLE_NAME + " (" +
+                            DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + ", " +
+                            DBHelper.entidadPrecio.COLUMN_NAME_PRECIO + ") " +
+                            "VALUES ('" + idusuario + "', '" + salario.getText().toString() + "')";
+
+            db.execSQL(SQL_INSERT_PRECIO);
+
         }
+        CojerEstilistas();
+    }
+    public void cargar_estilista(){
+        //pedimos el usuario y contraseña
+        String usuario =  usuarios.getSelectedItem().toString();
+        String idUsuario="jorje";
+        String contraseñausu="jorje";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] projection = {DBHelper.entidadUsuario._ID,DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA};
+        String selection = DBHelper.entidadUsuario._ID + "= ?";
+        String[] selectionArgs = {usuario};
+        String sortOrder = DBHelper.entidadUsuario._ID + " DESC";
+        Cursor cursor = db.query(DBHelper.entidadUsuario.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
+        //Guardamos esos datos
+        while (cursor.moveToNext()) {
+            idUsuario = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadUsuario._ID));
+            contraseñausu = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA));
+        }
+
+
+
+        //Pedimos la cantidad de lo que cobra
+        String precio = "90";
+        String[] projectionFactura = {DBHelper.entidadPrecio.COLUMN_NAME_PRECIO};
+        String selectionFactura = DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + "= ?";
+        System.out.println(idUsuario);
+        String[] selectionArgsFactura = {idUsuario};
+        Cursor cursorFacturas = db.query(DBHelper.entidadPrecio.TABLE_NAME, projectionFactura, selectionFactura, selectionArgsFactura, null, null, null);
+        System.out.println(idUsuario);
+        System.out.println(cursorFacturas.getCount());
+        //Guardamos esos datos
+        if (cursorFacturas.moveToNext()) {
+            precio = cursorFacturas.getString(cursorFacturas.getColumnIndexOrThrow(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO));
+            System.out.println(precio);
+        }
+
+
+        //Asignamos los datos
+        salario.setText(precio);
+        nombre.setText(idUsuario);
+        contraseña.setText(contraseñausu);
+
     }
 }
