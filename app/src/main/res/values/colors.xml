@@ -7,8 +7,9 @@
     <color name="Color2">#58508d</color>
     <color name="Color3">#bc5090</color>
     <color name="Color4">#ff6361</color>
+    <color name="Spinner">#bcb6b6</color>
     <color name="ColordeFondo">#BC5090</color>
-    <color name="colorTexto">#FFFFFF</color>
+    <color name="colorTexto">#000000</color>
 
 
 </resources>

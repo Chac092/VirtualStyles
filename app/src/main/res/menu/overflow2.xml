@@ -5,13 +5,8 @@
 
     <item
         android:id="@+id/menuItemnomina"
-        android:title="Descargar nomina"
-        android:textColor="@color/Color2"
-
-        />
+        android:title="Descargar nomina"/>
     <item
         android:id="@+id/menuItem2"
-        android:title="Cerrar Sesion"
-        android:textColor="@color/Color2"
-        />
+        android:title="Cerrar Sesion"/>
 </menu>
