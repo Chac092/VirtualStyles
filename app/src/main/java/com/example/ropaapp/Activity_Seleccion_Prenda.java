@@ -73,7 +73,7 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         //siguiente = findViewById(R.id.);
         //ImagenPrincipal = findViewById(R.id.imageView);
         //Acciones
-        //CojerImagenes();
+        CojerImagenes();
         //insertarImagenes();
         //pruebas reclicler view
         adap = new Adaptador (feedData());
