@@ -20,10 +20,10 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
     DBHelper dbHelper;
     SQLiteDatabase db;
     Button Armario;
+    Button botonConjuntos;
     ArrayList<String> nombreusu = new ArrayList<>();
     Spinner Usuarios;
     String seleccionado ="";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
         Usuarios = findViewById(R.id.SeleccionUsario);
         CojerClientes();
         Usuarios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 seleccionado = Usuarios.getSelectedItem().toString();
@@ -50,11 +51,21 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
 
             }
         });
+
         Armario = findViewById(R.id.BTNArmaEstilista);
         Armario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),Activity_Armario.class);
+                startActivity(intent);
+            }
+        });
 
+
+        botonConjuntos = findViewById(R.id.botonConjuntos);
+        botonConjuntos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),Activity_Armario.class);
                 startActivity(intent);
             }
