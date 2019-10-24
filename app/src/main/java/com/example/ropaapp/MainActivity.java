@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         botonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String sUsuario = loginNombreUsuario.getText().toString();
                 String sContrasenya = loginContrasenya.getText().toString();
 
