@@ -3,13 +3,13 @@ package com.example.ropaapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -20,7 +20,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.Toast;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Document;
 import java.io.File;
 import java.io.FileOutputStream;
 
@@ -30,7 +33,6 @@ public class Activity_Armario extends AppCompatActivity {
 
     String sUsuario;
     String sPerfil;
-    
     final static int cons =0;
     Bitmap bmp;
     Button botonGorro;
@@ -76,7 +78,6 @@ public class Activity_Armario extends AppCompatActivity {
         consultarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(v.getContext(), Activity_rellenarPrendas.class);
                 intent.putExtra("NombreUsuario", sUsuario);
                 startActivityForResult(intent, 0);
@@ -182,11 +183,78 @@ public class Activity_Armario extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         if (id == R.id.menuItemnomina){
-
+            savePdf();
         }else if (id == R.id.menuItem2){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+        }else if(id == R.id.menuItemfactura){
+            savePdf();
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void savePdf() {
+        //Consultamos el precio de en la base de datos
+        String precio = "90";
+        String[] projectionFactura = {DBHelper.entidadPrecio.COLUMN_NAME_PRECIO};
+        String selectionFactura = DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + "= ?";
+        System.out.println(sUsuario);
+        String[] selectionArgsFactura = {sUsuario};
+        if(sPerfil.equals("estilista")){
+            System.out.println("Estamos en armario y nos acaba de cargar "+sUsuario);
+            selectionArgsFactura[0] = sUsuario;
+        }else if(sPerfil.equals("usuario")){
+            selectionArgsFactura [0]= "usuario";
+        }
+        Cursor cursorFacturas = db.query(DBHelper.entidadPrecio.TABLE_NAME, projectionFactura, selectionFactura, selectionArgsFactura, null, null, null);
+        System.out.println(sUsuario);
+        System.out.println(cursorFacturas.getCount());
+        //Guardamos esos datos
+        if (cursorFacturas.moveToNext()) {
+            precio = cursorFacturas.getString(cursorFacturas.getColumnIndexOrThrow(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO));
+            System.out.println(precio);
+        }
+
+        String Factura =
+                        sUsuario +"\n"+
+                        "Ornilla Doctor Kalea, 2\n" +
+                        "48004\n" +
+                        "Bilbo, Bizkaia\n" +
+                        "\n" +
+                        "                                                                                   Virtual Style\n" +
+                        "                                                                               Raudna-Loodi\n" +
+                        "                                                                                           69680\n" +
+                        "                                                                           Viljandi maakond\n" +
+                        "                                                                                          Estonia\n" +
+                        "\n" +
+                        "\n" +
+                        "|------------------------------------------------------------------------------------------|\n" +
+                        "|NOMBRE            |CANTIDAD                  |PRECIO                            |\n" +
+                        "|-----------------------|-------------------------------|----------------------------------|\n" +
+                        "|Cuota mensual   |1                                   |Variable                            |\n" +
+                        "|                           |                                     |                                        |\n" +
+                        "|                       |                               |IVA                                  21% |\n" +
+                        "|------------------------------------------------------------------------------------------|\n" +
+                        "|TOTAL           |                                        |"+precio+"                                       |\n" +
+                        "|------------------------------------------------------------------------------------------|\n";
+        Document mDoc =new Document();
+        File ruta = new File("/storage/emulated/0/saved_pdf/");
+        if(!ruta.exists()){
+            ruta.mkdir();
+        }
+        String mFilePath= "/storage/emulated/0/saved_pdf/"+"Nuevafactura"+".pdf";
+            try{
+                PdfWriter.getInstance(mDoc, new FileOutputStream(mFilePath));
+                mDoc.open();
+                mDoc.addAuthor("Goazen");
+                mDoc.add(new Paragraph(Factura));
+                mDoc.close();
+                CharSequence text = "pdf descargado";
+                Toast toast = Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG);
+                toast.show();
+            }
+            catch (Exception e){
+                System.out.println(e);
+                Toast.makeText(getBaseContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            }
     }
 }
