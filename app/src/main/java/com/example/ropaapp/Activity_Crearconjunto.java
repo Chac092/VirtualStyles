@@ -11,7 +11,7 @@ public class Activity_Crearconjunto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity__crearconjunti);
+        setContentView(R.layout.activity_crearconjunto);
         Intent intent = getIntent();
         conjuntoReferencia=intent.getStringExtra("nombrePrenda");
 
