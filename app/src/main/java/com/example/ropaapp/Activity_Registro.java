@@ -58,8 +58,6 @@ public class Activity_Registro extends AppCompatActivity {
                         intent.putExtra("sUsuario", sUsuario );
                         intent.putExtra("sContrasenya" , sContrasenya );
                         startActivity(intent);
-
-
                     }
                     else {
                         CharSequence text = getString(R.string.usuarioExiste);
