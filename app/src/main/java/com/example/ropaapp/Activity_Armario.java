@@ -33,7 +33,6 @@ public class Activity_Armario extends AppCompatActivity {
 
     String sUsuario;
     String sPerfil;
-    final static int cons =0;
     Bitmap bmp;
     Button botonGorro;
     Button botonCamisa;
@@ -57,21 +56,51 @@ public class Activity_Armario extends AppCompatActivity {
         Intent intent = getIntent();
         sUsuario =datos.getString("sUsuario",null);
         sPerfil = datos.getString("sPerfil",null);
-        //System.out.println("Nombre = "+ sUsuario);
+        String usuarioArmario = datos.getString("usuarioArmario",null);
+        System.out.println("USUARIOARMARIO_A: " + usuarioArmario);
         
-        //Uniremos todos los elementos con sus ids
+
+        botonGorro = findViewById(R.id.botonGorro);
+        botonGorro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Activity_Seleccion_Prenda.class);
+                intent.putExtra("categoria", "1");
+                startActivityForResult(intent, 0);
+
+            }
+        });
         botonCamisa = findViewById(R.id.botonCamisa);
         botonCamisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             Intent intent = new Intent(v.getContext(), Activity_Seleccion_Prenda.class);
+            intent.putExtra("categoria", "2");
             startActivityForResult(intent, 0);
             }
         });
-        botonGorro = findViewById(R.id.botonGorro);
+
         botonPantalones = findViewById(R.id.botonPantalones);
+        botonPantalones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Activity_Seleccion_Prenda.class);
+                intent.putExtra("categoria", "3");
+                startActivityForResult(intent, 0);
+
+            }
+        });
         botonZapatos = findViewById(R.id.botonZapatos);
-        subirFoto = findViewById(R.id.BTNSubirFoto);
+        botonZapatos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Activity_Seleccion_Prenda.class);
+                intent.putExtra("categoria", "4");
+                startActivityForResult(intent, 0);
+
+            }
+        });
+
         consultarFotos = findViewById(R.id.BTNPendientes);
         consultarFotos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +111,7 @@ public class Activity_Armario extends AppCompatActivity {
             }
         });
 
+        subirFoto = findViewById(R.id.BTNSubirFoto);
         subirFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +129,7 @@ public class Activity_Armario extends AppCompatActivity {
     public void sacarfoto(){
         //Mediante un intente llamaremos a la camara para sacar una foto
         Intent i = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(i,cons);
+        startActivityForResult(i,0);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

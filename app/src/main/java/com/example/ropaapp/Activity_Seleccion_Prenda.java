@@ -23,11 +23,9 @@ import java.util.ArrayList;
 
 
 public class Activity_Seleccion_Prenda extends AppCompatActivity {
-    static ArrayList<String> idfotos = new ArrayList<String>();
+    static ArrayList<String> idfotos;
     DBHelper dbHelper;
     SQLiteDatabase db;
-    Button siguiente;
-    Button anterior;
 
     //String rutaConCarpeta= Environment.getExternalStorageDirectory().toString() + "/saved_images";
     //List<String> item = new ArrayList<String>();
@@ -36,16 +34,9 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
     public static ArrayList<String> getIdfotos() {
         return idfotos;
     }
-    int Origen=0;
-    String fotoAcojer1;
-    String fotoAcojer2;
-    String fotoAcojer3;
-    ImageView ImagenPrincipal;
-    ImageView Imagen1;
-    ImageView Imagen2;
-    ImageView Imagen3;
-    String sUsuario;
-    int pos = 2;
+
+    String usuarioArmario;
+
     Adaptador adap;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -54,22 +45,23 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccion_prenda);
-        recyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
+        recyclerView = findViewById(R.id.RecyclerView);
         //DB
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
+        //Intent
+        Intent intent = getIntent();
+        String categoria = intent.getStringExtra("categoria");
         //Shared preferences
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        sUsuario = datos.getString("sUsuario",null);
-        //Elementos layout
-        //anterior = findViewById(R.id.);
-        //siguiente = findViewById(R.id.);
-        //ImagenPrincipal = findViewById(R.id.imageView);
+        usuarioArmario = datos.getString("usuarioArmario",null);
+
+        System.out.println("USUARIOARMARIO: " + usuarioArmario);
+
         //Acciones
-        CojerImagenes();
-        //insertarImagenes();
-        //pruebas reclicler view
+        CojerImagenes(usuarioArmario, categoria, "1");
+
         adap = new Adaptador (feedData());
         adap.setOnItemClickListener(new View.OnClickListener() {
             @Override
@@ -82,130 +74,19 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         layoutManager = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(layoutManager);
     }
-    public void CojerImagenes(){
+    public void CojerImagenes(String usuario, String categoria, String estado){
+        System.out.println(usuario + " : " + categoria + " : " + estado);
+        idfotos = new ArrayList<>();
        SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {entidadPrenda._ID};
-        String selection = entidadPrenda.COLUMN_NAME_IDUSUARIO + " = ?";
-        String[] selectionArgs = {sUsuario};
-
-        //String sortOrder = entidadPrenda.COLUMN_NAME_IDUSUARIO +" DESC";
+        String selection = entidadPrenda.COLUMN_NAME_IDUSUARIO + " = ?" + " AND " + entidadPrenda.COLUMN_NAME_CATEGORIA + " = ?" + " AND " + entidadPrenda.COLUMN_NAME_ESTADO + " = ?";
+        String[] selectionArgs = {usuario, categoria, estado};
         Cursor cursor = db.query(entidadPrenda.TABLE_NAME,projection,selection,selectionArgs,null,null,null);
            while(cursor.moveToNext()){
             IDfoto = cursor.getString(cursor.getColumnIndexOrThrow(entidadPrenda._ID));
             idfotos.add(IDfoto);
             //System.out.println(IDfoto);
         }
-    }
-
-    public void insertarImagenes(){
-        //System.out.println("TAMAÑO ARRAY= " + idfotos.size());
-        if(idfotos.size()>=3){
-            fotoAcojer3= idfotos.get(pos);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer3+".jpg");
-            Imagen3.setImageBitmap(FTO);
-        }
-        if(idfotos.size()>=2){
-            fotoAcojer2=idfotos.get(pos-1);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer2+".jpg");
-            Imagen2.setImageBitmap(FTO);
-        }
-        if(idfotos.size()>=1){
-            fotoAcojer1=idfotos.get(pos-2);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer1+".jpg");
-            Imagen1.setImageBitmap(FTO);
-        }
-
-    }
-
-    public void principalizarImagenes(){
-        Bitmap foto;
-        if (Origen==1){
-            foto = ((BitmapDrawable)Imagen1.getDrawable()).getBitmap();
-            ImagenPrincipal.setImageBitmap(foto);
-        }else if (Origen==2){
-            foto = ((BitmapDrawable)Imagen2.getDrawable()).getBitmap();
-            ImagenPrincipal.setImageBitmap(foto);
-        }else if(Origen==3){
-            foto = ((BitmapDrawable)Imagen3.getDrawable()).getBitmap();
-            ImagenPrincipal.setImageBitmap(foto);
-        }
-    }
-
-    public void BTNsiguiente(){
-        if(pos < idfotos.size()-1){
-            pos = pos +3;
-        }else{
-            Toast toast2 = Toast.makeText(getApplicationContext(), "No cuentas con mas fotos ", Toast.LENGTH_SHORT);
-            toast2.setGravity(Gravity.CENTER,0,0);
-            toast2.show();
-        }
-        if (idfotos.size()-1>=pos){
-            fotoAcojer1= idfotos.get(pos);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer1+".jpg");
-            Imagen1.setImageBitmap(FTO);
-        }else{
-            Imagen1.setBackgroundColor(getResources().getColor(R.color.Color3));
-        }
-        if(idfotos.size()-1>=pos-1){
-            fotoAcojer2= idfotos.get(pos-1);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer2+".jpg");
-            Imagen2.setImageBitmap(FTO);
-        }else{
-            Imagen2.setBackgroundColor(getResources().getColor(R.color.Color3));
-
-        }
-        if (idfotos.size()-1>=pos-2){
-            fotoAcojer3= idfotos.get(pos-2);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer3+".jpg");
-            Imagen3.setImageBitmap(FTO);
-        }
-    }
-
-    public void BTNAtnerior(){
-        if(pos > 2){
-            pos = pos-3;
-        }else{
-            Toast toast2 = Toast.makeText(getApplicationContext(), "No cuentas con mas fotos ", Toast.LENGTH_SHORT);
-            toast2.setGravity(Gravity.CENTER,0,0);
-            toast2.show();
-        }
-        if (idfotos.size()-1>=pos){
-            fotoAcojer1= idfotos.get(pos);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer1+".jpg");
-            Imagen1.setImageBitmap(FTO);
-        }
-        if(idfotos.size()-1>=pos-1){
-            fotoAcojer2= idfotos.get(pos-1);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer2+".jpg");
-            Imagen2.setImageBitmap(FTO);
-        }
-        if (idfotos.size()-1>=pos-2){
-            fotoAcojer3= idfotos.get(pos-2);
-            FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+fotoAcojer3+".jpg");
-            Imagen3.setImageBitmap(FTO);
-        }
-    }
-
-    public void Seleccion(){
-        String Foto="";
-        if(Origen == 1){
-            Foto = fotoAcojer1;
-        }else if(Origen==2){
-            Foto = fotoAcojer2;
-        }else if(Origen ==3){
-            Foto = fotoAcojer3;
-        }
-        Intent intent = new Intent(this,Activity_Conjuntos.class);
-        intent.putExtra("nombreFoto",Foto);
-        startActivity(intent);
-    }
-
-    public void ReciclarView(){
-        adap = new Adaptador(feedData());
-        recyclerView =(RecyclerView) findViewById(R.id.RecyclerView);
-        recyclerView.setAdapter(adap);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
     }
 
     public ArrayList<String> feedData(){
