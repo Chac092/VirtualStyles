@@ -65,7 +65,6 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
         while(cursor.moveToNext()){
             String nombre = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadPrenda._ID));
             nombreusu.add(nombre);
-            System.out.println(nombre);
         }
         ArrayAdapter adaptador = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, nombreusu);

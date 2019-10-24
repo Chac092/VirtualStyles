@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -94,7 +95,6 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         Intent intent = getIntent();
         sUsuario = intent.getStringExtra("NombreUsuario");
-        System.out.println(sUsuario);
         refrescar();
     }
 
@@ -105,12 +105,9 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         String[] selectionArgs = {sUsuario, "0"};
         String sortOrder = DBHelper.entidadPrenda._ID+" DESC";
         Cursor cursor = db.query(DBHelper.entidadPrenda.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
-        System.out.println(cursor.getCount());
         while(cursor.moveToNext()){
             nombre = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadPrenda._ID));
-            System.out.println(nombre);
             Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+nombre+".jpg");
-            System.out.println(FTO);
             Fotoprincipal.setImageBitmap(FTO);
         }
     }
@@ -122,20 +119,22 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         String selection = DBHelper.entidadPrenda._ID+ " LIKE ?";
         String [] selectionArgs = {nombre};
         int count = db.update(DBHelper.entidadPrenda.TABLE_NAME,values,selection,selectionArgs);
-        System.out.println(count);
     }
     public void Delete(){
         String selection = DBHelper.entidadPrenda._ID + " LIKE ?";
         String [] selectionArgs = {nombre};
         int deletedRows = db.delete(DBHelper.entidadPrenda.TABLE_NAME,selection,selectionArgs);
-
-
         File fdelete = new File("/storage/emulated/0/saved_images/"+nombre+".jpg");
         if (fdelete.exists()) {
             if (fdelete.delete()) {
-                System.out.println("file Deleted :" + "/storage/emulated/0/saved_images/"+nombre+".jpg");
-            } else {
-                System.out.println("file not Deleted :" + "/storage/emulated/0/saved_images/"+nombre+".jpg");
+                CharSequence text = "file Deleted :" + "/storage/emulated/0/saved_images/"+ nombre +".jpg";
+                Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
+                toast.show();
+
+            }else{
+                CharSequence text = "file not Deleted :" + "/storage/emulated/0/saved_images/"+ nombre +".jpg";
+                Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
+                toast.show();
             }
         }
     }

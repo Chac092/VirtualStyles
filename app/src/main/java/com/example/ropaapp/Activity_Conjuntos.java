@@ -15,6 +15,8 @@ public class Activity_Conjuntos extends AppCompatActivity {
         setContentView(R.layout.activity_conjuntos);
         Intent intent = getIntent();
         String Foto = intent.getStringExtra("nombreFoto");
-        System.out.println(Foto);
+    }
+    public void Crearconjuntos(){
+
     }
 }

@@ -31,7 +31,6 @@ public class prendasEjemplo extends AppCompatActivity {
         // the file to be moved or copied
         String fileName = "p"+ i;
 
-        System.out.println(context);
         InputStream in = context.getResources().openRawResource(context.getResources().getIdentifier(fileName,"raw", context.getPackageName()));
         File targetLocation = new File(root + "/saved_images/" + i + ".jpg");
         OutputStream out = new FileOutputStream(targetLocation);

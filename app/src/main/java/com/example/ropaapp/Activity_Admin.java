@@ -44,20 +44,15 @@ public class Activity_Admin extends AppCompatActivity implements Fragment_Estili
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         sUsuario =datos.getString("sUsuario",null);
-        System.out.println(sUsuario);
         //Consultamos el precio de en la base de datos
         String precio = "90";
         String[] projectionFactura = {DBHelper.entidadPrecio.COLUMN_NAME_PRECIO};
         String selectionFactura = DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + "= ?";
-        System.out.println(sUsuario);
         String[] selectionArgsFactura = {sUsuario};
         Cursor cursorFacturas = db.query(DBHelper.entidadPrecio.TABLE_NAME, projectionFactura, selectionFactura, selectionArgsFactura, null, null, null);
-        System.out.println(sUsuario);
-        System.out.println(cursorFacturas.getCount());
         //Guardamos esos datos
         if (cursorFacturas.moveToNext()) {
             precio = cursorFacturas.getString(cursorFacturas.getColumnIndexOrThrow(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO));
-            System.out.println(precio);
         }
 
         String Factura =
@@ -99,7 +94,6 @@ public class Activity_Admin extends AppCompatActivity implements Fragment_Estili
             toast.show();
         }
         catch (Exception e){
-            System.out.println(e);
             Toast.makeText(getBaseContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
     }
@@ -108,14 +102,14 @@ public class Activity_Admin extends AppCompatActivity implements Fragment_Estili
    @Override
     public boolean onCreateOptionsMenu(Menu menu)  {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.overflow2, menu);
+        inflater.inflate(R.menu.overflowadmin, menu);
         return true;
     }
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
-        if (id == R.id.menuItemnomina){
+        if (id == R.id.menuFactura){
             savePdf();
-        }else if (id == R.id.menuItem2){
+        }else if (id == R.id.menuCerrar){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

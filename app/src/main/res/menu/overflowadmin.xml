@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuFactura"
+        android:title="Descargar Factura" />
+    <item
+        android:id="@+id/menuCerrar"
+        android:title="Cerrar Sesion" />
+    <item
+        android:id="@+id/menuGestión_Financiera"
+        android:title="Gestión_Financiera" />
+    <item
+        android:id="@+id/menuProyectos"
+        android:title="Gestión de Proyectos" />
+    <item
+        android:id="@+id/menuContratos"
+        android:title="Gestión de Contratos" />
+    <item
+        android:id="@+id/menuDocumento"
+        android:title="Gestión Documental" />
+</menu>
