@@ -3,6 +3,7 @@ package com.example.ropaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -22,13 +23,14 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
     ArrayList<String> nombreusu = new ArrayList<>();
     Spinner Usuarios;
     String seleccionado ="";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Creation of an instance of SQLiteOpenHelper type Class object (DatabaseOpenHelper)
-        dbHelper = new DBHelper(getBaseContext());
-        //We get a writable database. If not exist, onCreate is called
-        db = dbHelper.getWritableDatabase();
         super.onCreate(savedInstanceState);
+        dbHelper = new DBHelper(getBaseContext());
+        db = dbHelper.getWritableDatabase();
+
         setContentView(R.layout.activity_menuy_selecciondeclientes);
         Usuarios = findViewById(R.id.SeleccionUsario);
         CojerClientes();
@@ -36,6 +38,11 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 seleccionado = Usuarios.getSelectedItem().toString();
+                System.out.println("SELECCIONADO: " + seleccionado);
+                final String MY_PREFS_NAME = "File";
+                SharedPreferences.Editor datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                datos.putString("usuarioArmario", seleccionado);
+                datos.apply();
             }
 
             @Override
@@ -47,13 +54,12 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
         Armario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(v.getContext(),Activity_Armario.class);
-                intent.putExtra("NombreUsuario",seleccionado);
                 startActivity(intent);
             }
         });
     }
-
 
     public void CojerClientes(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();

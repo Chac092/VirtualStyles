@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     String[] projection = {
                             DBHelper.entidadUsuario.COLUMN_NAME_PERFIL
                     };
+
                     String selection = DBHelper.entidadUsuario._ID + " = ?" + " AND " + DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA + " = ?";
                     String[] selectionArgs = {sUsuario, sContrasenya};
 
@@ -75,18 +76,17 @@ public class MainActivity extends AppCompatActivity {
                         null
                     );
 
-                    if(cursor != null && cursor.getCount()>0){
+                    if(cursor != null && cursor.getCount() > 0){
                         cursor.moveToFirst();
-                        //do your action
-                        //Fetch your data
                         String sPerfil = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadUsuario.COLUMN_NAME_PERFIL));
                         //System.out.println(perfil);
                         final String MY_PREFS_NAME = "File";
                         SharedPreferences.Editor datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                         datos.putString("sUsuario", sUsuario);
                         datos.putString("sPerfil", sPerfil);
-
+                        datos.putString("usuarioArmario", sUsuario);
                         datos.apply();
+
                         if(sPerfil.equals("estilista")) {
                             Intent intent = new Intent(v.getContext(), Activity_MenuySelecciondeclientes.class);
                             startActivity(intent);
