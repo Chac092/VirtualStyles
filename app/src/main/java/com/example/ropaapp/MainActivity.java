@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
                             DBHelper.entidadUsuario.COLUMN_NAME_PERFIL
                     };
 
-                    String selection = DBHelper.entidadUsuario._ID + " = ?" + " AND " + DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA + " = ?";
+                    String selection = DBHelper.entidadUsuario._ID + " = ?" + " AND "
+                            + DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA + " = ?";
                     String[] selectionArgs = {sUsuario, sContrasenya};
 
                     Cursor cursor = db.query(
@@ -124,9 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             });
-
         }
-
 
     //Aqui comprobaremos si tenemos los permisos de escritura y si no lo tenemos los pediremos
     private void Permisos(){

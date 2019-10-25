@@ -49,7 +49,7 @@ public class Activity_Armario extends AppCompatActivity {
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
         Permisos();
-
+        Intent intent = getIntent();
         //Cojeremos el id del usuario logueado
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
