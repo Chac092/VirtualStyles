@@ -55,6 +55,7 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         String numprenda = Activity_Seleccion_Prenda.getIdfotos().get(position);
         Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+numprenda+".jpg");
+        System.out.println("dentro de onbindholder");
         holder.portada.setImageBitmap(FTO);
     }
 
