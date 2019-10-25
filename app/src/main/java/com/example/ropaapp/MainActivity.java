@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
                             DBHelper.entidadUsuario.COLUMN_NAME_PERFIL
                     };
 
-                    String selection = DBHelper.entidadUsuario._ID + " = ?" + " AND " + DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA + " = ?";
+                    String selection = DBHelper.entidadUsuario._ID + " = ?" + " AND "
+                            + DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA + " = ?";
                     String[] selectionArgs = {sUsuario, sContrasenya};
 
                     Cursor cursor = db.query(
