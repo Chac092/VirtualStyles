@@ -23,15 +23,12 @@ public class prendasEjemplo extends AppCompatActivity {
     Context context = GlobalApplication.getAppContext();
 
     public void copiaImagen(int i) throws IOException {
-
-
+        System.out.println("COPIANDO IMAGEN: " + i);
         String root = Environment.getExternalStorageDirectory().toString();
         File myDir = new File(root + "/saved_images");
         myDir.mkdirs();
         // the file to be moved or copied
         String fileName = "p"+ i;
-
-        System.out.println(context);
         InputStream in = context.getResources().openRawResource(context.getResources().getIdentifier(fileName,"raw", context.getPackageName()));
         File targetLocation = new File(root + "/saved_images/" + i + ".jpg");
         OutputStream out = new FileOutputStream(targetLocation);
