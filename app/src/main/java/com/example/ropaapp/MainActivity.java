@@ -124,9 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             });
-
         }
-
 
     //Aqui comprobaremos si tenemos los permisos de escritura y si no lo tenemos los pediremos
     private void Permisos(){
