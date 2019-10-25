@@ -49,12 +49,11 @@ public class Activity_Armario extends AppCompatActivity {
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
         Permisos();
-
+        Intent intent = getIntent();
         //Cojeremos el id del usuario logueado
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        Intent intent = getIntent();
-        sUsuario =datos.getString("sUsuario",null);
+        sUsuario = datos.getString("sUsuario",null);
         sPerfil = datos.getString("sPerfil",null);
         String usuarioArmario = datos.getString("usuarioArmario",null);
         System.out.println("USUARIOARMARIO_A: " + usuarioArmario);
@@ -77,6 +76,7 @@ public class Activity_Armario extends AppCompatActivity {
             Intent intent = new Intent(v.getContext(), Activity_Seleccion_Prenda.class);
             intent.putExtra("categoria", "2");
             startActivityForResult(intent, 0);
+
             }
         });
 
@@ -138,6 +138,7 @@ public class Activity_Armario extends AppCompatActivity {
             //Una vez sacada esa foto vamos a cojerla del intent y la guardaremos en forma de bitmap
             Bundle ext = data.getExtras();
             bmp = (Bitmap) ext.get("data");
+            System.out.println("exito");
             //guardarFoto();
             saveTempBitmap(bmp);
         }
@@ -168,6 +169,7 @@ public class Activity_Armario extends AppCompatActivity {
         ContentValues values = new ContentValues();
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO, "0");
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_FAVORITO,"0");
+        //System.out.println(sUsuario);
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO,sUsuario);
         long newRowId = db.insert(DBHelper.entidadPrenda.TABLE_NAME, null, values);
         String IDfoto = String.valueOf(newRowId);
@@ -197,38 +199,47 @@ public class Activity_Armario extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu)  {
+        if (sPerfil.equals("estilista")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflowadmin, menu);
+        }else if(sPerfil.equals("usuario")){
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.overflow, menu);
+        }
         return true;
     }
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
-        if (id == R.id.menuItemfactura){
+        if (id == R.id.menuFactura){
             savePdf();
         }else if (id == R.id.menuItem2){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+        }else if(id == R.id.menuItemfactura){
+            savePdf();
         }
         return super.onOptionsItemSelected(item);
     }
     private void savePdf() {
         //Consultamos el precio de en la base de datos
-        final String MY_PREFS_NAME = "File";
-        SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        sUsuario = datos.getString("sUsuario",null);
         String precio = "90";
         String[] projectionFactura = {DBHelper.entidadPrecio.COLUMN_NAME_PRECIO};
         String selectionFactura = DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + "= ?";
+        System.out.println(sUsuario);
         String[] selectionArgsFactura = {sUsuario};
         if(sPerfil.equals("estilista")){
+            System.out.println("Estamos en armario y nos acaba de cargar "+sUsuario);
             selectionArgsFactura[0] = sUsuario;
         }else if(sPerfil.equals("usuario")){
             selectionArgsFactura [0]= "usuario";
         }
         Cursor cursorFacturas = db.query(DBHelper.entidadPrecio.TABLE_NAME, projectionFactura, selectionFactura, selectionArgsFactura, null, null, null);
+        System.out.println(sUsuario);
+        System.out.println(cursorFacturas.getCount());
         //Guardamos esos datos
         if (cursorFacturas.moveToNext()) {
             precio = cursorFacturas.getString(cursorFacturas.getColumnIndexOrThrow(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO));
+            System.out.println(precio);
         }
 
         String Factura =
@@ -270,6 +281,7 @@ public class Activity_Armario extends AppCompatActivity {
                 toast.show();
             }
             catch (Exception e){
+                System.out.println(e);
                 Toast.makeText(getBaseContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
             }
     }

@@ -13,14 +13,20 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
 import com.example.ropaapp.DBHelper.entidadPrenda;
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.List;
 
 public class Activity_Seleccion_Prenda extends AppCompatActivity {
     static ArrayList<String> idfotos;
@@ -66,7 +72,7 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         adap.setOnItemClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                System.out.println(recyclerView.getChildAdapterPosition(v));
             }
         });
         recyclerView =findViewById(R.id.RecyclerView);
