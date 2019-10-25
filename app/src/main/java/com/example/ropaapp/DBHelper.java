@@ -75,7 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadPrecio.COLUMN_NAME_PRECIO+ " INTEGER)";
 
     private static final String SQL_DELETE_TABLE_PRECIO =
-            "DROP TABLE IF EXISTS " + entidadUsuario.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + entidadPrecio.TABLE_NAME;
 
     private static final String SQL_CREATE_TABLE_FACTURAS =
             "CREATE TABLE " + entidadFactura.TABLE_NAME + " (" +
@@ -85,7 +85,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadFactura.COLUMN_NAME_IDUSUARIO + " INTEGER," +
                     "FOREIGN KEY('" + entidadFactura.COLUMN_NAME_IDUSUARIO + "') REFERENCES '" + entidadUsuario.TABLE_NAME + "'('" + entidadUsuario._ID + "'))";
 
-    private static final String SQL_DELETE_TABLE_FACTURAS = "DROP TABLE IF EXISTS " +  entidadUsuario.TABLE_NAME;
+    private static final String SQL_DELETE_TABLE_FACTURAS = "DROP TABLE IF EXISTS " +  entidadFactura.TABLE_NAME;
 
     private static final String SQL_CREATE_TABLE_TARJETA =
             "CREATE TABLE " + entidadTarjeta.TABLE_NAME + " (" +

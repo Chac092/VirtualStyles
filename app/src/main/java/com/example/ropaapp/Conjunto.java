@@ -1,5 +1,8 @@
 package com.example.ropaapp;
 
+import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Conjunto {
@@ -8,18 +11,29 @@ public class Conjunto {
     private int prenda2;
     private int prenda3;
     private int prenda4;
+    private String IdUsuario;
 
-    public void Conjunto(){
-
-    }
-
-    public void Conjunto(int idConjunto, int prenda1, int prenda2, int prenda3, int prenda4){
+    public Conjunto(int id, int prenda1, int prenda2, int prenda3, int prenda4, String idUsuario) {
         this.idConjunto=idConjunto;
         this.prenda1=prenda1;
         this.prenda2=prenda2;
         this.prenda2=prenda3;
         this.prenda2=prenda4;
+        this.IdUsuario = idUsuario;
     }
+
+    public void Conjunto(){
+
+    }
+
+    /*public void Conjunto(int idConjunto, int prenda1, int prenda2, int prenda3, int prenda4,String usuario){
+        this.idConjunto=idConjunto;
+        this.prenda1=prenda1;
+        this.prenda2=prenda2;
+        this.prenda2=prenda3;
+        this.prenda2=prenda4;
+        this.IdUsuario = usuario;
+    }*/
 
     public int idConjunto() {
         return idConjunto;
@@ -55,9 +69,11 @@ public class Conjunto {
     public int prenda4() {
         return prenda4;
     }
-
-    public void prenda4(int prenda4) {
-        this.prenda4 = prenda4;
+    public void setIdUsuario(String idUsuario) {
+        this.IdUsuario = idUsuario;
+    }
+    public String getIdUsuario() {
+        return IdUsuario;
     }
 
     @Override
@@ -86,6 +102,10 @@ public class Conjunto {
                 ", prenda3=" + prenda3 +
                 ", prenda4=" + prenda4 +
                 '}';
+    }
+    public void GenerarTodosConjuntos(){
+
+
     }
 }
 
