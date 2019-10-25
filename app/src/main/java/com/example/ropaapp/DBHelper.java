@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 import java.io.IOException;
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 104;
     public static final String DATABASE_NAME = "VirtualStyle.db";
 
     //Aqui crearemos las ordenes para mas adelante crear la tabla Facturas
@@ -82,7 +82,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadFactura._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     entidadFactura.COLUMN_NAME_IMPORTE + " INTEGER," +
                     entidadFactura.COLUMN_NAME_FECHA + " TEXT," +
-                    entidadFactura.COLUMN_NAME_IDUSUARIO + " INTEGER," +
+                    entidadFactura.COLUMN_NAME_IDUSUARIO + " TEXT," +
                     "FOREIGN KEY('" + entidadFactura.COLUMN_NAME_IDUSUARIO + "') REFERENCES '" + entidadUsuario.TABLE_NAME + "'('" + entidadUsuario._ID + "'))";
 
     private static final String SQL_DELETE_TABLE_FACTURAS = "DROP TABLE IF EXISTS " +  entidadFactura.TABLE_NAME;
@@ -92,7 +92,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadTarjeta._ID + " INTEGER PRIMARY KEY," +
                     entidadTarjeta.COLUMN_NAME_CADUCIDAD + " TEXT," +
                     entidadTarjeta.COLUMN_NAME_CODIGO_SEGURIDAD + " TEXT," +
-                    entidadTarjeta.COLUMN_NAME_IDUSUARIO + " INTEGER," +
+                    entidadTarjeta.COLUMN_NAME_IDUSUARIO + " TEXT," +
                     "FOREIGN KEY('" + entidadTarjeta.COLUMN_NAME_IDUSUARIO + "') REFERENCES '" + entidadUsuario.TABLE_NAME + "'('" + entidadUsuario._ID + "'))";
 
     private static final String SQL_DELETE_TABLE_TARJETA =
@@ -104,7 +104,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadPrenda.COLUMN_NAME_CATEGORIA + " INTEGER," +
                     entidadPrenda.COLUMN_NAME_ESTADO + " INTEGER," +
                     entidadPrenda.COLUMN_NAME_FAVORITO + " INTEGER," +
-                    entidadPrenda.COLUMN_NAME_IDUSUARIO + " INTEGER," +
+                    entidadPrenda.COLUMN_NAME_IDUSUARIO + " TEXT," +
                     "FOREIGN KEY('" + entidadPrenda.COLUMN_NAME_IDUSUARIO + "') REFERENCES '" + entidadUsuario.TABLE_NAME + "'('" + entidadUsuario._ID + "'))";
 
 
@@ -118,7 +118,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadConjunto.COLUMN_NAME_PRENDA2 + " INTEGER," +
                     entidadConjunto.COLUMN_NAME_PRENDA3 + " INTEGER," +
                     entidadConjunto.COLUMN_NAME_PRENDA4 + " INTEGER," +
-                    entidadConjunto.COLUMN_NAME_IDUSUARIO + " INTEGER," +
+                    entidadConjunto.COLUMN_NAME_IDUSUARIO + " TEXT," +
 
                     "FOREIGN KEY('" + entidadConjunto.COLUMN_NAME_PRENDA1 + "') REFERENCES '" + entidadPrenda.TABLE_NAME + "'('" + entidadPrenda._ID + "')," +
                     "FOREIGN KEY('" + entidadConjunto.COLUMN_NAME_PRENDA2 + "') REFERENCES '" + entidadPrenda.TABLE_NAME + "'('" + entidadPrenda._ID + "')," +
@@ -186,6 +186,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate (SQLiteDatabase db){
+        System.out.println("CREANDO LA BD!!!!!!!!!");
         db.execSQL(SQL_CREATE_TABLE_USUARIO);
         db.execSQL(SQL_CREATE_TABLE_TARJETA);
         db.execSQL(SQL_CREATE_TABLE_PRENDA);
@@ -200,6 +201,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_INSERT_PRECIOADMIN);//TODO Chapuza
         db.execSQL(SQL_INSERT_ADMIN); //TODO Chapuza
         creaPrendas(db);
+        creaConjuntos(db);
     }
 
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){
@@ -217,7 +219,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void creaPrendas(SQLiteDatabase db) {
-        //System.out.println("VAMOOOOOOOOOOOO");
+        System.out.println("CREANDO PRENDAS !!!!");
         // Tenemos 20 prendas, primero las de adan en orden cabeza, pecho, piernas, pies y luego las de eva en el mismo orden
         String sUsuario = "adan";
         int categoria;
@@ -236,7 +238,6 @@ public class DBHelper extends SQLiteOpenHelper {
             if (categoria > 4) {categoria -= 4;}
             //dejamos una de cada 5 prendas sin clasificar
             if (i%5 == 0) {estado = false;} else {estado = true;}
-            //System.out.println(i + " : " + categoria + " : " + sUsuario + " : " + estado);
 
             //Insertar los datos en la BD
             ContentValues values = new ContentValues();
@@ -247,6 +248,25 @@ public class DBHelper extends SQLiteOpenHelper {
             values.put(DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO,sUsuario);
             long newRowId = db.insert(DBHelper.entidadPrenda.TABLE_NAME, null, values);
         }
+    }
+
+    public void creaConjuntos (SQLiteDatabase db) {
+        ContentValues valuesAdan = new ContentValues();
+        valuesAdan.put(entidadConjunto.COLUMN_NAME_IDUSUARIO, "adan");
+        valuesAdan.put(entidadConjunto.COLUMN_NAME_PRENDA1, 1);
+        valuesAdan.put(entidadConjunto.COLUMN_NAME_PRENDA2, 6);
+        valuesAdan.put(entidadConjunto.COLUMN_NAME_PRENDA3, 11);
+        valuesAdan.put(entidadConjunto.COLUMN_NAME_PRENDA4, 16);
+        long newRowAdan = db.insert(DBHelper.entidadConjunto.TABLE_NAME, null, valuesAdan);
+
+        ContentValues valuesEva = new ContentValues();
+        valuesEva.put(entidadConjunto.COLUMN_NAME_IDUSUARIO, "eva");
+        valuesEva.put(entidadConjunto.COLUMN_NAME_PRENDA1, 21);
+        valuesEva.put(entidadConjunto.COLUMN_NAME_PRENDA2, 26);
+        valuesEva.put(entidadConjunto.COLUMN_NAME_PRENDA3, 31);
+        valuesEva.put(entidadConjunto.COLUMN_NAME_PRENDA4, 36);
+        long newRowEva = db.insert(DBHelper.entidadConjunto.TABLE_NAME, null, valuesEva);
+
     }
 
 

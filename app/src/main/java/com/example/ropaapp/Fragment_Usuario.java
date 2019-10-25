@@ -46,9 +46,8 @@ public class Fragment_Usuario extends Fragment {
     Button borrar;
     Button aceptar;
     DBHelper dbHelper;
-    SQLiteDatabase db;
     ArrayList<String> nombreusu = new ArrayList<>();
-
+    SQLiteDatabase db;
 
     private OnFragmentInteractionListener mListener;
 
@@ -177,6 +176,7 @@ public class Fragment_Usuario extends Fragment {
         while (cursor.moveToNext()) {
             String nombre = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadPrenda._ID));
             nombreusu.add(nombre);
+            System.out.println(nombre);
         }
         ArrayAdapter dataAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, nombreusu);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -193,20 +193,23 @@ public class Fragment_Usuario extends Fragment {
         String[] selectionArgs = {idusuario};
         String sortOrder = DBHelper.entidadUsuario._ID + " DESC";
         Cursor cursor = db.query(DBHelper.entidadUsuario.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
+        System.out.println(cursor.getCount());
         if (cursor.getCount()>0){
             ContentValues values = new ContentValues();
             values.put(DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA,Contraseña);
             String selectionUpdateUsuario = DBHelper.entidadUsuario._ID+ " LIKE ?";
             String [] selectionArgsUpdateUsuario = {idusuario};
             int countUsuario = db.update(DBHelper.entidadUsuario.TABLE_NAME,values,selectionUpdateUsuario,selectionArgsUpdateUsuario);
+            System.out.println(countUsuario);
 
 
 
             ContentValues valuesfacturas = new ContentValues();
             valuesfacturas.put(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO,dinero);
             String selectionUpdateFactura = DBHelper.entidadFactura.COLUMN_NAME_IDUSUARIO+ " LIKE ?";
-            String [] selectionArgsUpdateFactura = {"usuario"};
+            String [] selectionArgsUpdateFactura = {idusuario};
             int countFacturas = db.update(DBHelper.entidadPrecio.TABLE_NAME,valuesfacturas,selectionUpdateFactura,selectionArgsUpdateFactura);
+            System.out.println(countFacturas);
         }else{
             String SQL_INSERT_USUARIO =
                     "INSERT INTO " + DBHelper.entidadUsuario.TABLE_NAME + " (" +
@@ -241,11 +244,15 @@ public class Fragment_Usuario extends Fragment {
         String precio = "90";
         String[] projectionFactura = {DBHelper.entidadPrecio.COLUMN_NAME_PRECIO};
         String selectionFactura = DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + "= ?";
+        System.out.println(idUsuario);
         String[] selectionArgsFactura = {"usuario"};
         Cursor cursorFacturas = db.query(DBHelper.entidadPrecio.TABLE_NAME, projectionFactura, selectionFactura, selectionArgsFactura, null, null, null);
+        System.out.println(idUsuario);
+        System.out.println(cursorFacturas.getCount());
         //Guardamos esos datos
         if (cursorFacturas.moveToNext()) {
             precio = cursorFacturas.getString(cursorFacturas.getColumnIndexOrThrow(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO));
+            System.out.println(precio);
         }
 
 

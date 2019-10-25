@@ -46,7 +46,7 @@ public class prendasEjemplo extends AppCompatActivity {
 
         for (int i=1;TodosArrays.size()>=i;i++){
             String[] projectiongorros = {DBHelper.entidadPrenda._ID};
-           // String sortOrdergorros = DBHelper.entidadPrenda._ID + " DESC";
+            // String sortOrdergorros = DBHelper.entidadPrenda._ID + " DESC";
             String selectiongorros = DBHelper.entidadPrenda.COLUMN_NAME_CATEGORIA + " = ? AND "+DBHelper.entidadPrenda.COLUMN_NAME_IDUSUARIO + " = ?";
             String[] selectionArgsgorros = {""+i+"",usuario};
             Cursor cursorgorros = db.query(DBHelper.entidadPrenda.TABLE_NAME, projectiongorros, selectiongorros, selectionArgsgorros, null, null, null);
@@ -93,7 +93,7 @@ public class prendasEjemplo extends AppCompatActivity {
                             DBHelper.entidadConjunto.COLUMN_NAME_PRENDA4 + ", " +
                             DBHelper.entidadConjunto.COLUMN_NAME_IDUSUARIO + ") " +
 
-                            "VALUES ('" + Conjuntos.get(k).idConjunto() + "', '" + Conjuntos.get(k).prenda1() + "', '" + Conjuntos.get(k).prenda2() + "', '" + Conjuntos.get(k).prenda3() + "', '" + Conjuntos.get(k).prenda4()
+                            "VALUES ('" + Conjuntos.get(k).getIdConjunto() + "', '" + Conjuntos.get(k).getPrenda1() + "', '" + Conjuntos.get(k).getPrenda2() + "', '" + Conjuntos.get(k).getPrenda3() + "', '" + Conjuntos.get(k).getPrenda4()
                             + "', '" + Conjuntos.get(k).getIdUsuario()+"')";
             db.execSQL(SQL_INSERT_USUARIO);
         }

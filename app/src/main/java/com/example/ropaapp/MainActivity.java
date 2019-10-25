@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         botonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String sUsuario = loginNombreUsuario.getText().toString();
                 String sContrasenya = loginContrasenya.getText().toString();
 
@@ -63,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     String[] projection = {
                             DBHelper.entidadUsuario.COLUMN_NAME_PERFIL
                     };
+
                     String selection = DBHelper.entidadUsuario._ID + " = ?" + " AND " + DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA + " = ?";
                     String[] selectionArgs = {sUsuario, sContrasenya};
 
@@ -76,30 +76,32 @@ public class MainActivity extends AppCompatActivity {
                         null
                     );
 
-                    if(cursor != null && cursor.getCount()>0){
+                    if(cursor != null && cursor.getCount() > 0){
                         cursor.moveToFirst();
-                        //do your action
-                        //Fetch your data
                         String sPerfil = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadUsuario.COLUMN_NAME_PERFIL));
                         //System.out.println(perfil);
                         final String MY_PREFS_NAME = "File";
                         SharedPreferences.Editor datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                         datos.putString("sUsuario", sUsuario);
                         datos.putString("sPerfil", sPerfil);
-
+                        datos.putString("usuarioArmario", sUsuario);
                         datos.apply();
+
                         if(sPerfil.equals("estilista")) {
                             Intent intent = new Intent(v.getContext(), Activity_MenuySelecciondeclientes.class);
                             startActivity(intent);
                         }
+
                         if (sPerfil.equals("usuario")) {
                             Intent intent = new Intent(v.getContext(), Activity_Menu.class);
                             startActivity(intent);
                         }
+
                         if (sPerfil.equals("admin")) {
                             Intent intent = new Intent(v.getContext(), Activity_Admin.class);
                             startActivity(intent);
                         }
+
                     }else{
                         CharSequence text = getString(R.string.datosIncorrectos);
                         Toast toast = Toast.makeText(context, text, duration);
@@ -122,9 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             });
-
         }
-
 
     //Aqui comprobaremos si tenemos los permisos de escritura y si no lo tenemos los pediremos
     private void Permisos(){
