@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,6 +27,10 @@ public class Activity_Conjuntos extends AppCompatActivity {
     ImageView conjuntoPrenda2;
     ImageView conjuntoPrenda3;
     ImageView conjuntoPrenda4;
+    Button siguienteConjunto;
+    Button anteriorConjunto;
+    Button botonNuevoEstilo;
+    int numeroConjuntos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +49,41 @@ public class Activity_Conjuntos extends AppCompatActivity {
         conjuntoPrenda2 = findViewById(R.id.conjuntoPrenda2);
         conjuntoPrenda3 = findViewById(R.id.conjuntoPrenda3);
         conjuntoPrenda4 = findViewById(R.id.conjuntoPrenda4);
+        siguienteConjunto = findViewById(R.id.siguienteConjunto);
+        anteriorConjunto = findViewById(R.id.anteriorConjunto);
+        botonNuevoEstilo = findViewById(R.id.botonNuevoEstilo);
 
         //Seleccion y pintado
         conjuntos = seleccionarConjuntos(sUsuario, prendaReferencia);
+        numeroConjuntos = conjuntos.size();
         pintarConjunto(conjuntos, posicion);
+
+        //Listeners
+        siguienteConjunto.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (posicion < numeroConjuntos -1 ){
+                            posicion++;
+                            pintarConjunto(conjuntos, posicion);
+                        }
+
+                    }
+                }
+        );
+        anteriorConjunto.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (posicion > 0){
+                            posicion--;
+                            pintarConjunto(conjuntos, posicion);
+                        }
+                    }
+                }
+        );
+
+
     }
 
 
