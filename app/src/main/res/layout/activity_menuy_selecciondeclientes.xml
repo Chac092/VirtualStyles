@@ -8,10 +8,9 @@
 
     <Spinner
         android:id="@+id/SeleccionUsario"
-        android:layout_width="291dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+
         android:background="@color/Spinner"
         android:popupBackground="@color/Spinner"
         app:layout_constraintBottom_toTopOf="@+id/BTNArmaEstilista"
@@ -21,10 +20,8 @@
 
     <Button
         android:id="@+id/BTNArmaEstilista"
-        android:layout_width="246dp"
-        android:layout_height="183dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:background="@drawable/armario"
         app:layout_constraintBottom_toTopOf="@+id/botonConjuntos"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -33,11 +30,8 @@
 
     <Button
         android:id="@+id/botonConjuntos"
-        android:layout_width="242dp"
-        android:layout_height="198dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginBottom="96dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:background="@drawable/conjunto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
