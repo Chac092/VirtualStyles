@@ -13,13 +13,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.net.Inet4Address;
 import java.util.ArrayList;
 
 public class Activity_Conjuntos extends AppCompatActivity {
 
+
+    String sUsuario;
+    String sPerfil;
     String usuarioArmario;
+
     ArrayList<Conjunto> conjuntos = new ArrayList<Conjunto>();
     int posicion = 0;
     TextView nombreConjunto;
@@ -42,7 +47,10 @@ public class Activity_Conjuntos extends AppCompatActivity {
         //Shared Preferences
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        sUsuario = datos.getString("usuarioArmario",null);
+        sPerfil = datos.getString("sPerfil",null);
         usuarioArmario = datos.getString("usuarioArmario",null);
+
         //Elementos de pantalla
         nombreConjunto = findViewById(R.id.nombreConjunto);
         conjuntoPrenda1 = findViewById(R.id.conjuntoPrenda1);
@@ -59,14 +67,21 @@ public class Activity_Conjuntos extends AppCompatActivity {
         pintarConjunto(conjuntos, posicion);
 
         //Listeners
+        botonNuevoEstilo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Activity_Crearconjunto.class);
+                startActivity(intent);
+            }
+        });
         siguienteConjunto.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                            posicion++;
+                        if(posicion>0) {
+                            posicion--;
                             pintarConjunto(conjuntos, posicion);
-
-
+                        }
                     }
                 }
         );
@@ -74,8 +89,11 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                            posicion--;
-                            pintarConjunto(conjuntos, posicion);
+
+                            if(posicion<conjuntos.size()-1){
+                                posicion++;
+                                pintarConjunto(conjuntos, posicion);
+                        }
                     }
                 }
         );
@@ -113,6 +131,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
     }
 
     private void pintarConjunto(ArrayList<Conjunto> conjuntos, int posicion){
+        if (conjuntos.size()-1>0){
         Conjunto conjunto = conjuntos.get(posicion);
         String nombre = "Conjunto: " + conjunto.getIdConjunto();
         nombreConjunto.setText(nombre);
@@ -120,6 +139,18 @@ public class Activity_Conjuntos extends AppCompatActivity {
         pintarFoto(conjuntoPrenda2, conjunto.getPrenda2());
         pintarFoto(conjuntoPrenda3, conjunto.getPrenda3());
         pintarFoto(conjuntoPrenda4, conjunto.getPrenda4());
+    }else{
+            if(sPerfil.equals("usuario")){
+                CharSequence text ="No tienes conjuntos se te dirijira a la pantalla de menu";
+                Toast toast = Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG);
+                toast.show();
+                Intent intent = new Intent(getApplicationContext(), Activity_Menu.class);
+                startActivity(intent);
+            }else if(sPerfil.equals("estilista")){
+                Intent intent = new Intent(getApplicationContext(), Activity_MenuySelecciondeclientes.class);
+                startActivity(intent);
+            }
+        }
     }
 
     private void pintarFoto(ImageView iv, int foto) {
