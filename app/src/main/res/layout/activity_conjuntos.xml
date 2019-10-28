@@ -8,24 +8,29 @@
 
     <TextView
         android:id="@+id/nombreConjunto"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="@string/NombreConjunto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/conjuntoPrenda1"
-        />
+        app:layout_constraintVertical_chainStyle="spread"/>
 
     <ImageView
         android:id="@+id/conjuntoPrenda1"
+
         android:layout_width="190dp"
         android:layout_height="80dp"
+
         app:layout_constraintBottom_toTopOf="@+id/conjuntoPrenda2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreConjunto"
-        app:srcCompat="@android:color/holo_green_light"/>
+        app:srcCompat="@android:color/holo_green_light"
+        app:layout_constraintVertical_chainStyle="spread"/>
 
     <ImageView
         android:id="@+id/conjuntoPrenda2"
@@ -37,7 +42,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conjuntoPrenda1"
-        app:srcCompat="@android:color/holo_red_light"/>
+        app:srcCompat="@android:color/holo_red_light"
+        app:layout_constraintVertical_chainStyle="spread"/>
 
     <ImageView
         android:id="@+id/conjuntoPrenda3"
@@ -49,7 +55,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conjuntoPrenda2"
-        app:srcCompat="@android:color/holo_blue_dark"/>
+        app:srcCompat="@android:color/holo_blue_dark"
+        app:layout_constraintVertical_chainStyle="spread"/>
 
     <ImageView
         android:id="@+id/conjuntoPrenda4"
@@ -62,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/conjuntoPrenda3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@android:color/white"
-        />
+        app:layout_constraintVertical_chainStyle="spread"/>
 
     <Button
         android:id="@+id/siguienteConjunto"
@@ -70,10 +77,11 @@
         android:layout_height="55dp"
 
         android:text="@string/FlechaDerecha"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/conjuntoPrenda3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
         android:id="@+id/anteriorConjunto"
@@ -81,12 +89,13 @@
         android:layout_height="55dp"
 
         android:text="@string/FlechaIzquierda"
-        app:layout_constraintEnd_toStartOf="@+id/conjuntoPrenda3"
 
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/siguienteConjunto"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
         android:id="@+id/botonNuevoEstilo"
@@ -94,10 +103,9 @@
         android:layout_height="55dp"
 
         android:text="@string/BTNAñadirfoto"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/siguienteConjunto"
-        app:layout_constraintHorizontal_bias="1"
- />
+        app:layout_constraintVertical_chainStyle="spread" />
 </androidx.constraintlayout.widget.ConstraintLayout>

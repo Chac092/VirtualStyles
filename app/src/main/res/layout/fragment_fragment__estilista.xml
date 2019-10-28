@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="96dp"
-            android:text="Contraseña"
+            android:text="@string/loginContraseña"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
             android:layout_marginTop="76dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="Nombre"
+            android:hint="@string/name"
             app:layout_constraintStart_toEndOf="@+id/texto_cobro3"
             app:layout_constraintTop_toBottomOf="@+id/ETnombreEstilista" />
 
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="53dp"
-            android:text="Cuanto cobra el estilista"
+            android:text="@string/cobroEstilista"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
-            android:text="Nombre del estilista"
+            android:text="@string/nameEstilista"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +77,7 @@
             android:layout_marginTop="80dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="Nombre"
+            android:hint="@string/name"
             app:layout_constraintStart_toEndOf="@+id/texto_cobro2"
             app:layout_constraintTop_toBottomOf="@+id/ETsalarioEstilista" />
 
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="53dp"
-            android:text="€"
+            android:text="@string/euro"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/ETsalarioEstilista"
@@ -110,7 +110,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="108dp"
-            android:text="Guardar"
+            android:text="@string/save"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/texto_cobro3" />
 
@@ -120,7 +120,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="36dp"
             android:layout_marginTop="102dp"
-            android:text="Eliminar estilista"
+            android:text="@string/deleteEstilista"
             app:layout_constraintStart_toEndOf="@+id/botonGuardarEstilista"
             app:layout_constraintTop_toBottomOf="@+id/ETcontraseñaEstilista" />
 

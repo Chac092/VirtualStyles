@@ -75,6 +75,20 @@ Podemos, en cualquier momento, limitar o interrumpir tu uso a nuestra única dis
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="nomina">Descargar nomina</string>
+    <string name="name">Nombre</string>
+    <string name="cobroAdmin">Cuanto cobra el Administrador</string>
+    <string name="nameAdmin">Nombre del Administrador</string>
+    <string name="euro">€</string>
+    <string name="deleteAdmin">Eliminar Administrador</string>
+    <string name="save">Guardar</string>
+    <string name="cobroEstilista">Cuanto cobra el estilista</string>
+    <string name="nameEstilista">Nombre del estilista</string>
+    <string name="deleteEstilista">Eliminar estilista</string>
+    <string name="cobroUser">Cuanto paga el usuario</string>
+    <string name="nameUser">Nombre del usuario</string>
+    <string name="deleteUser">Eliminar usuario</string>
+    <string name="delete">Borrar</string>
+
 
 
 </resources>
