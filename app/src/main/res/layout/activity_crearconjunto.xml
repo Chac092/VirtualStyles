@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_Crearconjunto">
+    tools:context=".Activity_CrearConjunto">
 
     <ImageView
         android:id="@+id/gorroConjunto"
         android:layout_width="195dp"
         android:layout_height="105dp"
+        android:layout_marginStart="16dp"
         android:src="@android:color/holo_red_light"
+
         app:layout_constraintBottom_toTopOf="@+id/camisaConjunto"
-        app:layout_constraintEnd_toStartOf="@id/prendaConjunto1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -21,35 +22,40 @@
         android:id="@+id/camisaConjunto"
         android:layout_width="195dp"
         android:layout_height="170dp"
+        android:layout_marginStart="16dp"
         android:src="@android:color/holo_purple"
         app:layout_constraintBottom_toTopOf="@+id/pantalonConjunto"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/prendaConjunto1"
         app:layout_constraintTop_toBottomOf="@+id/gorroConjunto"
-        app:layout_constraintVertical_chainStyle="packed"/>
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <ImageView
         android:id="@+id/pantalonConjunto"
         android:layout_width="195dp"
         android:layout_height="195dp"
+        android:layout_marginStart="16dp"
+
         android:src="@android:color/holo_blue_bright"
-        app:layout_constraintEnd_toStartOf="@id/prendaConjunto1"
+        app:layout_constraintBottom_toTopOf="@+id/zapatosConjunto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/camisaConjunto"
-        app:layout_constraintBottom_toTopOf="@+id/zapatosConjunto"
-        app:layout_constraintVertical_chainStyle="packed"/>
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <ImageView
         android:id="@+id/zapatosConjunto"
         android:layout_width="195dp"
         android:layout_height="80dp"
+        android:layout_marginStart="16dp"
         android:src="@android:color/holo_orange_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/prendaConjunto1"
-        app:layout_constraintTop_toBottomOf="@+id/pantalonConjunto"
+
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pantalonConjunto"
         app:layout_constraintVertical_chainStyle="packed" />
 
+
+    <!--
     <ImageView
         android:id="@+id/prendaConjunto1"
         android:layout_width="80dp"
@@ -93,17 +99,43 @@
         app:layout_constraintTop_toBottomOf="@+id/prendaConjunto3"
         app:layout_constraintBottom_toTopOf="@id/BTNGuardarconjunto"
         app:layout_constraintVertical_chainStyle="packed"/>
+-->
 
     <Button
         android:id="@+id/BTNGuardarconjunto"
         android:layout_width="95dp"
         android:layout_height="55dp"
 
-        android:text="Guardar"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/listaPrendas"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/listaPrendas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/gorroConjunto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prendaConjunto4"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPrendas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scrollbars="vertical"
+            android:background="@color/colorPrimary"
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

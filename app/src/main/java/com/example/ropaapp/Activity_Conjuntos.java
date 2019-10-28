@@ -70,7 +70,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         botonNuevoEstilo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Activity_Crearconjunto.class);
+                Intent intent = new Intent(getApplicationContext(), Activity_CrearConjunto.class);
                 startActivity(intent);
             }
         });
