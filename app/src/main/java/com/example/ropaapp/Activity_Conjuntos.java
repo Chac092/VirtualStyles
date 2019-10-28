@@ -63,10 +63,10 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (posicion < numeroConjuntos -1 ){
+                        
                             posicion++;
                             pintarConjunto(conjuntos, posicion);
-                        }
+
 
                     }
                 }
@@ -75,10 +75,9 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (posicion > 0){
+
                             posicion--;
                             pintarConjunto(conjuntos, posicion);
-                        }
                     }
                 }
         );

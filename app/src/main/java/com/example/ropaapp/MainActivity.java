@@ -35,8 +35,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Permisos();
-        dbHelper = new DBHelper(getBaseContext());
-        db = dbHelper.getWritableDatabase();
+        int permissionCheck = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permisocamara = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.CAMERA);
+        if (permissionCheck == PackageManager.PERMISSION_GRANTED || permisocamara == PackageManager.PERMISSION_GRANTED) {
+            dbHelper = new DBHelper(getBaseContext());
+            db = dbHelper.getWritableDatabase();
+            System.out.println("no tienes permiso");
+        }
+
 
         loginNombreUsuario = findViewById(R.id.loginNombreUsuario);
         loginContrasenya = findViewById(R.id.loginContrasenya);

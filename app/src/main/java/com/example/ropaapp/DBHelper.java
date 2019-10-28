@@ -201,7 +201,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_INSERT_PRECIOADMIN);//TODO Chapuza
         db.execSQL(SQL_INSERT_ADMIN); //TODO Chapuza
         creaPrendas(db);
-        creaConjuntos(db);
+        //creaConjuntos(db);
     }
 
     public void onUpgrade (SQLiteDatabase db,int oldVersion, int newVersion){

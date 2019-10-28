@@ -17,6 +17,11 @@ public class Activity_Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        prendasEjemplo PE = new prendasEjemplo();
+        PE.Rellenar_conjuntos("adan");
+
+
         Armario = findViewById(R.id.Botonmenu1);
         Armario.setOnClickListener(new View.OnClickListener() {
             @Override
