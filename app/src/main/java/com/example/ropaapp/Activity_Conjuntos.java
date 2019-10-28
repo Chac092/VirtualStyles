@@ -20,8 +20,12 @@ import java.util.ArrayList;
 
 public class Activity_Conjuntos extends AppCompatActivity {
 
+
     String sUsuario;
     String sPerfil;
+
+    String usuarioArmario;
+
     ArrayList<Conjunto> conjuntos = new ArrayList<Conjunto>();
     int posicion = 0;
     TextView nombreConjunto;
@@ -46,6 +50,9 @@ public class Activity_Conjuntos extends AppCompatActivity {
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         sUsuario = datos.getString("usuarioArmario",null);
         sPerfil = datos.getString("sPerfil",null);
+
+        usuarioArmario = datos.getString("usuarioArmario",null);
+
         //Elementos de pantalla
         nombreConjunto = findViewById(R.id.nombreConjunto);
         conjuntoPrenda1 = findViewById(R.id.conjuntoPrenda1);
@@ -57,7 +64,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         botonNuevoEstilo = findViewById(R.id.botonNuevoEstilo);
 
         //Seleccion y pintado
-        conjuntos = seleccionarConjuntos(sUsuario, prendaReferencia);
+        conjuntos = seleccionarConjuntos(usuarioArmario, prendaReferencia);
         numeroConjuntos = conjuntos.size();
         pintarConjunto(conjuntos, posicion);
 
@@ -75,6 +82,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
                     public void onClick(View v) {
                         if(posicion>0) {
                             posicion--;
+
                             pintarConjunto(conjuntos, posicion);
                         }
                     }
@@ -86,7 +94,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
                     public void onClick(View v) {
                             if(posicion<conjuntos.size()-1){
                                 posicion++;
-                            pintarConjunto(conjuntos, posicion);
+                                pintarConjunto(conjuntos, posicion);
                         }
                     }
                 }
