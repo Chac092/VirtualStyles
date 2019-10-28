@@ -31,11 +31,9 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     //creamos nuestro ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView portada;
-
         public ViewHolder(View itemView) {
             super(itemView);
             portada = itemView.findViewById(R.id.Imagerecicle);
-
         }
     }
     //creamos el viewholder con la vista de un elemento sin personalizar
@@ -69,10 +67,6 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
         this.onClickListener = onClickListener;
     }
 
-    public void ponerfoto(String foto) {
-        ImageView raton;
-
-    }
 }
 
 
