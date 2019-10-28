@@ -103,7 +103,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
                     Toast toast = Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG);
                     toast.show();
                 }else if(sPerfil.equals("estilista")){
-                    Intent intent = new Intent(getApplicationContext(), Activity_Crearconjunto.class);
+                    Intent intent = new Intent(getApplicationContext(), Activity_CrearConjunto.class);
                     startActivity(intent);
                 }
             }
@@ -182,7 +182,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 CharSequence text ="No tiene conjunto se te enviara a la pantalla crearconjuntos";
                 Toast toast = Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG);
                 toast.show();
-                Intent intent = new Intent(getApplicationContext(), Activity_Crearconjunto.class);
+                Intent intent = new Intent(getApplicationContext(), Activity_CrearConjunto.class);
                 startActivity(intent);
             }
         }
