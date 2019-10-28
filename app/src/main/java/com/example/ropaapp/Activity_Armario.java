@@ -38,7 +38,7 @@ public class Activity_Armario extends AppCompatActivity {
     Button botonCamisa;
     Button botonPantalones;
     Button botonZapatos;
-    
+    String usuarioArmario;
     Button subirFoto;
     Button consultarFotos;
 
@@ -55,7 +55,7 @@ public class Activity_Armario extends AppCompatActivity {
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         sUsuario = datos.getString("sUsuario",null);
         sPerfil = datos.getString("sPerfil",null);
-        String usuarioArmario = datos.getString("usuarioArmario",null);
+        usuarioArmario = datos.getString("usuarioArmario",null);
         System.out.println("USUARIOARMARIO_A: " + usuarioArmario);
         
 
@@ -106,7 +106,7 @@ public class Activity_Armario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Activity_rellenarPrendas.class);
-                intent.putExtra("NombreUsuario", sUsuario);
+                intent.putExtra("NombreUsuario", usuarioArmario);
                 startActivityForResult(intent, 0);
             }
         });
@@ -121,6 +121,8 @@ public class Activity_Armario extends AppCompatActivity {
         if (sPerfil.equals("estilista")) {
             subirFoto.setVisibility(View.INVISIBLE);
             sUsuario = intent.getStringExtra("NombreUsuario");
+        }else if (sPerfil.equals("usuario")){
+            consultarFotos.setVisibility(View.INVISIBLE);
         }
 
     }
@@ -201,7 +203,7 @@ public class Activity_Armario extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu)  {
         if (sPerfil.equals("estilista")){
             MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.overflow2, menu);
+            inflater.inflate(R.menu.overflowadmin, menu);
         }else if(sPerfil.equals("usuario")){
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.overflow, menu);
