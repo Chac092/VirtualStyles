@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toTopOf="@+id/camisaConjunto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <ImageView
         android:id="@+id/camisaConjunto"
@@ -29,6 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gorroConjunto"
         app:layout_constraintVertical_chainStyle="packed" />
+
 
     <ImageView
         android:id="@+id/pantalonConjunto"
@@ -52,60 +53,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pantalonConjunto"
+
         app:layout_constraintVertical_chainStyle="packed" />
 
-
-    <!--
-    <ImageView
-        android:id="@+id/prendaConjunto1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="?android:attr/colorButtonNormal"
-        app:layout_constraintBottom_toTopOf="@+id/prendaConjunto2"
-        app:layout_constraintStart_toEndOf="@id/gorroConjunto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"/>
-
-    <ImageView
-        android:id="@+id/prendaConjunto2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="?android:attr/colorButtonNormal"
-        app:layout_constraintStart_toEndOf="@id/gorroConjunto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prendaConjunto1"
-        app:layout_constraintBottom_toTopOf="@+id/prendaConjunto3"
-        app:layout_constraintVertical_chainStyle="packed"/>
-
-    <ImageView
-        android:id="@+id/prendaConjunto3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="?android:attr/colorButtonNormal"
-        app:layout_constraintBottom_toTopOf="@+id/prendaConjunto4"
-        app:layout_constraintStart_toEndOf="@id/gorroConjunto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prendaConjunto2"
-        app:layout_constraintVertical_chainStyle="packed"/>
-
-    <ImageView
-        android:id="@+id/prendaConjunto4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="?android:attr/colorButtonNormal"
-        app:layout_constraintStart_toEndOf="@id/gorroConjunto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prendaConjunto3"
-        app:layout_constraintBottom_toTopOf="@id/BTNGuardarconjunto"
-        app:layout_constraintVertical_chainStyle="packed"/>
--->
 
     <Button
         android:id="@+id/BTNGuardarconjunto"
         android:layout_width="95dp"
         android:layout_height="55dp"
-
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/guardar"
