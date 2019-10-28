@@ -8,10 +8,11 @@ import android.provider.BaseColumns;
 import java.io.IOException;
 
 public class DBHelper extends SQLiteOpenHelper {
+    //si cambiamos el modelo debe cambiar la version de la base de datos, así se ejecutarán los metodos onupgrade u ondowngrade
     public static final int DATABASE_VERSION = 104;
     public static final String DATABASE_NAME = "VirtualStyle.db";
 
-    //Aqui crearemos las ordenes para mas adelante crear la tabla Facturas
+    //Primero creamos unos string en los que guardar los nombres de tablas, columnas... para centralizar la información por si hay que hacer cambios
     public static class entidadFactura implements BaseColumns{
         public static final String TABLE_NAME = "Facturas";
         //public static final String COLUMN_NAME_IDFACTURA = "idFactura";
@@ -60,6 +61,7 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String COLUMN_NAME_IDUSUARIO = "idUsuario";
     }
 
+    //Tambien creamos strings de las sentencias SQL CREATE y DELETE que usaremos al inicio (no así los INSERT, SELECT...)
     private static final String SQL_CREATE_TABLE_USUARIO =
             "CREATE TABLE " + entidadUsuario.TABLE_NAME + " (" +
                     entidadUsuario._ID + " TEXT PRIMARY KEY," +
@@ -132,7 +134,9 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_TABLE_CONJUNTO =
             "DROP TABLE IF EXISTS " + entidadConjunto.TABLE_NAME;
 
-    //TODO Chapuza para crear datos de inicio
+    //Pequeña Chapuza para crear datos de inicio
+    //Aprovecharemos el metodo los metodos onCreate y onUpdate para alimentar la BD con datos de demostración, en una aplicación real esto no existiria
+
     //Estilista
     private static final String SQL_INSERT_ESTILISTA =
             "INSERT INTO " + entidadUsuario.TABLE_NAME + " (" +
@@ -188,20 +192,21 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate (SQLiteDatabase db){
-        System.out.println("CREANDO LA BD!!!!!!!!!");
+        //System.out.println("CREANDO LA BD!!!!!!!!!");
         db.execSQL(SQL_CREATE_TABLE_USUARIO);
         db.execSQL(SQL_CREATE_TABLE_TARJETA);
         db.execSQL(SQL_CREATE_TABLE_PRENDA);
         db.execSQL(SQL_CREATE_TABLE_CONJUNTO);
         db.execSQL(SQL_CREATE_TABLE_FACTURAS);
         db.execSQL(SQL_CREATE_TABLE_PRECIO);
-        db.execSQL(SQL_INSERT_PRECIOUSU);//TODO Chapuza
-        db.execSQL(SQL_INSERT_PRECIOESTILISTA);//TODO Chapuza
-        db.execSQL(SQL_INSERT_ADAN);//TODO Chapuza
-        db.execSQL(SQL_INSERT_EVA);//TODO Chapuza
-        db.execSQL(SQL_INSERT_ESTILISTA);//TODO Chapuza
-        db.execSQL(SQL_INSERT_PRECIOADMIN);//TODO Chapuza
-        db.execSQL(SQL_INSERT_ADMIN); //TODO Chapuza
+        //Aqui estamos insertando los datos DEMO
+        db.execSQL(SQL_INSERT_PRECIOUSU);
+        db.execSQL(SQL_INSERT_PRECIOESTILISTA);
+        db.execSQL(SQL_INSERT_ADAN);
+        db.execSQL(SQL_INSERT_EVA);
+        db.execSQL(SQL_INSERT_ESTILISTA);
+        db.execSQL(SQL_INSERT_PRECIOADMIN);
+        db.execSQL(SQL_INSERT_ADMIN);
         creaPrendas(db);
         //creaConjuntos(db);
     }
@@ -251,27 +256,6 @@ public class DBHelper extends SQLiteOpenHelper {
             long newRowId = db.insert(DBHelper.entidadPrenda.TABLE_NAME, null, values);
         }
     }
-
-    public void creaConjuntos (SQLiteDatabase db) {
-        ContentValues valuesAdan = new ContentValues();
-        valuesAdan.put(entidadConjunto.COLUMN_NAME_IDUSUARIO, "adan");
-        valuesAdan.put(entidadConjunto.COLUMN_NAME_PRENDA1, 1);
-        valuesAdan.put(entidadConjunto.COLUMN_NAME_PRENDA2, 6);
-        valuesAdan.put(entidadConjunto.COLUMN_NAME_PRENDA3, 11);
-        valuesAdan.put(entidadConjunto.COLUMN_NAME_PRENDA4, 16);
-        long newRowAdan = db.insert(DBHelper.entidadConjunto.TABLE_NAME, null, valuesAdan);
-
-        ContentValues valuesEva = new ContentValues();
-        valuesEva.put(entidadConjunto.COLUMN_NAME_IDUSUARIO, "eva");
-        valuesEva.put(entidadConjunto.COLUMN_NAME_PRENDA1, 21);
-        valuesEva.put(entidadConjunto.COLUMN_NAME_PRENDA2, 26);
-        valuesEva.put(entidadConjunto.COLUMN_NAME_PRENDA3, 31);
-        valuesEva.put(entidadConjunto.COLUMN_NAME_PRENDA4, 36);
-        long newRowEva = db.insert(DBHelper.entidadConjunto.TABLE_NAME, null, valuesEva);
-
-    }
-
-
 
 }
 
