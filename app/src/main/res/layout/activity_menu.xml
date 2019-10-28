@@ -11,12 +11,11 @@
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:background="@drawable/armario"
+
         app:layout_constraintBottom_toTopOf="@+id/BotonMenu2"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread"/>
 
@@ -26,12 +25,11 @@
         android:layout_height="160dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/conjunto"
+
         app:layout_constraintBottom_toTopOf="@+id/BotonMenu3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+       app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Botonmenu1"
         app:layout_constraintVertical_chainStyle="spread"/>
 
@@ -41,10 +39,11 @@
         android:layout_height="160dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/fav"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BotonMenu2"
         app:layout_constraintVertical_chainStyle="spread"/>
 
