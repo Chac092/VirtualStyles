@@ -9,4 +9,8 @@
     <item
         android:id="@+id/menuItem2"
         android:title="Cerrar Sesion"/>
+    <item android:title="Gestión de proyectos" />
+    <item android:title="Gestión de proveedores" />
+    <item android:title="Gestión de clientes" />
+    <item android:title="Gestion de empleados" />
 </menu>

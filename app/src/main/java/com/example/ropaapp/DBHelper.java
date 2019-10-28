@@ -57,6 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String COLUMN_NAME_PRENDA2 = "Prenda2";
         public static final String COLUMN_NAME_PRENDA3 = "Prenda3";
         public static final String COLUMN_NAME_PRENDA4 = "Prenda4";
+        public static final String COLUMN_NAME_FAVORITO = "Fav";
         public static final String COLUMN_NAME_IDUSUARIO = "idUsuario";
     }
 
@@ -120,6 +121,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     entidadConjunto.COLUMN_NAME_PRENDA2 + " INTEGER," +
                     entidadConjunto.COLUMN_NAME_PRENDA3 + " INTEGER," +
                     entidadConjunto.COLUMN_NAME_PRENDA4 + " INTEGER," +
+                    entidadConjunto.COLUMN_NAME_FAVORITO + " INTEGER," +
                     entidadConjunto.COLUMN_NAME_IDUSUARIO + " TEXT," +
 
                     "FOREIGN KEY('" + entidadConjunto.COLUMN_NAME_PRENDA1 + "') REFERENCES '" + entidadPrenda.TABLE_NAME + "'('" + entidadPrenda._ID + "')," +
