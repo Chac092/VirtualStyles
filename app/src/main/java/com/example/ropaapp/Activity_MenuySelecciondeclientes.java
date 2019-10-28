@@ -66,7 +66,7 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
         botonConjuntos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),Activity_Armario.class);
+                Intent intent = new Intent(v.getContext(),Activity_Conjuntos.class);
                 startActivity(intent);
             }
         });
@@ -88,5 +88,4 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item, nombreusu);
         Usuarios.setAdapter(adaptador);
     }
-
 }
