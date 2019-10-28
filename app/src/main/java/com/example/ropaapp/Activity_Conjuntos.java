@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class Activity_Conjuntos extends AppCompatActivity {
 
-    String sUsuario;
+    String usuarioArmario;
     ArrayList<Conjunto> conjuntos = new ArrayList<Conjunto>();
     int posicion = 0;
     TextView nombreConjunto;
@@ -42,7 +42,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         //Shared Preferences
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        sUsuario = datos.getString("sUsuario",null);
+        usuarioArmario = datos.getString("usuarioArmario",null);
         //Elementos de pantalla
         nombreConjunto = findViewById(R.id.nombreConjunto);
         conjuntoPrenda1 = findViewById(R.id.conjuntoPrenda1);
@@ -54,7 +54,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         botonNuevoEstilo = findViewById(R.id.botonNuevoEstilo);
 
         //Seleccion y pintado
-        conjuntos = seleccionarConjuntos(sUsuario, prendaReferencia);
+        conjuntos = seleccionarConjuntos(usuarioArmario, prendaReferencia);
         numeroConjuntos = conjuntos.size();
         pintarConjunto(conjuntos, posicion);
 
@@ -63,7 +63,6 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        
                             posicion++;
                             pintarConjunto(conjuntos, posicion);
 
@@ -75,7 +74,6 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                             posicion--;
                             pintarConjunto(conjuntos, posicion);
                     }
