@@ -45,9 +45,10 @@ public class Fragment_Usuario extends Fragment {
     Spinner usuarios;
     Button borrar;
     Button aceptar;
-    DBHelper dbHelper;
+
     ArrayList<String> nombreusu = new ArrayList<>();
     SQLiteDatabase db;
+    DBHelper dbHelper;
 
     private OnFragmentInteractionListener mListener;
 

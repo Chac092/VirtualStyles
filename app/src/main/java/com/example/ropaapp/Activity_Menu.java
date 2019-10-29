@@ -17,6 +17,11 @@ public class Activity_Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        prendasEjemplo PE = new prendasEjemplo();
+        PE.Rellenar_conjuntos("adan");
+
+
         Armario = findViewById(R.id.Botonmenu1);
         Armario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +35,7 @@ public class Activity_Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (v.getContext(), Activity_Conjuntos.class);
+                intent.putExtra("Origen", "todo");
                 startActivityForResult(intent, 0);
             }
         });
@@ -38,6 +44,7 @@ public class Activity_Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (v.getContext(), Activity_Conjuntos.class);
+                intent.putExtra("Origen", "favoritos");
                 startActivityForResult(intent, 0);
             }
         });

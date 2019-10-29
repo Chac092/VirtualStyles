@@ -63,7 +63,7 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         usuarioArmario = datos.getString("usuarioArmario",null);
 
-        System.out.println("USUARIOARMARIO: " + usuarioArmario);
+        //System.out.println("USUARIOARMARIO: " + usuarioArmario);
 
         //Acciones
         CojerImagenes(usuarioArmario, categoria, "1");
@@ -73,6 +73,12 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println(recyclerView.getChildAdapterPosition(v));
+                String fotoaMandar  = idfotos.get(recyclerView.getChildAdapterPosition(v));
+                Intent intent = new Intent(v.getContext(), Activity_Conjuntos.class);
+                System.out.println(fotoaMandar);
+                intent.putExtra("nombrefoto",fotoaMandar);
+                intent.putExtra("Origen","armario");
+                startActivity(intent);
             }
         });
         recyclerView =findViewById(R.id.RecyclerView);
@@ -80,8 +86,10 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         layoutManager = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(layoutManager);
     }
+
+    //TODO Centralizar
     public void CojerImagenes(String usuario, String categoria, String estado){
-        System.out.println(usuario + " : " + categoria + " : " + estado);
+        //System.out.println(usuario + " : " + categoria + " : " + estado);
         idfotos = new ArrayList<>();
        SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {entidadPrenda._ID};
@@ -100,8 +108,6 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         idFotos.add("primero");
         idFotos.add("segundo");
         return idfotos;
-
-
     }
 
 }

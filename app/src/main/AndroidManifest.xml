@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +21,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activity_rellenarPrendas" />
         <activity android:name=".Activity_Terminos" />
-        <activity android:name=".Activity_Crearconjunto" />
+        <activity android:name=".Activity_CrearConjunto" />
         <activity android:name=".Activity_MenuySelecciondeclientes" />
         <activity android:name=".Activity_Conjuntos" />
         <activity android:name=".Activity_Seleccion_Prenda" />

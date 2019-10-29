@@ -108,7 +108,7 @@ public class Activity_Admin extends AppCompatActivity implements Fragment_Estili
    @Override
     public boolean onCreateOptionsMenu(Menu menu)  {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.overflow2, menu);
+        inflater.inflate(R.menu.overflowadmin, menu);
         return true;
     }
     public boolean onOptionsItemSelected(MenuItem item){
