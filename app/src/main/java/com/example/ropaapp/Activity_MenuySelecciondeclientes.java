@@ -39,7 +39,7 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 seleccionado = Usuarios.getSelectedItem().toString();
-                System.out.println("SELECCIONADO: " + seleccionado);
+                //System.out.println("SELECCIONADO: " + seleccionado);
                 final String MY_PREFS_NAME = "File";
                 SharedPreferences.Editor datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                 datos.putString("usuarioArmario", seleccionado);
@@ -83,7 +83,7 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
         while(cursor.moveToNext()){
             String nombre = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadPrenda._ID));
             nombreusu.add(nombre);
-            System.out.println(nombre);
+            //System.out.println(nombre);
         }
         ArrayAdapter adaptador = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, nombreusu);

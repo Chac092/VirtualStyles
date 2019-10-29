@@ -58,7 +58,7 @@
 
 
     <Button
-        android:id="@+id/BTNGuardarconjunto"
+        android:id="@+id/botonGuardarConjunto"
         android:layout_width="95dp"
         android:layout_height="55dp"
         android:layout_marginEnd="16dp"
