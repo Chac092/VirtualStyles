@@ -67,6 +67,7 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),Activity_Conjuntos.class);
+                intent.putExtra("Origen", "todo");
                 startActivity(intent);
             }
         });
