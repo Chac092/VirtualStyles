@@ -46,8 +46,6 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
         View v = LayoutInflater.from(parent.getContext()).inflate(layout.elementoselecto, parent, false);
         v.setId(contador);
         v.setOnClickListener(onClickListener);
-
-
         return new ViewHolder(v);
     }
 
@@ -62,7 +60,6 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     @Override
     public int getItemCount() {
         return Activity_Seleccion_Prenda.getIdfotos().size();
-
     }
 
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
