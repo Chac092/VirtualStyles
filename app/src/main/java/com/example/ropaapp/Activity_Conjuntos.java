@@ -54,6 +54,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         //Intent
         Intent intent = getIntent();
         String Origen = intent.getStringExtra("Origen");
+        if (Origen == null ) {Origen = "todo";}
         prendaReferencia = intent.getStringExtra("nombrefoto");
         //Shared Preferences
         final String MY_PREFS_NAME = "File";
@@ -74,22 +75,26 @@ public class Activity_Conjuntos extends AppCompatActivity {
         botonFavYNuevo = findViewById(R.id.botoFavorito);
         if (sPerfil.equals("usuario")) {
             botonFavYNuevo.setImageDrawable(getDrawable(R.drawable.fav));
-            System.out.println("Entro usuario");
+            //System.out.println("Entro usuario");
         }else if(sPerfil.equals("estilista")){
             botonFavYNuevo.setImageDrawable(getDrawable(R.drawable.mas));
-            System.out.println("Entro estilista");
+            //System.out.println("Entro estilista");
         }
         //Seleccion y pintado
-        if (Origen.equals("todo")){
-            System.out.println("ARMARIO == "+usuarioArmario);
-            conjuntos = seleccionarConjuntos(usuarioArmario);
-            pintarConjunto(conjuntos, posicion);
-        } if(Origen.equals("armario")){
-            System.out.println(prendaReferencia);
+
+
+        if(Origen.equals("armario")){
+            //System.out.println(prendaReferencia);
             conjuntos = seleccionarConjuntosConPrenda(sUsuario,prendaReferencia);
             pintarConjunto(conjuntos, posicion);
-        }else if(Origen.equals("favoritos")){
+        }
+        else if(Origen.equals("favoritos")){
             conjuntos = seleccionarConjuntosFavoritos(sUsuario);
+            pintarConjunto(conjuntos, posicion);
+        }
+        else {
+            //System.out.println("ARMARIO == "+usuarioArmario);
+            conjuntos = seleccionarConjuntos(usuarioArmario);
             pintarConjunto(conjuntos, posicion);
         }
 
@@ -134,18 +139,24 @@ public class Activity_Conjuntos extends AppCompatActivity {
         );
     }
 
-
     private ArrayList<Conjunto> seleccionarConjuntos(String usuario) {
         //TODO prendaReferencia
         Cursor cursor;
         DBHelper dbHelper = new DBHelper(getBaseContext());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String[] projection = {DBHelper.entidadConjunto._ID, DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1, DBHelper.entidadConjunto.COLUMN_NAME_PRENDA2, DBHelper.entidadConjunto.COLUMN_NAME_PRENDA3, DBHelper.entidadConjunto.COLUMN_NAME_PRENDA4, DBHelper.entidadConjunto.COLUMN_NAME_IDUSUARIO};
-
+        String[] projection = {
+                DBHelper.entidadConjunto._ID,
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1,
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA2,
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA3,
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA4,
+                DBHelper.entidadConjunto.COLUMN_NAME_IDUSUARIO};
         String selection = DBHelper.entidadConjunto.COLUMN_NAME_IDUSUARIO + "= ?";
         String[] selectionArgs = {usuario};
         String sortOrder = DBHelper.entidadConjunto._ID+" DESC";
-        cursor = db.query(DBHelper.entidadConjunto.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
+        cursor = db.query(
+                DBHelper.entidadConjunto.TABLE_NAME,
+                projection,selection,selectionArgs,null,null,sortOrder);
 
         ArrayList<Conjunto> conjuntos = new ArrayList<Conjunto>();
 
@@ -202,7 +213,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         String selectionUpdateFactura = DBHelper.entidadConjunto._ID+ " LIKE ?";
         String [] selectionArgsUpdateFactura = {IdConjunto};
         int countFavs = db.update(DBHelper.entidadConjunto.TABLE_NAME,valuesfav,selectionUpdateFactura,selectionArgsUpdateFactura);
-        System.out.println(countFavs);
+        //System.out.println(countFavs);
     }
 
 
@@ -221,7 +232,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         cursor = db.query(DBHelper.entidadConjunto.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
 
         ArrayList<Conjunto> conjuntos = new ArrayList<Conjunto>();
-        System.out.println("tamaño de cursor de prendas cojidad = "+cursor.getCount());
+        //System.out.println("tamaño de cursor de prendas cojidad = "+cursor.getCount());
         while(cursor.moveToNext()){
             int idConjunto = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.entidadConjunto._ID));
             int idPrenda1 = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1));
@@ -250,7 +261,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         cursor = db.query(DBHelper.entidadConjunto.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
 
         ArrayList<Conjunto> conjuntos = new ArrayList<Conjunto>();
-        System.out.println("tamaño de cursor de prendas cojidad = "+cursor.getCount());
+        //System.out.println("tamaño de cursor de prendas cojidad = "+cursor.getCount());
         while(cursor.moveToNext()){
             int idConjunto = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.entidadConjunto._ID));
             int idPrenda1 = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1));

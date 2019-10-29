@@ -56,7 +56,7 @@ public class Activity_Armario extends AppCompatActivity {
         sUsuario = datos.getString("sUsuario",null);
         sPerfil = datos.getString("sPerfil",null);
         usuarioArmario = datos.getString("usuarioArmario",null);
-        System.out.println("USUARIOARMARIO_A: " + usuarioArmario);
+        //System.out.println("USUARIOARMARIO_A: " + usuarioArmario);
         
 
         botonGorro = findViewById(R.id.botonGorro);
@@ -140,7 +140,7 @@ public class Activity_Armario extends AppCompatActivity {
             //Una vez sacada esa foto vamos a cojerla del intent y la guardaremos en forma de bitmap
             Bundle ext = data.getExtras();
             bmp = (Bitmap) ext.get("data");
-            System.out.println("exito");
+            //System.out.println("exito");
             //guardarFoto();
             saveTempBitmap(bmp);
         }
@@ -227,21 +227,21 @@ public class Activity_Armario extends AppCompatActivity {
         String precio = "90";
         String[] projectionFactura = {DBHelper.entidadPrecio.COLUMN_NAME_PRECIO};
         String selectionFactura = DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + "= ?";
-        System.out.println(sUsuario);
+        //System.out.println(sUsuario);
         String[] selectionArgsFactura = {sUsuario};
         if(sPerfil.equals("estilista")){
-            System.out.println("Estamos en armario y nos acaba de cargar "+sUsuario);
+            //System.out.println("Estamos en armario y nos acaba de cargar "+sUsuario);
             selectionArgsFactura[0] = sUsuario;
         }else if(sPerfil.equals("usuario")){
             selectionArgsFactura [0]= "usuario";
         }
         Cursor cursorFacturas = db.query(DBHelper.entidadPrecio.TABLE_NAME, projectionFactura, selectionFactura, selectionArgsFactura, null, null, null);
-        System.out.println(sUsuario);
-        System.out.println(cursorFacturas.getCount());
+        //System.out.println(sUsuario);
+        //System.out.println(cursorFacturas.getCount());
         //Guardamos esos datos
         if (cursorFacturas.moveToNext()) {
             precio = cursorFacturas.getString(cursorFacturas.getColumnIndexOrThrow(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO));
-            System.out.println(precio);
+            //System.out.println(precio);
         }
 
         String Factura =
@@ -283,7 +283,7 @@ public class Activity_Armario extends AppCompatActivity {
                 toast.show();
             }
             catch (Exception e){
-                System.out.println(e);
+                //System.out.println(e);
                 Toast.makeText(getBaseContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
             }
     }
