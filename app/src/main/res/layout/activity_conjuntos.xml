@@ -68,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conjuntoPrenda3"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@android:color/white"
+        app:srcCompat="@color/Color3"
         app:layout_constraintVertical_chainStyle="spread"/>
 
     <Button
@@ -83,19 +83,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread" />
 
-    <Button
-        android:id="@+id/anteriorConjunto"
-        android:layout_width="95dp"
-        android:layout_height="55dp"
 
-        android:text="@string/FlechaIzquierda"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/siguienteConjunto"
-        app:layout_constraintHorizontal_bias="0.018"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/botoFavorito"
@@ -122,5 +110,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/siguienteConjunto"
         app:layout_constraintVertical_chainStyle="spread" />
+
+    <ImageView
+        android:id="@+id/anteriorConjunto"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="338dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/siguienteConjunto"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
