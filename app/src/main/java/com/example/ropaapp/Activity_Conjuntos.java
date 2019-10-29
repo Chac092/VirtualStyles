@@ -81,9 +81,10 @@ public class Activity_Conjuntos extends AppCompatActivity {
         }
         //Seleccion y pintado
         if (Origen.equals("todo")){
+            System.out.println("ARMARIO == "+usuarioArmario);
             conjuntos = seleccionarConjuntos(usuarioArmario);
             pintarConjunto(conjuntos, posicion);
-        }else if(Origen.equals("armario")){
+        } if(Origen.equals("armario")){
             System.out.println(prendaReferencia);
             conjuntos = seleccionarConjuntosConPrenda(sUsuario,prendaReferencia);
             pintarConjunto(conjuntos, posicion);
@@ -158,7 +159,6 @@ public class Activity_Conjuntos extends AppCompatActivity {
             Conjunto conjunto = new Conjunto(idConjunto, idPrenda1, idPrenda2, idPrenda3, idPrenda4, idUsuario);
             conjuntos.add(conjunto);
         }
-
         return conjuntos;
     }
 
