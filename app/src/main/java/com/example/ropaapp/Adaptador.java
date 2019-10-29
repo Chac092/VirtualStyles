@@ -13,11 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import static com.example.ropaapp.Activity_Seleccion_Prenda.idfotos;
 import static com.example.ropaapp.R.drawable;
 import static com.example.ropaapp.R.layout;
 
 public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     private View.OnClickListener onClickListener;
+    private View.OnLongClickListener onLongClickListener;
     private LayoutInflater inflador; //crea layout a partir de xml
     protected ArrayList<String> lista;//libros a visualizar
     private Context contexto;
@@ -63,6 +65,12 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
     }
+
+    public void setOnLongClickListener(View.OnLongClickListener onLongClickListener){
+        this.onLongClickListener = onLongClickListener;
+    }
+
+
 
 }
 

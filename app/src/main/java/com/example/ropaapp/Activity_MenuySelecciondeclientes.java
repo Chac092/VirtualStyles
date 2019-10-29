@@ -2,12 +2,16 @@ package com.example.ropaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,12 +28,20 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
     ArrayList<String> nombreusu = new ArrayList<>();
     Spinner Usuarios;
     String seleccionado ="";
+    String sUsuario;
+    String sPerfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
+
+        final String MY_PREFS_NAME = "File";
+        SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        sUsuario = datos.getString("sUsuario",null);
+        sPerfil = datos.getString("sPerfil",null);
+
 
         setContentView(R.layout.activity_menuy_selecciondeclientes);
         Usuarios = findViewById(R.id.SeleccionUsario);
@@ -88,5 +100,31 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
         ArrayAdapter adaptador = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, nombreusu);
         Usuarios.setAdapter(adaptador);
+    }
+    public boolean onCreateOptionsMenu(Menu menu)  {
+        if (sPerfil.equals("estilista")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflowadmin, menu);
+        }else if(sPerfil.equals("usuario")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflow, menu);
+        }
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.menuItemnomina){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }else if (id == R.id.menuItem2){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else if(id == R.id.menuItemfactura){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

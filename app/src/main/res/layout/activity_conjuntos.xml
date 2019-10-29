@@ -112,11 +112,11 @@
         app:layout_constraintTop_toBottomOf="@+id/siguienteConjunto" />
 
     <Button
-        android:id="@+id/botonNuevoEstilo"
+        android:id="@+id/botonEliminar"
         android:layout_width="95dp"
         android:layout_height="55dp"
 
-        android:text="@string/BTNAñadirfoto"
+        android:text="@string/botonborrarconjunto"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
