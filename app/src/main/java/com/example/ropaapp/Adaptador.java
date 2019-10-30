@@ -51,6 +51,7 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        //Aqui rellenaremos la foto que queremos poner el elemento del recicler view
         String numprenda = Activity_Seleccion_Prenda.getIdfotos().get(position);
         Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+numprenda+".jpg");
         System.out.println("dentro de onbindholder");
@@ -65,13 +66,6 @@ public class Adaptador extends RecyclerView.Adapter <Adaptador.ViewHolder> {
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
     }
-
-    public void setOnLongClickListener(View.OnLongClickListener onLongClickListener){
-        this.onLongClickListener = onLongClickListener;
-    }
-
-
-
 }
 
 

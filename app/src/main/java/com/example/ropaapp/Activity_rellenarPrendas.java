@@ -24,7 +24,7 @@ import android.widget.Spinner;
 import java.io.File;
 
 public class Activity_rellenarPrendas extends AppCompatActivity {
-    Spinner opciones;
+    //Atributtos
     String [] elecciones={"1","2","3","4"};
     String usuario;
     DBHelper dbHelper;
@@ -42,12 +42,13 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Creation of an instance of SQLiteOpenHelper type Class object (DatabaseOpenHelper)
+        //Base de datos
         dbHelper = new DBHelper(getBaseContext());
-        //We get a writable database. If not exist, onCreate is called
         db = dbHelper.getWritableDatabase();
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_rellenar_prendas);
+        //Los listeners
         gorro = findViewById(R.id.BTNasignarGorro);
         gorro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +104,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         System.out.println(sUsuario);
         refrescar();
     }
-
+    //Refrescar las prendas que se muestran
     public void refrescar(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {DBHelper.entidadPrenda._ID};
@@ -120,7 +121,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
             Fotoprincipal.setImageBitmap(FTO);
         }
     }
-
+    //Para rellenar las prendas sin clasificar
     public void Upadate(){
         ContentValues values = new ContentValues();
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO,1);
@@ -130,6 +131,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         int count = db.update(DBHelper.entidadPrenda.TABLE_NAME,values,selection,selectionArgs);
         System.out.println(count);
     }
+    //Para borrar las prendas de la base de datos y de el telefono
     public void Delete(){
         String selection = DBHelper.entidadPrenda._ID + " LIKE ?";
         String [] selectionArgs = {nombre};
@@ -145,6 +147,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
             }
         }
     }
+    //Menu
     public boolean onCreateOptionsMenu(Menu menu)  {
         if (sPerfil.equals("estilista")){
             MenuInflater inflater = getMenuInflater();

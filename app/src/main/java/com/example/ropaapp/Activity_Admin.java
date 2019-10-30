@@ -1,4 +1,5 @@
 package com.example.ropaapp;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -25,103 +26,48 @@ public class Activity_Admin extends AppCompatActivity implements Fragment_Estili
     MenuItem cobro;
     DBHelper dbHelper;
     SQLiteDatabase db;
+    String sUsuario;
+    String sPerfil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Lamamos a la base de datos
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrador);
+        //Ligamos los atributos con los contenidos del layout
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-
-    }
-    private void savePdf() {
-
-        String sUsuario = "";
+        //Cojeremos los datos del usuario
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        sUsuario =datos.getString("sUsuario",null);
-        System.out.println(sUsuario);
-        //Consultamos el precio de en la base de datos
-        String precio = "90";
-        String[] projectionFactura = {DBHelper.entidadPrecio.COLUMN_NAME_PRECIO};
-        String selectionFactura = DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + "= ?";
-        System.out.println(sUsuario);
-        String[] selectionArgsFactura = {sUsuario};
-        Cursor cursorFacturas = db.query(DBHelper.entidadPrecio.TABLE_NAME, projectionFactura, selectionFactura, selectionArgsFactura, null, null, null);
-        System.out.println(sUsuario);
-        System.out.println(cursorFacturas.getCount());
-        //Guardamos esos datos
-        if (cursorFacturas.moveToNext()) {
-            precio = cursorFacturas.getString(cursorFacturas.getColumnIndexOrThrow(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO));
-            System.out.println(precio);
-        }
+        sUsuario = datos.getString("sUsuario",null);
+        sPerfil = datos.getString("sPerfil",null);
 
-        String Factura =
-                sUsuario +"\n"+
-                        "Ornilla Doctor Kalea, 2\n" +
-                        "48004\n" +
-                        "Bilbo, Bizkaia\n" +
-                        "\n" +
-                        "                                                                                   Virtual Style\n" +
-                        "                                                                               Raudna-Loodi\n" +
-                        "                                                                                           69680\n" +
-                        "                                                                           Viljandi maakond\n" +
-                        "                                                                                          Estonia\n" +
-                        "\n" +
-                        "\n" +
-                        "|------------------------------------------------------------------------------------------|\n" +
-                        "|NOMBRE            |CANTIDAD                  |PRECIO                            |\n" +
-                        "|-----------------------|-------------------------------|----------------------------------|\n" +
-                        "|Cuota mensual   |1                                   |Variable                            |\n" +
-                        "|                           |                                     |                                        |\n" +
-                        "|                       |                               |IVA                                  21% |\n" +
-                        "|------------------------------------------------------------------------------------------|\n" +
-                        "|TOTAL           |                                        |"+precio+"                                       |\n" +
-                        "|------------------------------------------------------------------------------------------|\n";
-        Document mDoc =new Document();
-        File ruta = new File("/storage/emulated/0/saved_pdf/");
-        if(!ruta.exists()){
-            ruta.mkdir();
-        }
-        String mFilePath= "/storage/emulated/0/saved_pdf/"+"Nuevafactura"+".pdf";
-        try{
-            PdfWriter.getInstance(mDoc, new FileOutputStream(mFilePath));
-            mDoc.open();
-            mDoc.addAuthor("Goazen");
-            mDoc.add(new Paragraph(Factura));
-            mDoc.close();
-            CharSequence text = "pdf descargado";
-            Toast toast = Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG);
-            toast.show();
-        }
-        catch (Exception e){
-            System.out.println(e);
-            Toast.makeText(getBaseContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
-        }
     }
-
-
+    //Aqui se creara el menu overflow
    @Override
     public boolean onCreateOptionsMenu(Menu menu)  {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.overflowadmin, menu);
         return true;
     }
+    //Aqui daremos las acciones que haran al clickar en las opciones del boton
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         if (id == R.id.menuItemnomina){
-            savePdf();
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
         }else if (id == R.id.menuItem2){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onFragmentInteraction(Uri uri) {
