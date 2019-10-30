@@ -3,16 +3,33 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-    <item android:title="Recursos humanos" >
-        <menu />
+    <item android:title="@string/recursos_humanos" >
+        <menu >
+            <item android:title="@string/gestion_de_contratos" />
+            <item android:title="@string/control_de_asistencia" />
+            <item android:title="@string/informes" />
+            <item android:title="@string/facturas" />
+        </menu>
     </item>
-    <item android:title="Clientes" />
-    <item android:title="Servicios" />
-    <item android:title="Contabilidad y finanzas" />
+    <item android:title="@string/clientes" >
+        <menu >
+            <item android:title="@string/bd_de_clientes" />
+            <item android:title="@string/productos_a_clientes" />
+            <item android:title="@string/gestion_de_reclamaciones" />
+        </menu>
+    </item>
+    <item android:title="@string/contabilidad_y_finanzas" >
+        <menu >
+            <item android:title="@string/gestion_de_asientos_contables" />
+            <item android:title="@string/gestion_de_cierres_contables" />
+            <item android:title="@string/generacion_de_informes" />
+            <item android:title="@string/diarios_contables" />
+        </menu>
+    </item>
     <item
         android:id="@+id/menuItemnomina"
-        android:title="Descargar nomina"/>
+        android:title="@string/descarga_tu_factura" />
     <item
         android:id="@+id/menuItem2"
-        android:title="Cerrar Sesion"/>
+        android:title="@string/cerrar_sesion"/>
 </menu>
