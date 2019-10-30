@@ -3,14 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
+    <item android:title="Recursos humanos" >
+        <menu />
+    </item>
+    <item android:title="Clientes" />
+    <item android:title="Servicios" />
+    <item android:title="Contabilidad y finanzas" />
     <item
         android:id="@+id/menuItemnomina"
         android:title="Descargar nomina"/>
     <item
         android:id="@+id/menuItem2"
         android:title="Cerrar Sesion"/>
-    <item android:title="Gestión de proyectos" />
-    <item android:title="Gestión de proveedores" />
-    <item android:title="Gestión de clientes" />
-    <item android:title="Gestion de empleados" />
 </menu>
