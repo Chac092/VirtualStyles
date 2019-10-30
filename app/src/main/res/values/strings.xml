@@ -93,6 +93,22 @@ Podemos, en cualquier momento, limitar o interrumpir tu uso a nuestra única dis
     <string name="conjuntoGuardado">Conjunto guardado</string>
 
     <string name="botonborrarconjunto">-</string>
+    <string name="recursos_humanos">Recursos humanos</string>
+    <string name="gestion_de_contratos">Gestion de Contratos</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="contabilidad_y_finanzas">Contabilidad y finanzas</string>
+    <string name="clientes">Clientes</string>
+    <string name="facturas">Facturas</string>
+    <string name="informes">Informes</string>
+    <string name="control_de_asistencia">Control de asistencia</string>
+    <string name="bd_de_clientes">BD de clientes</string>
+    <string name="productos_a_clientes">Productos a clientes</string>
+    <string name="gestion_de_reclamaciones">Gestion de reclamaciones</string>
+    <string name="gestion_de_asientos_contables">Gestion de asientos contables</string>
+    <string name="gestion_de_cierres_contables">Gestion de Cierres contables</string>
+    <string name="diarios_contables">Diarios contables</string>
+    <string name="generacion_de_informes">Generacion de informes</string>
+    <string name="descarga_tu_factura">Descarga tu factura</string>
 
 
 </resources>
