@@ -122,10 +122,10 @@ public class Activity_Armario extends AppCompatActivity {
             }
         });
         if (sPerfil.equals("estilista")) {
-            //subirFoto.setVisibility(View.INVISIBLE);
+            subirFoto.setVisibility(View.INVISIBLE);
             sUsuario = intent.getStringExtra("NombreUsuario");
         }else if (sPerfil.equals("usuario")){
-           //consultarFotos.setVisibility(View.INVISIBLE);
+           consultarFotos.setVisibility(View.INVISIBLE);
         }
 
     }
