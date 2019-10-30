@@ -247,7 +247,6 @@ public class Activity_Conjuntos extends AppCompatActivity {
         return conjuntos;
     }
 
-
     private ArrayList<Conjunto> seleccionarConjuntosFavoritos(String usuario) {
         //TODO prendaReferencia
         Cursor cursor;
@@ -272,7 +271,6 @@ public class Activity_Conjuntos extends AppCompatActivity {
             Conjunto conjunto = new Conjunto(idConjunto, idPrenda1, idPrenda2, idPrenda3, idPrenda4, idUsuario);
             conjuntos.add(conjunto);
         }
-
         return conjuntos;
     }
 
