@@ -3,6 +3,7 @@ package com.example.ropaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -10,6 +11,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,7 +22,6 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.net.Inet4Address;
 import java.util.ArrayList;
 
 public class Activity_Conjuntos extends AppCompatActivity {
@@ -37,6 +40,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
     ImageView conjuntoPrenda4;
     Button siguienteConjunto;
     Button anteriorConjunto;
+    Button borrar;
     FloatingActionButton botonFavYNuevo;
     int numeroConjuntos = 0;
     SQLiteDatabase db;
@@ -68,6 +72,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         nombreConjunto = findViewById(R.id.nombreConjunto);
         conjuntoPrenda1 = findViewById(R.id.conjuntoPrenda1);
         conjuntoPrenda2 = findViewById(R.id.conjuntoPrenda2);
+        borrar  = findViewById(R.id.botonEliminar);
         conjuntoPrenda3 = findViewById(R.id.conjuntoPrenda3);
         conjuntoPrenda4 = findViewById(R.id.conjuntoPrenda4);
         siguienteConjunto = findViewById(R.id.siguienteConjunto);
@@ -98,7 +103,13 @@ public class Activity_Conjuntos extends AppCompatActivity {
             pintarConjunto(conjuntos, posicion);
         }
 
-
+        borrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String idconjunto = String.valueOf(conjuntos.get(posicion).getIdConjunto());
+                eliminarConjunto(idconjunto);
+            }
+        });
         //Listeners
         botonFavYNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +149,34 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 }
         );
     }
+
+    public boolean onCreateOptionsMenu(Menu menu)  {
+        if (sPerfil.equals("estilista")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflowadmin, menu);
+        }else if(sPerfil.equals("usuario")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflow, menu);
+        }
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.menuItemnomina){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }else if (id == R.id.menuItem2){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else if(id == R.id.menuItemfactura){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private ArrayList<Conjunto> seleccionarConjuntos(String usuario) {
         //TODO prendaReferencia
@@ -203,6 +242,8 @@ public class Activity_Conjuntos extends AppCompatActivity {
         Bitmap bmp = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+foto+".jpg");
         iv.setImageBitmap(bmp);
     }
+
+
 
     public void añadirFav(){
         Conjunto conjunto = conjuntos.get(posicion);
@@ -273,5 +314,11 @@ public class Activity_Conjuntos extends AppCompatActivity {
         }
         return conjuntos;
     }
-
+    public void eliminarConjunto(String id){
+        String selectionborrar = DBHelper.entidadConjunto._ID + " = ?" ;
+        System.out.println(id);
+        String [] selectionArgsBorrar = {id};
+        int deletedRows = db.delete(DBHelper.entidadConjunto.TABLE_NAME,selectionborrar,selectionArgsBorrar);
+        System.out.println("Borrado");
+    }
 }

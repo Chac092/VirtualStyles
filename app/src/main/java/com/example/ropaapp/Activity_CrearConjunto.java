@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ContentValues;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +16,9 @@ import android.database.sqlite.SQLiteProgram;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -40,6 +43,9 @@ public class Activity_CrearConjunto extends AppCompatActivity {
     String Prenda4;
     View.OnClickListener listenerAdaptador;
     static ArrayList<String> misPrendas;
+    String sUsuario;
+    String sPerfil;
+
 
     Adapter_CrearConjunto miAdaptador;
     private RecyclerView rvPrendas;
@@ -65,6 +71,8 @@ public class Activity_CrearConjunto extends AppCompatActivity {
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         usuarioArmario = datos.getString("usuarioArmario",null);
+        sUsuario = datos.getString("sUsuario",null);
+        sPerfil = datos.getString("sPerfil",null);
 
         //Elementos graficos
         gorroConjunto = findViewById(R.id.gorroConjunto);
@@ -179,6 +187,33 @@ public class Activity_CrearConjunto extends AppCompatActivity {
         rvPrendas.setAdapter(miAdaptador);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         rvPrendas.setLayoutManager(layoutManager);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu)  {
+        if (sPerfil.equals("estilista")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflowadmin, menu);
+        }else if(sPerfil.equals("usuario")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflow, menu);
+        }
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.menuItemnomina){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }else if (id == R.id.menuItem2){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else if(id == R.id.menuItemfactura){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

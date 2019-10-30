@@ -105,7 +105,18 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         />
+
+    <Button
+        android:id="@+id/botonEliminar"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+
+        android:text="@string/botonborrarconjunto"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/siguienteConjunto"
+        app:layout_constraintVertical_chainStyle="spread" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
