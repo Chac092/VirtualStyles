@@ -18,7 +18,7 @@
         android:inputType="textPersonName"
         android:textColor="@color/colorTexto"
         android:textColorHint="@color/colorTexto"
-        app:backgroundTint="@color/Color1"
+
         tools:targetApi="o"
         app:layout_constraintBottom_toTopOf="@+id/registroContrasenya"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -37,7 +37,6 @@
         android:inputType="textPassword"
         android:textColor="@color/colorTexto"
         android:textColorHint="@color/colorTexto"
-        app:backgroundTint="@color/Color1"
         tools:targetApi="o"
         app:layout_constraintBottom_toTopOf="@+id/botonRegistrate"
         app:layout_constraintLeft_toLeftOf="parent"

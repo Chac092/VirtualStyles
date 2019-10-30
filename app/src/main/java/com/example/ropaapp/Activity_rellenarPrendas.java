@@ -120,6 +120,10 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
             System.out.println(FTO);
             Fotoprincipal.setImageBitmap(FTO);
         }
+        if (cursor.getCount() == 0) {
+            Intent intent = new Intent(getApplicationContext(), Activity_Armario.class);
+            startActivity(intent);
+        }
     }
     //Para rellenar las prendas sin clasificar
     public void Upadate(){

@@ -25,6 +25,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class Activity_CrearConjunto extends AppCompatActivity {
@@ -35,7 +37,7 @@ public class Activity_CrearConjunto extends AppCompatActivity {
     ImageView camisaConjunto;
     ImageView pantalonConjunto;
     ImageView zapatosConjunto;
-    Button botonGuardarConjunto;
+    FloatingActionButton botonGuardarConjunto;
     String usuarioArmario;
     String categoria;
     String Prenda1;

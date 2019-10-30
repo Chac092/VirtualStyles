@@ -83,10 +83,10 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         adap.setOnItemClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(recyclerView.getChildAdapterPosition(v));
+                //System.out.println(recyclerView.getChildAdapterPosition(v));
                 String fotoaMandar  = idfotos.get(recyclerView.getChildAdapterPosition(v));
                 Intent intent = new Intent(v.getContext(), Activity_Conjuntos.class);
-                System.out.println(fotoaMandar);
+                //System.out.println(fotoaMandar);
                 intent.putExtra("nombrefoto",fotoaMandar);
                 intent.putExtra("Origen","armario");
                 startActivity(intent);
