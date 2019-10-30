@@ -92,13 +92,6 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        /*String fotoBorrar = idfotos.get(recyclerView.getChildAdapterPosition(v));
-        Delete(fotoBorrar);
-        Deleteconjunto(fotoBorrar);*/
-
-
         recyclerView = findViewById(R.id.RecyclerView);
         recyclerView.setAdapter(adap);
         layoutManager = new GridLayoutManager(getApplicationContext(),2);
@@ -160,43 +153,6 @@ public class Activity_Seleccion_Prenda extends AppCompatActivity {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mencontextual, menu);
-    }
-    public void Delete(String nombre){
-        String selection = DBHelper.entidadPrenda._ID + " LIKE ?";
-        String [] selectionArgs = {nombre};
-        int deletedRows = db.delete(DBHelper.entidadPrenda.TABLE_NAME,selection,selectionArgs);
-        System.out.println("Borro foto");
-
-        File fdelete = new File("/storage/emulated/0/saved_images/"+nombre+".jpg");
-        if (fdelete.exists()) {
-            if (fdelete.delete()) {
-                System.out.println("file Deleted :" + "/storage/emulated/0/saved_images/"+nombre+".jpg");
-            } else {
-                System.out.println("file not Deleted :" + "/storage/emulated/0/saved_images/"+nombre+".jpg");
-            }
-        }
-    }
-    public void Deleteconjunto(String nombre){
-        Cursor cursor;
-        String[] projection = {DBHelper.entidadConjunto._ID};
-
-        String selection = DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1 + "= ? OR " +
-                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA2 + "= ? OR "+
-                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA3 + "= ? OR "+
-                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA4 + "= ? ";
-        String[] selectionArgs = {nombre,nombre,nombre,nombre};
-        String sortOrder = DBHelper.entidadConjunto._ID+" DESC";
-        cursor = db.query(DBHelper.entidadConjunto.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
-        while(cursor.moveToNext()){
-            String idconjunto = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.entidadConjunto._ID));
-            String selectionborrar = DBHelper.entidadConjunto._ID + " = ?" ;
-            String [] selectionArgsBorrar = {idconjunto};
-            int deletedRows = db.delete(DBHelper.entidadPrenda.TABLE_NAME,selectionborrar,selectionArgsBorrar);
-            System.out.println("Borrado");
-        }
-
-
-
     }
 }
 

@@ -22,15 +22,15 @@ public class Activity_Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+        // Creamos los conjuntos
         prendasEjemplo PE = new prendasEjemplo();
         PE.Rellenar_conjuntos("adan");
-
+        //Cojemos los datos necesarios
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         sUsuario = datos.getString("sUsuario",null);
         sPerfil = datos.getString("sPerfil",null);
-
+        //Aplicamos los listeneres
         Armario = findViewById(R.id.Botonmenu1);
         Armario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +58,7 @@ public class Activity_Menu extends AppCompatActivity {
             }
         });
     }
+    //Menu
     public boolean onCreateOptionsMenu(Menu menu)  {
         if (sPerfil.equals("estilista")){
             MenuInflater inflater = getMenuInflater();
