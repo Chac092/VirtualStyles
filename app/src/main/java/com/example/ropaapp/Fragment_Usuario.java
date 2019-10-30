@@ -184,6 +184,7 @@ public class Fragment_Usuario extends Fragment {
         usuarios.setAdapter(dataAdapter);
     }
     public void guardar(){
+        nombreusu.clear();
         String dinero = cuota.getText().toString();
         String idusuario = nombre.getText().toString();
         String Contraseña = contraseña.getText().toString();
@@ -208,7 +209,7 @@ public class Fragment_Usuario extends Fragment {
             ContentValues valuesfacturas = new ContentValues();
             valuesfacturas.put(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO,dinero);
             String selectionUpdateFactura = DBHelper.entidadFactura.COLUMN_NAME_IDUSUARIO+ " LIKE ?";
-            String [] selectionArgsUpdateFactura = {idusuario};
+            String [] selectionArgsUpdateFactura = {"usuario"};
             int countFacturas = db.update(DBHelper.entidadPrecio.TABLE_NAME,valuesfacturas,selectionUpdateFactura,selectionArgsUpdateFactura);
             System.out.println(countFacturas);
         }else{

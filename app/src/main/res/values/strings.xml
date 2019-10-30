@@ -92,4 +92,7 @@ Podemos, en cualquier momento, limitar o interrumpir tu uso a nuestra única dis
     <string name="conjuntoExiste">El conjunto ya existe!</string>
     <string name="conjuntoGuardado">Conjunto guardado</string>
 
+    <string name="botonborrarconjunto">-</string>
+
+
 </resources>

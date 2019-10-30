@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class DBHelper extends SQLiteOpenHelper {
     //si cambiamos el modelo debe cambiar la version de la base de datos, así se ejecutarán los metodos onupgrade u ondowngrade
-    public static final int DATABASE_VERSION = 104;
+    public static final int DATABASE_VERSION = 105;
     public static final String DATABASE_NAME = "VirtualStyle.db";
 
     //Primero creamos unos string en los que guardar los nombres de tablas, columnas... para centralizar la información por si hay que hacer cambios
@@ -57,7 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String COLUMN_NAME_PRENDA2 = "Prenda2";
         public static final String COLUMN_NAME_PRENDA3 = "Prenda3";
         public static final String COLUMN_NAME_PRENDA4 = "Prenda4";
-        public static final String COLUMN_NAME_FAVORITO = "Fav";
+        public static final String COLUMN_NAME_FAVORITO = "Favorito";
         public static final String COLUMN_NAME_IDUSUARIO = "idUsuario";
     }
 

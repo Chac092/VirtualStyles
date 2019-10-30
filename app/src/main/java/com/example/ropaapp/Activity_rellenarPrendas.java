@@ -3,6 +3,7 @@ package com.example.ropaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -10,6 +11,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,6 +34,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
     Button Borrar;
     String nombre;
     String sUsuario;
+    String sPerfil;
     ImageView gorro;
     ImageView camiseta;
     ImageView pantalon;
@@ -94,6 +99,7 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         Intent intent = getIntent();
         sUsuario = intent.getStringExtra("NombreUsuario");
+        sPerfil = datos.getString("sPerfil","");
         System.out.println(sUsuario);
         refrescar();
     }
@@ -112,6 +118,10 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
             Bitmap FTO = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+nombre+".jpg");
             System.out.println(FTO);
             Fotoprincipal.setImageBitmap(FTO);
+        }
+        if (cursor.getCount() == 0) {
+            Intent intent = new Intent(getApplicationContext(), Activity_Armario.class);
+            startActivity(intent);
         }
     }
 
@@ -139,5 +149,32 @@ public class Activity_rellenarPrendas extends AppCompatActivity {
             }
         }
     }
+    public boolean onCreateOptionsMenu(Menu menu)  {
+        if (sPerfil.equals("estilista")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflowadmin, menu);
+        }else if(sPerfil.equals("usuario")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflow, menu);
+        }
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.menuItemnomina){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }else if (id == R.id.menuItem2){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else if(id == R.id.menuItemfactura){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }
+        return super.onOptionsItemSelected(item);
+
+}
 
 }

@@ -21,6 +21,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Document;
@@ -39,8 +41,8 @@ public class Activity_Armario extends AppCompatActivity {
     Button botonPantalones;
     Button botonZapatos;
     String usuarioArmario;
-    Button subirFoto;
-    Button consultarFotos;
+    FloatingActionButton subirFoto;
+    FloatingActionButton consultarFotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,10 +121,10 @@ public class Activity_Armario extends AppCompatActivity {
             }
         });
         if (sPerfil.equals("estilista")) {
-            subirFoto.setVisibility(View.INVISIBLE);
+            //subirFoto.setVisibility(View.INVISIBLE);
             sUsuario = intent.getStringExtra("NombreUsuario");
         }else if (sPerfil.equals("usuario")){
-            consultarFotos.setVisibility(View.INVISIBLE);
+           //consultarFotos.setVisibility(View.INVISIBLE);
         }
 
     }

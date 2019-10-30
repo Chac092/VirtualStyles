@@ -183,7 +183,7 @@ public class Fragment_Estilista extends Fragment {
         String dinero = salario.getText().toString();
         String idusuario = nombre.getText().toString();
         String Contraseña = contraseña.getText().toString();
-
+        nombreusu.clear();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {DBHelper.entidadUsuario._ID};
         String selection = DBHelper.entidadUsuario._ID + "= ?";

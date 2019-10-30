@@ -3,6 +3,7 @@ package com.example.ropaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -10,6 +11,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,7 +22,6 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.net.Inet4Address;
 import java.util.ArrayList;
 
 public class Activity_Conjuntos extends AppCompatActivity {
@@ -37,6 +40,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
     ImageView conjuntoPrenda4;
     Button siguienteConjunto;
     Button anteriorConjunto;
+    FloatingActionButton borrar;
     FloatingActionButton botonFavYNuevo;
     int numeroConjuntos = 0;
     SQLiteDatabase db;
@@ -68,15 +72,13 @@ public class Activity_Conjuntos extends AppCompatActivity {
         nombreConjunto = findViewById(R.id.nombreConjunto);
         conjuntoPrenda1 = findViewById(R.id.conjuntoPrenda1);
         conjuntoPrenda2 = findViewById(R.id.conjuntoPrenda2);
+        borrar  = findViewById(R.id.botonEliminar);
         conjuntoPrenda3 = findViewById(R.id.conjuntoPrenda3);
         conjuntoPrenda4 = findViewById(R.id.conjuntoPrenda4);
         siguienteConjunto = findViewById(R.id.siguienteConjunto);
         anteriorConjunto = findViewById(R.id.anteriorConjunto);
         botonFavYNuevo = findViewById(R.id.botoFavorito);
-        if (sPerfil.equals("usuario")) {
-            botonFavYNuevo.setImageDrawable(getDrawable(R.drawable.fav));
-            //System.out.println("Entro usuario");
-        }else if(sPerfil.equals("estilista")){
+         if(sPerfil.equals("estilista")){
             botonFavYNuevo.setImageDrawable(getDrawable(R.drawable.mas));
             //System.out.println("Entro estilista");
         }
@@ -85,11 +87,11 @@ public class Activity_Conjuntos extends AppCompatActivity {
 
         if(Origen.equals("armario")){
             //System.out.println(prendaReferencia);
-            conjuntos = seleccionarConjuntosConPrenda(sUsuario,prendaReferencia);
+            conjuntos = seleccionarConjuntosConPrenda(usuarioArmario,prendaReferencia);
             pintarConjunto(conjuntos, posicion);
         }
         else if(Origen.equals("favoritos")){
-            conjuntos = seleccionarConjuntosFavoritos(sUsuario);
+            conjuntos = seleccionarConjuntosFavoritos(usuarioArmario);
             pintarConjunto(conjuntos, posicion);
         }
         else {
@@ -98,7 +100,13 @@ public class Activity_Conjuntos extends AppCompatActivity {
             pintarConjunto(conjuntos, posicion);
         }
 
-
+        borrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String idconjunto = String.valueOf(conjuntos.get(posicion).getIdConjunto());
+                eliminarConjunto(idconjunto);
+            }
+        });
         //Listeners
         botonFavYNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +146,34 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 }
         );
     }
+
+    public boolean onCreateOptionsMenu(Menu menu)  {
+        if (sPerfil.equals("estilista")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflowadmin, menu);
+        }else if(sPerfil.equals("usuario")){
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.overflow, menu);
+        }
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.menuItemnomina){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }else if (id == R.id.menuItem2){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else if(id == R.id.menuItemfactura){
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private ArrayList<Conjunto> seleccionarConjuntos(String usuario) {
         //TODO prendaReferencia
@@ -204,13 +240,15 @@ public class Activity_Conjuntos extends AppCompatActivity {
         iv.setImageBitmap(bmp);
     }
 
+
+
     public void añadirFav(){
         Conjunto conjunto = conjuntos.get(posicion);
         String IdConjunto;
         IdConjunto = String.valueOf(conjunto.getIdConjunto());
         ContentValues valuesfav = new ContentValues();
         valuesfav.put(DBHelper.entidadConjunto.COLUMN_NAME_FAVORITO,"1");
-        String selectionUpdateFactura = DBHelper.entidadConjunto._ID+ " LIKE ?";
+        String selectionUpdateFactura = DBHelper.entidadConjunto._ID+ " = ?";
         String [] selectionArgsUpdateFactura = {IdConjunto};
         int countFavs = db.update(DBHelper.entidadConjunto.TABLE_NAME,valuesfav,selectionUpdateFactura,selectionArgsUpdateFactura);
         //System.out.println(countFavs);
@@ -222,12 +260,21 @@ public class Activity_Conjuntos extends AppCompatActivity {
         Cursor cursor;
         DBHelper dbHelper = new DBHelper(getBaseContext());
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String[] projection = {DBHelper.entidadConjunto._ID, DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1, DBHelper.entidadConjunto.COLUMN_NAME_PRENDA2, DBHelper.entidadConjunto.COLUMN_NAME_PRENDA3, DBHelper.entidadConjunto.COLUMN_NAME_PRENDA4, DBHelper.entidadConjunto.COLUMN_NAME_IDUSUARIO};
+        String[] projection = {
+                DBHelper.entidadConjunto._ID,
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1,
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA2,
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA3,
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA4,
+                DBHelper.entidadConjunto.COLUMN_NAME_IDUSUARIO
+            };
 
-        String selection = DBHelper.entidadConjunto.COLUMN_NAME_IDUSUARIO + "= ? AND ("+ DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1 + "= ? OR " +
-                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA2 + "= ? OR "+ DBHelper.entidadConjunto.COLUMN_NAME_PRENDA3 + "= ? OR " +
-                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA4 + "= ?)";
-        String[] selectionArgs = {usuario,PrendaSeleccionada,PrendaSeleccionada,PrendaSeleccionada,PrendaSeleccionada};
+        String selection =
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA1 + "= ? OR " +
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA2 + "= ? OR " +
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA3 + "= ? OR " +
+                DBHelper.entidadConjunto.COLUMN_NAME_PRENDA4 + "= ?";
+        String[] selectionArgs = {PrendaSeleccionada,PrendaSeleccionada,PrendaSeleccionada,PrendaSeleccionada};
         String sortOrder = DBHelper.entidadConjunto._ID+" DESC";
         cursor = db.query(DBHelper.entidadConjunto.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
 
@@ -273,5 +320,14 @@ public class Activity_Conjuntos extends AppCompatActivity {
         }
         return conjuntos;
     }
+    public void eliminarConjunto(String id){
+        String selectionborrar = DBHelper.entidadConjunto._ID + " = ?" ;
+        //System.out.println(id);
+        String [] selectionArgsBorrar = {id};
+        int deletedRows = db.delete(DBHelper.entidadConjunto.TABLE_NAME,selectionborrar,selectionArgsBorrar);
+        //System.out.println("Borrado");
+        Intent intent = new Intent(getApplicationContext(), Activity_Conjuntos.class);
+        startActivity(intent);
 
+    }
 }

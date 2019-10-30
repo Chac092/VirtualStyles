@@ -185,7 +185,7 @@ public class Fragment_Administrador extends Fragment {
         String dinero = salario.getText().toString();
         String idusuario = nombre.getText().toString();
         String Contraseña = contraseña.getText().toString();
-
+        nombreusu.clear();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {DBHelper.entidadUsuario._ID};
         String selection = DBHelper.entidadUsuario._ID + "= ?";
@@ -196,7 +196,7 @@ public class Fragment_Administrador extends Fragment {
         if (cursor.getCount()>0){
             ContentValues values = new ContentValues();
             values.put(DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA,Contraseña);
-            String selectionUpdateUsuario = DBHelper.entidadUsuario._ID+ " LIKE ?";
+            String selectionUpdateUsuario = DBHelper.entidadUsuario._ID+ " = ?";
             String [] selectionArgsUpdateUsuario = {idusuario};
             int countUsuario = db.update(DBHelper.entidadUsuario.TABLE_NAME,values,selectionUpdateUsuario,selectionArgsUpdateUsuario);
             System.out.println(countUsuario);
@@ -205,7 +205,7 @@ public class Fragment_Administrador extends Fragment {
 
             ContentValues valuesfacturas = new ContentValues();
             valuesfacturas.put(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO,dinero);
-            String selectionUpdateFactura = DBHelper.entidadFactura.COLUMN_NAME_IDUSUARIO+ " LIKE ?";
+            String selectionUpdateFactura = DBHelper.entidadFactura.COLUMN_NAME_IDUSUARIO+ " = ?";
             String [] selectionArgsUpdateFactura = {idusuario};
             int countFacturas = db.update(DBHelper.entidadPrecio.TABLE_NAME,valuesfacturas,selectionUpdateFactura,selectionArgsUpdateFactura);
             System.out.println(countFacturas);
@@ -215,7 +215,7 @@ public class Fragment_Administrador extends Fragment {
                             DBHelper.entidadUsuario._ID + ", " +
                             DBHelper.entidadUsuario.COLUMN_NAME_CONTRASENYA + ", " +
                             DBHelper.entidadUsuario.COLUMN_NAME_PERFIL + ") " +
-                            "VALUES ('" + idusuario + "', '" + Contraseña + "', 'estilista')";
+                            "VALUES ('" + idusuario + "', '" + Contraseña + "', 'admin')";
             db.execSQL(SQL_INSERT_ADMIN);
         }
         CojerAdministradores();
