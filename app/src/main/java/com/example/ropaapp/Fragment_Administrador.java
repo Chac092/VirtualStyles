@@ -121,7 +121,7 @@ public class Fragment_Administrador extends Fragment {
         borrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                borrar();
             }
         });
         CojerAdministradores();
@@ -260,6 +260,14 @@ public class Fragment_Administrador extends Fragment {
         nombre.setText(idUsuario);
         contraseña.setText(contraseñausu);
 
+    }
+    public void borrar(){
+        nombreusu.clear();
+        String idusuario = nombre.getText().toString();
+        String selectionborrar = DBHelper.entidadUsuario._ID + " = ?" ;
+        String [] selectionArgsBorrar = {idusuario};
+        int deletedRows = db.delete(DBHelper.entidadUsuario.TABLE_NAME,selectionborrar,selectionArgsBorrar);
+        cargar_admin();
     }
 }
 
