@@ -84,7 +84,7 @@ public class Activity_CrearConjunto extends AppCompatActivity {
         zapatosConjunto = findViewById(R.id.zapatosConjunto);
         botonGuardarConjunto = findViewById(R.id.botonGuardarConjunto);
 
-        //gorroConjunto.setClickable(true);
+        //Los listeners de cada elemento en pantalla
         gorroConjunto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -191,7 +191,7 @@ public class Activity_CrearConjunto extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(getApplicationContext());
         rvPrendas.setLayoutManager(layoutManager);
     }
-
+    //Menu
     public boolean onCreateOptionsMenu(Menu menu)  {
         if (sPerfil.equals("estilista")){
             MenuInflater inflater = getMenuInflater();
@@ -222,7 +222,7 @@ public class Activity_CrearConjunto extends AppCompatActivity {
 
 
 
-    //TODO Centralizar
+    //Listamos las prendas
     private ArrayList<String> listarPrendas(String usuario, String categoria, String estado){
         //System.out.println(usuario + " : " + categoria + " : " + estado);
         ArrayList<String> prendas = new ArrayList<String>();
@@ -236,7 +236,7 @@ public class Activity_CrearConjunto extends AppCompatActivity {
         }
         return prendas;
     }
-
+    //Refrescamos la pantalla
     private void refrescar(){
         misPrendas = listarPrendas(usuarioArmario, categoria, "1");
         miAdaptador = new Adapter_CrearConjunto (misPrendas);

@@ -15,27 +15,25 @@ import android.widget.Toast;
 
 
 public class Activity_Registro extends AppCompatActivity {
-
+    //Atributos
     Button botonRegistrate;
     EditText registroNombreUsuario;
     EditText registroContrasenya;
     DBHelper dbHelper;
     SQLiteDatabase db;
-    ProgressBar barraProgreso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-        barraProgreso = findViewById(R.id.barraProgresoResgistro);
-        barraProgreso.setMax(100);
-        barraProgreso.setProgress(33);
+        //Damos contenido a los atributos
         registroNombreUsuario = findViewById(R.id.registroNombreUsuario);
         registroContrasenya = findViewById(R.id.registroContrasenya);
         botonRegistrate = findViewById(R.id.botonRegistrate);
+        //Cargamos la base de datos
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
-
+    //Ponemos los listener
         botonRegistrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,8 +68,6 @@ public class Activity_Registro extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }
-                //Intent intent = new Intent (v.getContext(), Activity_Registro.class);
-                //startActivityForResult(intent, 0);
             }
         });
     }

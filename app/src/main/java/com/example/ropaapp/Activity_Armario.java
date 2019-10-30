@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -60,7 +61,7 @@ public class Activity_Armario extends AppCompatActivity {
         usuarioArmario = datos.getString("usuarioArmario",null);
         //System.out.println("USUARIOARMARIO_A: " + usuarioArmario);
         
-
+        //Aqui colocaremos los listeners
         botonGorro = findViewById(R.id.botonGorro);
         botonGorro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +171,8 @@ public class Activity_Armario extends AppCompatActivity {
     }
 
     private void saveImage(Bitmap finalBitmap) {
+        //Con este metodo guardaremos la foto tanto en la base de datos como en la memoria interna
+        //del telefono
         ContentValues values = new ContentValues();
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_ESTADO, "0");
         values.put(DBHelper.entidadPrenda.COLUMN_NAME_FAVORITO,"0");
@@ -193,7 +196,7 @@ public class Activity_Armario extends AppCompatActivity {
         }
     }
 
-    /* Checks if external storage is available for read and write */
+    /* Aqui se comprobara si el almacenamiento esta disponible para leerlo y escribirlo */
     public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
@@ -201,7 +204,7 @@ public class Activity_Armario extends AppCompatActivity {
         }
         return false;
     }
-
+    //Menu
     public boolean onCreateOptionsMenu(Menu menu)  {
         if (sPerfil.equals("estilista")){
             MenuInflater inflater = getMenuInflater();
@@ -215,78 +218,17 @@ public class Activity_Armario extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         if (id == R.id.menuItemnomina){
-            savePdf();
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
         }else if (id == R.id.menuItem2){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }else if(id == R.id.menuItemfactura){
-            savePdf();
+            Pdf pdf =  new Pdf();
+            Context contexto = getBaseContext();
+            pdf.savePdf(sUsuario,sPerfil,contexto);
         }
         return super.onOptionsItemSelected(item);
-    }
-    private void savePdf() {
-        //Consultamos el precio de en la base de datos
-        String precio = "90";
-        String[] projectionFactura = {DBHelper.entidadPrecio.COLUMN_NAME_PRECIO};
-        String selectionFactura = DBHelper.entidadPrecio.COLUMN_NAME_IDUSUARIO + "= ?";
-        //System.out.println(sUsuario);
-        String[] selectionArgsFactura = {sUsuario};
-        if(sPerfil.equals("estilista")){
-            //System.out.println("Estamos en armario y nos acaba de cargar "+sUsuario);
-            selectionArgsFactura[0] = sUsuario;
-        }else if(sPerfil.equals("usuario")){
-            selectionArgsFactura [0]= "usuario";
-        }
-        Cursor cursorFacturas = db.query(DBHelper.entidadPrecio.TABLE_NAME, projectionFactura, selectionFactura, selectionArgsFactura, null, null, null);
-        //System.out.println(sUsuario);
-        //System.out.println(cursorFacturas.getCount());
-        //Guardamos esos datos
-        if (cursorFacturas.moveToNext()) {
-            precio = cursorFacturas.getString(cursorFacturas.getColumnIndexOrThrow(DBHelper.entidadPrecio.COLUMN_NAME_PRECIO));
-            //System.out.println(precio);
-        }
-
-        String Factura =
-                        sUsuario +"\n"+
-                        "Ornilla Doctor Kalea, 2\n" +
-                        "48004\n" +
-                        "Bilbo, Bizkaia\n" +
-                        "\n" +
-                        "                                                                                   Virtual Style\n" +
-                        "                                                                               Raudna-Loodi\n" +
-                        "                                                                                           69680\n" +
-                        "                                                                           Viljandi maakond\n" +
-                        "                                                                                          Estonia\n" +
-                        "\n" +
-                        "\n" +
-                        "|------------------------------------------------------------------------------------------|\n" +
-                        "|NOMBRE            |CANTIDAD                  |PRECIO                            |\n" +
-                        "|-----------------------|-------------------------------|----------------------------------|\n" +
-                        "|Cuota mensual   |1                                   |Variable                            |\n" +
-                        "|                           |                                     |                                        |\n" +
-                        "|                       |                               |IVA                                  21% |\n" +
-                        "|------------------------------------------------------------------------------------------|\n" +
-                        "|TOTAL           |                                        |"+precio+"                                       |\n" +
-                        "|------------------------------------------------------------------------------------------|\n";
-        Document mDoc =new Document();
-        File ruta = new File("/storage/emulated/0/saved_pdf/");
-        if(!ruta.exists()){
-            ruta.mkdir();
-        }
-        String mFilePath= "/storage/emulated/0/saved_pdf/"+"Nuevafactura"+".pdf";
-            try{
-                PdfWriter.getInstance(mDoc, new FileOutputStream(mFilePath));
-                mDoc.open();
-                mDoc.addAuthor("Goazen");
-                mDoc.add(new Paragraph(Factura));
-                mDoc.close();
-                CharSequence text = "pdf descargado";
-                Toast toast = Toast.makeText(getBaseContext(), text, Toast.LENGTH_LONG);
-                toast.show();
-            }
-            catch (Exception e){
-                //System.out.println(e);
-                Toast.makeText(getBaseContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
-            }
     }
 }

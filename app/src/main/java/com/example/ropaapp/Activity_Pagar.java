@@ -28,11 +28,11 @@ public class Activity_Pagar extends AppCompatActivity {
         final String sUsuario = i.getStringExtra("sUsuario");
         final String sContrasenya = i.getStringExtra("sContrasenya");
         //System.out.println(sUsuario +" "+ sContrasenya);
-
+        //damos contenido a los atributos
         ETnumeroTarjeta = findViewById(R.id.ETnumeroTarjeta);
         ETfechaCaducidad = findViewById(R.id.ETfechaCaducidad);
         ETcodigoSeguridad = findViewById(R.id.ETcodigoSeguridad);
-
+        //Ponemos los listeners
         botonPagar = findViewById(R.id.botonPagar);
         botonPagar.setOnClickListener(new View.OnClickListener() {
             @Override

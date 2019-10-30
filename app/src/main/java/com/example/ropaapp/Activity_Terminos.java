@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 public class Activity_Terminos extends AppCompatActivity {
-
+    //Atributos
     Button botonRechazarTerminos;
     Button botonAceptarTerminos;
     DBHelper dbHelper;
@@ -22,21 +22,20 @@ public class Activity_Terminos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terminos);
-        barraProgresoTerminos = findViewById(R.id.barraProgresoTerminos);
-        barraProgresoTerminos.setMax(100);
-        barraProgresoTerminos.setProgress(100);
         Intent i = getIntent();
+        //Cojeremos los datos
         final String sUsuario = i.getStringExtra("sUsuario");
         final String sContrasenya = i.getStringExtra("sContrasenya");
         final int iNumeroTarjeta = i.getIntExtra("iNumeroTarjeta", 0);
         final String sFechaCaducidad = i.getStringExtra("sFechaCaducidad");
         final int iCodigoSeguridad = i.getIntExtra("iCodigoSeguridad", 0);
-
+        //daremos contenido a los atributos
         botonRechazarTerminos = findViewById(R.id.botonRechazarTerminos);
         botonAceptarTerminos = findViewById(R.id.botonAceptarTerminos);
+        //Base de datos
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
-
+        //Listener
         botonRechazarTerminos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +43,6 @@ public class Activity_Terminos extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         botonAceptarTerminos.setOnClickListener(new View.OnClickListener() {
             @Override

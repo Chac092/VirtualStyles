@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class Activity_Conjuntos extends AppCompatActivity {
 
-
+    //Atributos
     String sUsuario;
     String sPerfil;
     String usuarioArmario;
@@ -83,8 +83,6 @@ public class Activity_Conjuntos extends AppCompatActivity {
             //System.out.println("Entro estilista");
         }
         //Seleccion y pintado
-
-
         if(Origen.equals("armario")){
             //System.out.println(prendaReferencia);
             conjuntos = seleccionarConjuntosConPrenda(usuarioArmario,prendaReferencia);
@@ -146,7 +144,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
                 }
         );
     }
-
+    //Menu
     public boolean onCreateOptionsMenu(Menu menu)  {
         if (sPerfil.equals("estilista")){
             MenuInflater inflater = getMenuInflater();
@@ -174,7 +172,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    //Memtodo para seleccionar todos los conjuntos
     private ArrayList<Conjunto> seleccionarConjuntos(String usuario) {
         //TODO prendaReferencia
         Cursor cursor;
@@ -208,7 +206,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         }
         return conjuntos;
     }
-
+    //Metodo para pintar conjuntos
     private void pintarConjunto(ArrayList<Conjunto> conjuntos, int posicion){
         if (conjuntos.size()-1>0){
         Conjunto conjunto = conjuntos.get(posicion);
@@ -234,14 +232,14 @@ public class Activity_Conjuntos extends AppCompatActivity {
             }
         }
     }
-
+    //Metodo para poner las fotos
     private void pintarFoto(ImageView iv, int foto) {
         Bitmap bmp = BitmapFactory.decodeFile("/storage/emulated/0/saved_images/"+foto+".jpg");
         iv.setImageBitmap(bmp);
     }
 
 
-
+    //Añadir el conjunto a los favoritos
     public void añadirFav(){
         Conjunto conjunto = conjuntos.get(posicion);
         String IdConjunto;
@@ -254,7 +252,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         //System.out.println(countFavs);
     }
 
-
+    //Seleccionar conjuntos de una prenda en particular
     private ArrayList<Conjunto> seleccionarConjuntosConPrenda(String usuario,String PrendaSeleccionada) {
         //TODO prendaReferencia
         Cursor cursor;
@@ -294,6 +292,9 @@ public class Activity_Conjuntos extends AppCompatActivity {
         return conjuntos;
     }
 
+
+    //Se seleccionaran los conjuntos favoritos
+
     private ArrayList<Conjunto> seleccionarConjuntosFavoritos(String usuario) {
         //TODO prendaReferencia
         Cursor cursor;
@@ -320,6 +321,7 @@ public class Activity_Conjuntos extends AppCompatActivity {
         }
         return conjuntos;
     }
+    //Eliminar los conjunros
     public void eliminarConjunto(String id){
         String selectionborrar = DBHelper.entidadConjunto._ID + " = ?" ;
         //System.out.println(id);

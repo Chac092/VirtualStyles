@@ -34,18 +34,19 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Cargamos la base de datos
         dbHelper = new DBHelper(getBaseContext());
         db = dbHelper.getWritableDatabase();
-
+        //Cojemos los datos necesarios
         final String MY_PREFS_NAME = "File";
         SharedPreferences datos = getApplicationContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         sUsuario = datos.getString("sUsuario",null);
         sPerfil = datos.getString("sPerfil",null);
-
-
+        //Damos contenido a los atributos
         setContentView(R.layout.activity_menuy_selecciondeclientes);
         Usuarios = findViewById(R.id.SeleccionUsario);
         CojerClientes();
+        //ponemos los Listeners
         Usuarios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -84,7 +85,7 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
             }
         });
     }
-
+    //Con este metodo se nos seleccionaran los clientes
     public void CojerClientes(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {DBHelper.entidadUsuario._ID};
@@ -101,6 +102,7 @@ public class Activity_MenuySelecciondeclientes extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item, nombreusu);
         Usuarios.setAdapter(adaptador);
     }
+    //Menu
     public boolean onCreateOptionsMenu(Menu menu)  {
         if (sPerfil.equals("estilista")){
             MenuInflater inflater = getMenuInflater();
